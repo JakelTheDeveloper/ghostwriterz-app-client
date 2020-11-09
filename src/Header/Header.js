@@ -17,9 +17,9 @@ render(){
         </header>
              <nav>
               <ul>
-                  <li>Demo</li>
-                  <li>Sign Up</li>
-                  <li>Sign In</li>
+                  <li><Link to ='/demo' className = "navLinks">Demo</Link></li>
+                  <li><Link to ='/signin' className = "navLinks">Sign In</Link></li>
+                  <li><Link to ='/signup' className = "navLinks">Sign Up</Link></li>
               </ul>
           </nav>
         </div>

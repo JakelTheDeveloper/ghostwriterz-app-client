@@ -27,6 +27,10 @@ class App extends Component {
       <>
       <Route exact path="/" component = {LandingPage}/>
       <Route exact path="/lyrics" component = {LyricDatabase}/>
+      <Route exact path="/signin" component = {LyricDatabase}/>
+      <Route exact path="/demo" component = {LyricDatabase}/>
+      <Route exact path="/:userprofile" component = {LyricDatabase}/>
+      <Route exact path="/signup" component = {LyricDatabase}/>
       </>
     )
   }
