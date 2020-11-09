@@ -1,0 +1,14 @@
+.Landing-Page {
+    background:linear-gradient(to bottom right,#161616 0,#060606);
+    height: 100%;
+    background-attachment: fixed;
+}
+
+ article{
+     margin-top: 10px;
+    text-align: center;
+    color: lightgreen;
+    border:solid 1px olive;
+    border-radius: 5px;
+}
+

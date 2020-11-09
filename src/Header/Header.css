@@ -1,0 +1,48 @@
+header{
+    margin-top: 10px;
+    text-align: center;
+    height: 30px;
+    
+}
+nav {
+    display: flex;
+    justify-content: center;
+    
+}
+ nav ul{
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+}
+ nav ul li{
+    color:lightgreen;
+    border-radius: 20px;
+    border-right: 2px solid white;
+    padding: 5px 5px;
+    margin-right: 10px;
+    margin: 0 10px 0 0;
+    font-family: 'Kite One', sans-serif;
+    font-size: 14px;
+    text-align: center;
+}
+ nav ul li:last-child {
+    margin-right: 0;
+}
+a{
+    color:lightgreen
+}
+a:link {
+    text-decoration: none;
+  }
+  
+  a:visited {
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  a:active {
+    text-decoration: underline;
+  }

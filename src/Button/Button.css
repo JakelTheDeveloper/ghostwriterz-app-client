@@ -1,0 +1,19 @@
+.Btn{
+    margin-top: 10px;
+    text-align: center;
+}
+.NavBtn{
+    background-color: lavender;
+    border-radius: 80px;
+    border:0;
+    color:black;
+    display: inline;
+    font-size:12px;
+    font-weight: bold;
+    padding: 8px;
+    text-decoration: none;
+    
+}
+.NavBtn:hover{
+    cursor: pointer;
+}
