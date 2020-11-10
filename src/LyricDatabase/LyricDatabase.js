@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Button from '../Button/Button';
+import Lyrics from '../STORE'
+import Database from '../LyricDatabase/Database'
 import './LyricDatabase.css'
 
 class LyricDatabase extends Component {
@@ -8,10 +10,10 @@ class LyricDatabase extends Component {
             params: {}
         }
     }
+    
     render() {
         return (
             <div>
-
                 <form className="genre-form">
                     <div>
                         <label for="genre">&#x1F3BC;: </label>
@@ -72,6 +74,11 @@ class LyricDatabase extends Component {
                     </div>
                 </form>
                 <Button type = "submit" btnName="Find Lyrics" />
+                {Lyrics.map(lyric=> 
+                <Database key = {lyric.id} id = {lyric.id} title={lyric.title} genre={lyric.genre} mood={lyric.mood}
+                artist={lyric.artist} lyrics={lyric.lyrics}
+                />)}
+               
             </div>
         )
     }
