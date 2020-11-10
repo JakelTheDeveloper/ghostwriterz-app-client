@@ -13,6 +13,7 @@
     font-size: 1.6rem;
     margin-bottom: 2rem;
     padding: 1.5rem 2rem;
+    animation: 0.4s ease-in-out fadeIn 1;
 }
 .lyrics_title {
     font-weight: 600;

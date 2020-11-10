@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-// import './LandingPage.css'
+import Button from '../Button/Button';
+import './SignIn.css'
 
 class SignIn extends Component {
     static defaultProps = {
@@ -8,9 +9,21 @@ class SignIn extends Component {
         }
     }
     render() {
-        return (<div>
-            This is the sign in page.
-        </div>)
+        return (
+            <div>
+            <h2 id = "signin-header">Sign In</h2>
+            <form>
+                <label htmlFor ="username">Username:</label>
+                <input type="text" id ="username"/>
+                <br/>
+                <label htmlFor ="password">Password:</label>
+                <input type="text" id ="password"/>
+                <br/>
+                <Button type="cancel" btnName="Cancel"/>
+                <Button type="submit" btnName="Submit"/>
+            </form>
+            </div>
+            )
     }
 }
 

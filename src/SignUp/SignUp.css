@@ -1,0 +1,12 @@
+#signup-header{
+    color:lightskyblue;
+}
+ #email{
+    margin-top: 10px;
+} 
+#password{
+    margin-top: 10px;
+}
+#password-confirm{
+    margin-top: 10px;
+}
