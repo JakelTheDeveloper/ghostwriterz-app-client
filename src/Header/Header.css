@@ -15,7 +15,7 @@ nav {
     list-style: none;
 }
  nav ul li{
-    color:lightgreen;
+    color:lightskyblue;
     border-radius: 20px;
     border-right: 2px solid white;
     padding: 5px 5px;
@@ -29,7 +29,7 @@ nav {
     margin-right: 0;
 }
 a{
-    color:lightgreen
+    color:lightskyblue
 }
 a:link {
     text-decoration: none;

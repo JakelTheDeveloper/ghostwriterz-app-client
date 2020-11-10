@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import {Route} from 'react-router-dom';
 import LyricDatabase from '../LyricDatabase/LyricDatabase';
+import Demo from '../Demo/Demo';
+import SignIn from '../SignIn/SignIn';
+import SignUp from '../SignUp/SignUp';
 import Button from '../Button/Button';
 import Header from '../Header/Header';
 import LandingPage from '../LandingPage/LandingPage';
@@ -27,10 +30,11 @@ class App extends Component {
       <>
       <Route exact path="/" component = {LandingPage}/>
       <Route exact path="/lyrics" component = {LyricDatabase}/>
-      <Route exact path="/signin" component = {LyricDatabase}/>
-      <Route exact path="/demo" component = {LyricDatabase}/>
-      <Route exact path="/:userprofile" component = {LyricDatabase}/>
-      <Route exact path="/signup" component = {LyricDatabase}/>
+      <Route exact path="/signin" component = {SignIn}/>
+      <Route exact path="/signup" component = {SignUp}/>
+      <Route exact path="/demo" component = {Demo}/>
+      {/* <Route exact path="/:userprofile" component = {LyricDatabase}/> */}
+      
       </>
     )
   }
