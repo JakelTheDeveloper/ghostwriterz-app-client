@@ -3,10 +3,10 @@
     text-align: center;
 }
 .NavBtn{
-    background-color: lavender;
+    background:linear-gradient(to bottom,#161616 0,#060606);
     border-radius: 80px;
     border:0;
-    color:black;
+    color:lightskyblue;
     display: inline;
     font-size:12px;
     font-weight: bold;

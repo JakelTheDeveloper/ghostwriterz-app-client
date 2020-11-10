@@ -16,9 +16,9 @@ class LyricDatabase extends Component {
             <div>
                 <form className="genre-form">
                     <div>
-                        <label for="genre">&#x1F3BC;: </label>
+                        <label htmlFor="genre">&#x1F3BC;: </label>
                         <select id="genre">
-                            <option value="" selected>All Items</option>
+                            <option defaultValue="">All Items</option>
                             <option value="1">Hip Hop</option>
                             <option value="2">Pop</option>
                             <option value="3">Rock</option>
@@ -43,9 +43,9 @@ class LyricDatabase extends Component {
                         </select>
                     </div>
                     <div>
-                        <label for="mood">&#127917;: </label>
+                        <label htmlFor="mood">&#127917;: </label>
                         <select id="mood">
-                            <option value="" selected>All Items</option>
+                            <option defaultValue="">All Items</option>
                             <option value="1">Happy</option>
                             <option value="2">Energetic</option>
                             <option value="3">Sad</option>
@@ -58,9 +58,9 @@ class LyricDatabase extends Component {
                         </select>
                     </div>
                     <div>
-                        <label for="rank">View by Rank: </label>
+                        <label htmlFor="rank">View by Rank: </label>
                         <select id="rank">
-                            <option value="" selected>All</option>
+                            <option defaultValue="">All</option>
                             <option value="1">1 Star</option>
                             <option value="2">2 Star</option>
                             <option value="3">3 Star</option>
@@ -69,14 +69,14 @@ class LyricDatabase extends Component {
                         </select>
                     </div>
                     <div>
-                        <label for="artist">View By Artist: </label>
+                        <label htmlFor="artist">View By Artist: </label>
                         <input type="text" id="artist" />
                     </div>
                 </form>
-                <Button type = "submit" btnName="Find Lyrics" />
+                <Button type = "submit" btnName="Search" />
                 {Lyrics.map(lyric=> 
                 <Database key = {lyric.id} id = {lyric.id} title={lyric.title} genre={lyric.genre} mood={lyric.mood}
-                artist={lyric.artist} lyrics={lyric.lyrics}
+                artist={lyric.artist} lyrics={lyric.lyrics} expanded = {lyric.expanded}
                 />)}
                
             </div>

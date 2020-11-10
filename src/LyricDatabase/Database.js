@@ -1,67 +1,81 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './Database.css';
 
 
-function Database(props) {
-    if (props.expanded) {
-        return (
-            <div class="lyrics_list">
-                <div class="lyrics">
-                    <div class="lyrics_header">
-                        <div class="lyrics_title-box">
-                            <span class="lyrics_title">{props.title}</span>
-                        </div>
-                        <div class="lyrics_info-container">
-                            <div class="lyrics_info-box">
+class Database extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            title:this.props.title,
+            genre:this.props.genre,
+            mood:this.props.mood,
+            artist:this.props.artist,
+            lyrics:this.props.lyrics,
+            expanded:this.props.expanded
+        }
+    }
+    render() {
+        const {title,genre,mood,artist,lyrics,expanded} = this.state;
+        if (expanded) {
+            return (
+                <div className="lyrics_list">
+                    <div className="lyrics">
+                        <div className="lyrics_header">
+                            <div className="lyrics_title-box">
+                                <span className="lyrics_title">{title}</span>
+                            </div>
+                            <div className="lyrics_info-container">
+                                <div className="lyrics_info-box">
 
-                                <span class="lyrics-rank">Rank: &#9733; &#9733; &#9733; &#9734; &#9734;</span>
-                            </div>
-                            <div class="lyrics_info-box">
-                                <span class="lyrics-genre">&#x1F3BC;: {props.genre}</span>
-                            </div>
-                            <div class="lyrics_info-box">
-                                <span class="lyrics-mood">&#127917;: {props.mood}</span>
-                            </div>
-                            <div class="lyrics_info-box">
-                                <span class="lyrics-creator">&#9997;: {props.artist}</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="lyrics_body">
-                        <span class="lyrics_entry"> {props.lyrics}</span>
-                    </div>
-
-                </div>
-            </div>
-        )
-    } else {
-        return (
-            <div class="lyrics_list">
-                <div class="lyrics">
-                    <div class="lyrics_header">
-                        <div class="lyrics_title-box">
-                            <span class="lyrics_title">{props.title}</span>
-                        </div>
-                        <div class="lyrics_info-container">
-                            <div class="lyrics_info-box">
-
-                                <span class="lyrics-rank">Rank: &#9733; &#9733; &#9733; &#9734; &#9734;</span>
-                            </div>
-                            <div class="lyrics_info-box">
-                                <span class="lyrics-genre">&#x1F3BC;: {props.genre}</span>
-                            </div>
-                            <div class="lyrics_info-box">
-                                <span class="lyrics-mood">&#127917;: {props.mood}</span>
-                            </div>
-                            <div class="lyrics_info-box">
-                                <span class="lyrics-creator">&#9997;: {props.artist}</span>
+                                    <span className="lyrics-rank">Rank: &#9733; &#9733; &#9733; &#9734; &#9734;</span>
+                                </div>
+                                <div className="lyrics_info-box">
+                                    <span className="lyrics-genre">&#x1F3BC;: {genre}</span>
+                                </div>
+                                <div className="lyrics_info-box">
+                                    <span className="lyrics-mood">&#127917;: {mood}</span>
+                                </div>
+                                <div className="lyrics_info-box">
+                                    <span className="lyrics-creator">&#9997;: {artist}</span>
+                                </div>
                             </div>
                         </div>
+
+                        <div className="lyrics_body">
+                            <span className="lyrics_entry"> {lyrics}</span>
+                        </div>
+
                     </div>
                 </div>
-            </div>
-        )
+            )
+        } else {
+            return (
+                <div className="lyrics_list">
+                    <div className="lyrics">
+                        <div className="lyrics_header">
+                            <div className="lyrics_title-box">
+                                <span className="lyrics_title">{title}</span>
+                            </div>
+                            <div className="lyrics_info-container">
+                                <div className="lyrics_info-box">
+
+                                    <span className="lyrics-rank">Rank: &#9733; &#9733; &#9733; &#9734; &#9734;</span>
+                                </div>
+                                <div className="lyrics_info-box">
+                                    <span className="lyrics-genre">&#x1F3BC;: {genre}</span>
+                                </div>
+                                <div className="lyrics_info-box">
+                                    <span className="lyrics-mood">&#127917;: {mood}</span>
+                                </div>
+                                <div className="lyrics_info-box">
+                                    <span className="lyrics-creator">&#9997;: {artist}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )
+        }
     }
 }
 
