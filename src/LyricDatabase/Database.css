@@ -26,6 +26,8 @@
 }
 .lyrics_title {
     font-weight: 600;
+    transition: all .4s ease-in-out;
+    animation: 0.4s ease-in-out fadeIn 1;
 }
 .lyrics-mood {
     font-size:large;
@@ -85,6 +87,12 @@ p{
 }
 div{
     display:block;
+}
+.lyrics_nav{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    width: 8rem;
 }
 
 @media (max-width: 56.25em){

@@ -5,7 +5,7 @@ function Button (props){
 
     return(
         <div className="Btn">
-        <button type ="submit" className = "NavBtn">{props.btnName}</button>
+        <button type ="submit" className = {props.className}>{props.btnName}</button>
         </div>
     )
 }

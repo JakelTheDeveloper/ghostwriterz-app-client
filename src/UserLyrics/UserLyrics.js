@@ -72,7 +72,7 @@ class UserLyrics extends Component {
                         <input type="text" id="artist" />
                     </div>
                 </form>
-                <Button type = "submit" btnName="Search" />
+                <Button type = "submit"className = "NavBtn"  btnName="Search" />
                 {Lyrics.map(lyric=> 
                 <Database key = {lyric.id} id = {lyric.id} title={lyric.title} genre={lyric.genre} mood={lyric.mood}
                 artist={lyric.artist} lyrics={lyric.lyrics} expanded = {lyric.expanded}

@@ -61,8 +61,8 @@ class CreateLyrics extends Component {
                 <label htmlFor ="lyrics-entrty">Lyrics:</label>
                 <textarea type="text" id ="lyrics-entry" name = "lyrics-entry"/>
                 </div>
-                <Button type="cancel" btnName="Cancel"/>
-                <Button type="submit" btnName="Submit"/>
+                <Button type="cancel" className = "NavBtn" btnName="Cancel"/>
+                <Button type="submit" className = "NavBtn" btnName="Submit"/>
             </form>
             </div>
             )

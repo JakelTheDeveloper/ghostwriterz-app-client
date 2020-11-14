@@ -12,7 +12,16 @@
     font-weight: bold;
     padding: 8px;
     text-decoration: none;
-    
+}
+.NavBtn_B{
+    background:linear-gradient(to bottom,#161616 0,#060606);
+    border-radius: 80px;
+    border:0;
+    color:lightskyblue;
+    font-size:30px;
+    font-weight: bold;
+    padding: 8px;
+    text-decoration: none;
 }
 .NavBtn:hover{
     cursor: pointer;

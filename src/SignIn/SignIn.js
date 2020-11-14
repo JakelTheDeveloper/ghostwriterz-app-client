@@ -19,8 +19,8 @@ class SignIn extends Component {
                 <label htmlFor ="password">Password:</label>
                 <input type="text" id ="password"/>
                 <br/>
-                <Button type="cancel" btnName="Cancel"/>
-                <Button type="submit" btnName="Submit"/>
+                <Button type="cancel" className = "NavBtn" btnName="Cancel"/>
+                <Button type="submit" className = "NavBtn" btnName="Submit"/>
             </form>
             </div>
             )

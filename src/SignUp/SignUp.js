@@ -25,8 +25,8 @@ class SignUp extends Component {
                 <label htmlFor ="password-confirm">Confirm password:</label>
                 <input type="text" id ="password-confirm"/>
                 <br/>
-                <Button type="cancel" btnName="Cancel"/>
-                <Button type="submit" btnName="Submit"/>
+                <Button type="cancel"  className = "NavBtn" btnName="Cancel"/>
+                <Button type="submit" className = "NavBtn" btnName="Submit"/>
             </form>
             </div>
             )

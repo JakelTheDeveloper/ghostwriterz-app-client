@@ -23,7 +23,7 @@ class LandingPage extends Component {
                     </section>
                 </div>
                 <NavLink className="lyrics_link" to="/lyrics" >
-                    <Button btnName="Find Lyrics" />
+                    <Button className = "NavBtn" btnName="Find Lyrics" />
                 </NavLink>
             </div>
 

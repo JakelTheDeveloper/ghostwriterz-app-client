@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Button from '../Button/Button';
 import Lyrics from '../STORE'
 import Database from '../LyricDatabase/Database'
+
 import './LyricDatabase.css'
 
 class LyricDatabase extends Component {
@@ -73,14 +74,14 @@ class LyricDatabase extends Component {
                         <input type="text" id="artist" />
                     </div>
                 </form>
-                <Button type = "submit" btnName="Search" />
+                <Button type = "submit" className = "NavBtn" btnName="Search" />
+               
                 <div className="lyrics_list">
                 {Lyrics.map(lyric=> 
                 <Database key = {lyric.id} id = {lyric.id} title={lyric.title} genre={lyric.genre} mood={lyric.mood}
                 artist={lyric.artist} lyrics={lyric.lyrics} expanded = {lyric.expanded}
                 />)}
                 </div>
-               
             </div>
         )
     }
