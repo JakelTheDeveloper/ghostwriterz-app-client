@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 import Button from '../Button/Button';
-import Lyrics from '../STORE'
 import Database from '../LyricDatabase/Database'
-import './LyricDatabase.css'
+import './Demo.css'
 
-class LyricDatabase extends Component {
+class UserLyrics extends Component {
     static defaultProps = {
         match: {
             params: {}
         }
     }
-    
     render() {
         return (
             <div>
@@ -74,16 +73,14 @@ class LyricDatabase extends Component {
                     </div>
                 </form>
                 <Button type = "submit" btnName="Search" />
-                <div className="lyrics_list">
                 {Lyrics.map(lyric=> 
                 <Database key = {lyric.id} id = {lyric.id} title={lyric.title} genre={lyric.genre} mood={lyric.mood}
                 artist={lyric.artist} lyrics={lyric.lyrics} expanded = {lyric.expanded}
                 />)}
-                </div>
                
             </div>
         )
     }
 }
 
-export default LyricDatabase;
+export default UserLyrics;

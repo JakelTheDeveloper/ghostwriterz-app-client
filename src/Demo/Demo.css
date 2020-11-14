@@ -1,0 +1,41 @@
+.demoPg{
+    color:lightskyblue;
+    align-items: center;
+    display:flex;
+    justify-content: space-between;
+}
+.dashboardItem>div {
+    width: 15rem;
+}
+.dashboardItem {
+    margin-top: 30px;
+    font-size: large;
+    font-weight: 100;
+    align-items: center;
+    display: flex;
+    width:6rem;
+    justify-content: space-between;
+    
+}
+
+*,:after,:before{
+    margin: 2px;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+@media (max-width: 56.25em){
+    html{
+        font-size: 56.25%;
+        line-height: 1.15;
+    }
+    .dashboardItem{
+        font-size: small;
+        width:15rem;
+         display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    }
+}

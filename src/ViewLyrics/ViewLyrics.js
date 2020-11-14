@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Button from '../Button/Button';
-import './SignUp.css'
+// import './SignIn.css'
 
-class SignUp extends Component {
+class Viewlyrics extends Component {
     static defaultProps = {
         match: {
             params: {}
@@ -11,19 +11,13 @@ class SignUp extends Component {
     render() {
         return (
             <div>
-            <h2 id = "signup-header">Create Account</h2>
+            <h2 id = "signin-header">View Lyrics</h2>
             <form>
-                <label htmlFor ="username">Create a username:</label>
+                <label htmlFor ="username">Username:</label>
                 <input type="text" id ="username"/>
-                <br/>
-                <label htmlFor ="email">Enter email:</label>
-                <input type="text" id ="email"/>
                 <br/>
                 <label htmlFor ="password">Password:</label>
                 <input type="text" id ="password"/>
-                <br/>
-                <label htmlFor ="password-confirm">Confirm password:</label>
-                <input type="text" id ="password-confirm"/>
                 <br/>
                 <Button type="cancel" btnName="Cancel"/>
                 <Button type="submit" btnName="Submit"/>
@@ -33,4 +27,4 @@ class SignUp extends Component {
     }
 }
 
-export default SignUp;
+export default Viewlyrics;

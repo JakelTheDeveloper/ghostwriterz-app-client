@@ -1,8 +1,15 @@
-.lyrics_list {
-    
-    margin-top: 10px;
-    animation-delay: .9s;
+*,:after,:before{
+     margin: 2px;
+    padding: 0;
+    box-sizing: border-box;
 }
+/* .lyrics_list {
+    margin: 0;
+    padding: 0;
+    line-height: 1.7;
+    box-sizing: border-box;
+    animation-delay: .9s;
+} */
 
 .lyrics {
     /* background:linear-gradient(to bottom, rgb(85, 161, 211) 0, rgb(0, 3, 7)); */
@@ -13,7 +20,9 @@
     font-size: 1.6rem;
     margin-bottom: 2rem;
     padding: 1.5rem 2rem;
+    transition: all .4s ease-in-out;
     animation: 0.4s ease-in-out fadeIn 1;
+    line-height: 1.7;
 }
 .lyrics_title {
     font-weight: 600;
@@ -37,6 +46,13 @@
 .lyrics-viewer {
     font-size: large;
     font-weight: 100;
+}
+p{
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
 }
 .lyrics_entry {
     font-size: large;
@@ -67,6 +83,13 @@
 .rate{
     display: inline-flex;
 }
-/* div{
+div{
     display:block;
-} */
+}
+
+@media (max-width: 56.25em){
+    html{
+        font-size: 56.25%;
+        line-height: 1.15;
+    }
+}
