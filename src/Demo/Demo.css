@@ -4,6 +4,7 @@
     display:flex;
     justify-content: space-between;
 }
+
 .dashboardItem>div {
     width: 15rem;
 }
@@ -12,10 +13,10 @@
     font-size: large;
     font-weight: 100;
     align-items: center;
-    display: flex;
+    display: block;
     width:6rem;
     justify-content: space-between;
-    
+
 }
 
 *,:after,:before{
@@ -39,3 +40,10 @@
     margin-inline-end: 0px;
     }
 }
+ 
+*,:after,:before{
+    margin: 2px;
+   padding: 0;
+   box-sizing: border-box;
+}
+/* border-radius: 30px; or 50% */

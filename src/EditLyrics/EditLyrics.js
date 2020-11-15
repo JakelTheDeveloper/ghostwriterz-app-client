@@ -32,7 +32,7 @@ class EditLyrics extends Component {
          
         <div className="_lyrics_title-box">
 
-                <input type="text" className ="_lyrics_title_edit" value = {this.props.location.aboutProps.title}/>
+                <input type="text" className ="_lyrics_title_edit" defaultValue = {this.props.location.aboutProps.title}/>
         </div>
         <div className="_lyrics_info-container">
             <div className="_lyrics_info-box">
@@ -84,11 +84,11 @@ class EditLyrics extends Component {
         </div>
     </div>
     <div className="_lyrics_body">
-        <textarea className="_lyrics_entry_edit" >{this.props.location.aboutProps.lyrics}</textarea>
+        <textarea className="_lyrics_entry_edit" defaultValue= {this.props.location.aboutProps.lyrics}></textarea>
     </div>
     <div className="_lyrics_nav">
-        <Button type="Save" className="NavBtn" btnName="Save" />
-        <Button type="Cancel" className="NavBtn" btnName="Cancel" />
+        <Button type="Save" className="NavBtn" btnName="Save" path = "viewlyrics"/>
+        <Button type="Cancel" className="NavBtn" btnName="Cancel" path = "viewlyrics"/>
         </div>
         </form>
     </div>

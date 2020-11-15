@@ -49,7 +49,7 @@ class Database extends Component {
                 <NavLink  to={{
                     pathname:"/editlyrics",
                     aboutProps:{
-                        title:this.state.title,
+                        title:title,
                         genre:genre,
                         mood:mood,
                         artist:artist,

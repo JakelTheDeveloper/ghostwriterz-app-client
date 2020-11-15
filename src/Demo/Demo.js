@@ -17,13 +17,16 @@ class Demo extends Component {
         return (
             <div className = "demoPg">
             <div className = "dashboardItem">
-        <span className = "numWordsSubmitted">Words Submitted:<br/> {numWordsPosted} lyrics!</span>
+        <h4>{numWordsPosted}</h4>
+        <span className = "words">Words Submitted</span>
             </div>
             <div className = "dashboardItem">
-        <span className = "ranking">Community Rank:<br/> {userRank}</span>
+            <h4>{userRank}</h4>
+        <span className = "rank">Community Rank</span>
             </div>
             <div className = "dashboardItem">
-        <span className = "ranking">Total Submissions:<br/> {numLyricsPosted}</span>
+            <h4>{numLyricsPosted}</h4>
+        <span className = "lyricsposted">Total Submissions</span>
             </div>
             </div>
         )

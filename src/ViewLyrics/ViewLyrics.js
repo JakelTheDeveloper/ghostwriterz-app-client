@@ -67,6 +67,7 @@ class Viewlyrics extends Component {
                 <label htmlFor ="lyrics-entrty"></label>
                 <input type="text" id ="lyrics-entry" name = "lyrics-entry" placeholder = "Search By Lyrics Including"/>
                 </div>
+                <Button type = "submit" className = "NavBtn" btnName="Search" />
             </form>
             {currentLyrics.map(lyric=> 
                 <Database key = {lyric.id} id = {lyric.id} title={lyric.title} genre={lyric.genre} mood={lyric.mood}

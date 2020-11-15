@@ -1,11 +1,17 @@
 import React from 'react';
+import { useHistory } from "react-router-dom";
 import './Button.css'
 
 function Button (props){
+    let history = useHistory();
 
+    function handleClick(){
+        history.push(`/${props.path}`)
+    }
+   
     return(
         <div className="Btn">
-        <button type ="submit" className = {props.className}>{props.btnName}</button>
+        <button type ="submit" className = {props.className} onClick = {handleClick}>{props.btnName}</button>
         </div>
     )
 }
