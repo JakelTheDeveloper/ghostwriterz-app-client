@@ -10,9 +10,20 @@ class Viewlyrics extends Component {
             params: {}
         }
     }
+
+    state = {
+        lyrics:[]
+    }
+
+    componentDidMount() {
+        fetch(`http://localhost:8000/api/lyrics`)
+        .then(response => response.json())
+        .then(lyrics => this.setState({lyrics}))
+      }
     
     render() {
-        let currentLyrics = Lyrics.filter(lyric => lyric.title === "Hello");
+        const {lyrics} = this.state
+        let currentLyrics = lyrics.filter(lyric => lyric.artist === "Jupiter");
         return (
             <div>
             <h2 id = "signup-header">View Lyrics</h2>
@@ -71,7 +82,7 @@ class Viewlyrics extends Component {
             </form>
             {currentLyrics.map(lyric=> 
                 <Database key = {lyric.id} id = {lyric.id} title={lyric.title} genre={lyric.genre} mood={lyric.mood}
-                artist={lyric.artist} lyrics={lyric.lyrics} expanded = {lyric.expanded}
+                artist={lyric.artist} lyrics={lyric.lyrics} expanded = {lyric.expanded} editable = {true}
                 />)}
             </div>
 

@@ -6,19 +6,43 @@ import './Database.css';
 
 class Database extends Component {
     state = {
+        id:this.props.id,
         title: this.props.title,
         genre: this.props.genre,
         mood: this.props.mood,
         artist: this.props.artist,
         lyrics: this.props.lyrics,
-        expanded: this.props.expanded
+        expanded: this.props.expanded,
+        editable:this.props.editable
     }
     updateExpansion = () => {
         this.setState({ expanded: this.state.expanded = !this.state.expanded })
     }
+    renderLyricsNav(){
+        const { title,id, genre, mood, artist, lyrics, expanded, editable } = this.state;
+        if(this.state.editable){
+            return(
+        <div className="lyrics_nav">
+        <Button type="Delete" className="NavBtn_B" btnName='&#128465;' />
+        {/* <NavLink  to="/editlyrics" >
+        <Button className = "NavBtn_C" btnName='&#9999;' />
+    </NavLink> */}
+    <NavLink  to={{
+        pathname:`/lyrics/${id}`,
+        aboutProps:{
+            id:id
+        }}} >
+        <Button className = "NavBtn_C" btnName='&#9999;' />
+    </NavLink> 
+    </div>
+    )
+    }else{
+        return
+    }
+}
 
     renderLyricsIntoList() {
-        const { title, genre, mood, artist, lyrics, expanded } = this.state;
+        const { title,id, genre, mood, artist, lyrics, expanded, editable } = this.state;
         if (expanded) {
             return (<React.Fragment>
 
@@ -41,24 +65,7 @@ class Database extends Component {
                 <div className="lyrics_body">
                     <p className="lyrics_entry"> {lyrics}</p>
                 </div>
-                <div className="lyrics_nav">
-                    <Button type="Delete" className="NavBtn_B" btnName='&#128465;' />
-                    {/* <NavLink  to="/editlyrics" >
-                    <Button className = "NavBtn_C" btnName='&#9999;' />
-                </NavLink> */}
-                <NavLink  to={{
-                    pathname:"/editlyrics",
-                    aboutProps:{
-                        title:title,
-                        genre:genre,
-                        mood:mood,
-                        artist:artist,
-                        lyrics:lyrics
-                    }}} exact >
-                    <Button className = "NavBtn_C" btnName='&#9999;' />
-                </NavLink>
-                    
-                </div>
+               {this.renderLyricsNav()}
             </React.Fragment>
             )
         } else {

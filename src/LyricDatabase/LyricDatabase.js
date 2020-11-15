@@ -4,6 +4,7 @@ import Lyrics from '../STORE'
 import Database from '../LyricDatabase/Database'
 
 import './LyricDatabase.css'
+import AppContext from '../App/AppContext';
 
 class LyricDatabase extends Component {
     static defaultProps = {
@@ -11,13 +12,11 @@ class LyricDatabase extends Component {
             params: {}
         }
     }
-    state = {
-        lyrics:[]
-    }
 
-    
+    static contextType = AppContext;
+
     render() {
-        const newLyrics = Lyrics;
+        let lyrics = this.context.lyrics;
         return (
             <div>
                 <form className="genre-form">
@@ -79,13 +78,13 @@ class LyricDatabase extends Component {
                         <input type="text" id="artist" />
                     </div>
                 </form>
-                <Button type = "submit" className = "NavBtn" btnName="Search" />
-               
+                <Button type="submit" className="NavBtn" btnName="Search" />
+
                 <div className="lyrics_list">
-                {newLyrics.map(lyric=> 
-                <Database key = {lyric.id} id = {lyric.id} title={lyric.title} genre={lyric.genre} mood={lyric.mood}
-                artist={lyric.artist} lyrics={lyric.lyrics} expanded = {lyric.expanded}
-                />)}
+                    {lyrics.map(lyric =>
+                        <Database key={lyric.id} id={lyric.id} title={lyric.title} genre={lyric.genre} mood={lyric.mood}
+                            artist={lyric.artist} lyrics={lyric.lyrics} expanded={lyric.expanded} editable={false}
+                        />)}
                 </div>
             </div>
         )

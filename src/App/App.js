@@ -12,6 +12,7 @@ import DemoHeader from '../Header/DemoHeader';
 import EditLyrics from '../EditLyrics/EditLyrics';
 import LandingPage from '../LandingPage/LandingPage';
 import './App.css'
+import AppContext from './AppContext';
 
 
 
@@ -21,6 +22,14 @@ class App extends Component {
     demo: false,
     error: null
   }
+
+  componentDidMount() {
+    fetch(`http://localhost:8000/api/lyrics`)
+    .then(response => response.json())
+    .then(lyrics => this.setState({lyrics}))
+  }
+
+
   // this.setState({ demo: true = !false})
   updateDemoState = () => {
      this.setState({demo:this.state.demo = !this.state.demo})
@@ -56,7 +65,7 @@ class App extends Component {
         <Route exact path="/demo" component={Demo} />
         <Route exact path="/createlyrics" component={CreateLyrics} />
         <Route exact path="/viewlyrics" component={ViewLyrics} />
-        <Route exact path="/editlyrics" component={EditLyrics} />
+        <Route exact path="/lyrics/:lyric_id" component={EditLyrics} />
         {/* <Route exact path="/:userprofile" component = {LyricDatabase}/> */}
 
       </>
@@ -74,12 +83,12 @@ class App extends Component {
     //  const { lyrics } = this.props
     //  const newLyrics = lyrics.map(lyric => <li>{lyric.artist}</li>)
     return (
+      <AppContext.Provider value = {contextValue}>
       <div className="App">
         <nav className="App_nav">{this.renderNavRoutes()}</nav>
         <main className="App_main">{this.renderMainRoutes()}</main>
-
-
       </div>
+      </AppContext.Provider>
 
     )
   }
