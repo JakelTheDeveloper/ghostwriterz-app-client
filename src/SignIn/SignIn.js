@@ -8,6 +8,9 @@ class SignIn extends Component {
             params: {}
         }
     }
+    constructor(props){
+        super(props);
+    }
     render() {
         return (
             <div>
@@ -19,7 +22,7 @@ class SignIn extends Component {
                 <label htmlFor ="password">Password:</label>
                 <input type="text" id ="password"/>
                 <br/>
-                <Button type="cancel" className = "NavBtn" btnName="Cancel"/>
+                <Button type="cancel" className = "NavBtn" btnName="Cancel" onClick={() => this.props.history.goBack()}/>
                 <Button type="submit" className = "NavBtn" btnName="Submit"/>
             </form>
             </div>

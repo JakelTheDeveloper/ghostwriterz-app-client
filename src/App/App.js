@@ -9,6 +9,7 @@ import CreateLyrics from '../CreateLyrics/CreateLyrics'
 import Button from '../Button/Button';
 import Header from '../Header/Header';
 import DemoHeader from '../Header/DemoHeader';
+import EditLyrics from '../EditLyrics/EditLyrics';
 import LandingPage from '../LandingPage/LandingPage';
 import './App.css'
 
@@ -55,6 +56,7 @@ class App extends Component {
         <Route exact path="/demo" component={Demo} />
         <Route exact path="/createlyrics" component={CreateLyrics} />
         <Route exact path="/viewlyrics" component={ViewLyrics} />
+        <Route exact path="/editlyrics" component={EditLyrics} />
         {/* <Route exact path="/:userprofile" component = {LyricDatabase}/> */}
 
       </>
