@@ -2,8 +2,8 @@ import React from 'react';
 
 export default React.createContext({
     lyrics: [],
-    current:"",
+    current:1,
     addLyrics:()=>{},
     deleteLyrics: () => {},
-    updateLyrics:()=>{}
+    updateLyrics:(id)=>{}
 })

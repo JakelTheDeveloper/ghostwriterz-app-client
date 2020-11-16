@@ -13,7 +13,7 @@ function Button(props) {
 
     return (
         <div className="Btn">
-            <button type="submit" className={props.className} onClick={handleClick}>{props.btnName}</button>
+            <button type="button" className={props.className} onClick={handleClick}>{props.btnName}</button>
         </div>
     )
 }

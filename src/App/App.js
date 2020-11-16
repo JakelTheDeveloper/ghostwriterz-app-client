@@ -13,29 +13,51 @@ import EditLyrics from '../EditLyrics/EditLyrics';
 import LandingPage from '../LandingPage/LandingPage';
 import './App.css'
 import AppContext from './AppContext';
+import lyrics from '../STORE';
 
 
 
 class App extends Component {
+
+  static defaultProps = {
+    match: {
+        params: {}
+    }
+}
+
   state = {
     lyrics: [],
     demo: false,
-    error: null
+    error: null,
   }
 
   componentDidMount() {
     fetch(`http://localhost:8000/api/lyrics`)
-    .then(response => response.json())
-    .then(lyrics => this.setState({lyrics}))
+      .then(response => response.json())
+      .then(lyrics => this.setState({ lyrics }))
   }
 
 
   // this.setState({ demo: true = !false})
   updateDemoState = () => {
-     this.setState({demo:this.state.demo = !this.state.demo})
-     console.log(this.state.demo)
+    console.log(this.state.lyrics)
+    this.setState({ demo: this.state.demo = !this.state.demo })
+    console.log(this.state.demo)
   }
-  
+
+  updateLyrics = updatedLyrics => {
+   
+    const newLyrics = this.state.lyrics.map(lyric =>
+      (lyric.id === updatedLyrics.id)
+        ? updatedLyrics
+        : lyric
+    )
+    console.log(updatedLyrics)
+    this.setState({
+      lyrics: newLyrics
+    })
+  }
+
   renderNavRoutes() {
     if (this.state.demo === false) {
       return (
@@ -44,13 +66,13 @@ class App extends Component {
         )}
         />
       )
-        } else {
-          return (
-            <Route path="/" render={(props) => (
-              <DemoHeader updateS={this.updateDemoState} />
-            )}
-            />
-          )
+    } else {
+      return (
+        <Route path="/" render={(props) => (
+          <DemoHeader updateS={this.updateDemoState} />
+        )}
+        />
+      )
     }
 
   }
@@ -83,11 +105,11 @@ class App extends Component {
     //  const { lyrics } = this.props
     //  const newLyrics = lyrics.map(lyric => <li>{lyric.artist}</li>)
     return (
-      <AppContext.Provider value = {contextValue}>
-      <div className="App">
-        <nav className="App_nav">{this.renderNavRoutes()}</nav>
-        <main className="App_main">{this.renderMainRoutes()}</main>
-      </div>
+      <AppContext.Provider value={contextValue}>
+        <div className="App">
+          <nav className="App_nav">{this.renderNavRoutes()}</nav>
+          <main className="App_main">{this.renderMainRoutes()}</main>
+        </div>
       </AppContext.Provider>
 
     )

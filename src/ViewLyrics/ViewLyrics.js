@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Button from '../Button/Button';
-import Lyrics from '../STORE';
-import Database from '../LyricDatabase/Database'
+import AppContext from '../App/AppContext';
+import Database from '../LyricDatabase/Database';
 // import './SignIn.css'
 
 class Viewlyrics extends Component {
@@ -15,15 +15,12 @@ class Viewlyrics extends Component {
         lyrics:[]
     }
 
-    componentDidMount() {
-        fetch(`http://localhost:8000/api/lyrics`)
-        .then(response => response.json())
-        .then(lyrics => this.setState({lyrics}))
-      }
-    
+    static contextType = AppContext;
+       
     render() {
-        const {lyrics} = this.state
-        let currentLyrics = lyrics.filter(lyric => lyric.artist === "Jupiter");
+        const sorted = this.context.lyrics.sort((a, b) => (a.id > b.id) ? 1 : -1)
+        let lyrics = sorted;
+        // let currentLyrics = lyrics.filter(lyric => lyric.artist === "Jupiter");
         return (
             <div>
             <h2 id = "signup-header">View Lyrics</h2>
@@ -80,7 +77,7 @@ class Viewlyrics extends Component {
                 </div>
                 <Button type = "submit" className = "NavBtn" btnName="Search" />
             </form>
-            {currentLyrics.map(lyric=> 
+            {lyrics.map(lyric=> 
                 <Database key = {lyric.id} id = {lyric.id} title={lyric.title} genre={lyric.genre} mood={lyric.mood}
                 artist={lyric.artist} lyrics={lyric.lyrics} expanded = {lyric.expanded} editable = {true}
                 />)}

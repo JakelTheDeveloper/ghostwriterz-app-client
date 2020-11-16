@@ -4,11 +4,11 @@ import Button from '../Button/Button';
 import './EditLyrics.css'
 
 class EditLyrics extends Component {
-    static defaultProps = {
-        match: {
-            params: {}
-        }
-    }
+    // static defaultProps = {
+    //     match: {
+    //         params: {}
+    //     }
+    // }
 
     // this.state = {
     //     title:props.location.aboutProps.title,
@@ -18,41 +18,37 @@ class EditLyrics extends Component {
     //     __lyrics:props.location.aboutProps.__lyrics,
 
     // }
+    static contextType = AppContext;
+
     constructor(props){
         super(props);
         this.state = {
             lyric:[],
-            title: '',
-            lyrics:'',
-            genre:'0',
-            mood:'0'
+            id:this.props.location.aboutProps.id
         };
         this.handleChange = this.handleChange.bind(this);
     }
 
     
-    static contextType = AppContext;
+    
    
-    // componentDidMount() {
-    //     const lyricsId = this.props.location.aboutProps.id;
-    //     fetch(`http://localhost:8000/api/lyrics/${lyricsId}`)
-    //     .then(response => response.json())
-    //     .then(lyric => this.setState({lyric}))
-    //   }
+        
 
-      componentDidMount() {
-           const lyricsId = this.props.match.params.articleId;
-           fetch(`https://localhost:8000/api/lyrics/${lyricsId}`, {
-             method: 'GET'
-           })
-             .then(/* some content omitted */)
-             .then(responseData => {
-               this.setState({
+    //   componentDidMount() {
+    //        const lyricsId = this.props.match.params.articleId;
+    //        fetch(`https://localhost:8000/api/lyrics/${lyricsId}`, {
+    //          method: 'GET'
+    //        })
+             
+    //          .then(responseData => {
+    //         //    this.setState({
                  
-               })
-             })
-             .catch(error => {/* some content omitted */})
-         }
+    //         //    })
+    //         console.log(responseData)
+    //         this.context.updateLyrics(responseData)
+    //          })
+    //          .catch(error => {/* some content omitted */})
+    //      }
 
          handleChange(event){
              const value = event.target.value;
@@ -61,81 +57,103 @@ class EditLyrics extends Component {
 
           handleSubmit = e => {
                e.preventDefault()
+               
+               const loc = this.props.location.aboutProps.id;
+
                // validation not shown
-               fetch(`https://localhost:8000/api/lyrics/${this.props.location.aboutProps.id}`, {
+               fetch(`http://localhost:8000/api/lyrics/${loc}`, {
                  method: 'PATCH',
-                 body: JSON.stringify(this.state.inputValues)
+                 body: JSON.stringify({
+                     id:this.state.id,
+                     title:this.state.title,
+                     genre:this.state.genre,
+                     mood:this.state.mood,
+                     lyrics:this.state.lyrics
+                    }),
+                    headers:{
+                        "Content-type": "application/json; charset=UTF-8"
+                    }
                })
-                 .then(/* some content omitted */)
+                .then(response => response.json())
+                 .then(response => {
+                    console.log("line:" , response)
+                    this.context.updateLyrics(response)
+                    this.props.history.push(`/lyrics`)
+                 })
+                 .catch(error=> console.log(error))
              }
 
     render() { 
+        const thisId = this.state.id;
+        const sorted = this.context.lyrics.sort((a, b) => b[thisId] - a[thisId]);
+        
         // const {lyric,title,lyrics} = this.state
-        let lyrics = this.context.lyrics[this.props.location.aboutProps.id - 1];
+        let myLyrics = sorted[thisId - 1];
         return(
        <div>
             <h1>Edit Lyrics</h1>
-            <form className = "_lyrics">
+            <form className = "_lyrics" onSubmit = {this.handleSubmit}>
         <div className="_lyrics_header">
          
         <div className="_lyrics_title-box">
 
-                <input type="text" name = "title" className ="_lyrics_title_edit" onChange = {this.handleChange} defaultValue = {lyrics.title}/>
+                <input type="text" name = "title" className ="_lyrics_title_edit" onChange = {this.handleChange} defaultValue = {myLyrics.title}/>
         </div>
         <div className="_lyrics_info-container">
             <div className="_lyrics_info-box">
             <label htmlFor="genre">&#x1F3BC;: </label>
                         <select id="genre" name = "genre" onChange = {this.handleChange} className ="_lyrics-genre">
-                        <option defaultValue = "0">{lyrics.genre}</option>
-                            <option value="1">Hip Hop</option>
-                            <option value="2">Pop</option>
-                            <option value="3">Rock</option>
-                            <option value="4">Jazz</option>
-                            <option value="5">Folk</option>
-                            <option value="6">Musical</option>
-                            <option value="7">Country</option>
-                            <option value="8">Classical</option>
-                            <option value="9">Heavy Metal</option>
-                            <option value="10">Rhythm and Blues</option>
-                            <option value="11">Electronic Dance</option>
-                            <option value="12">Punk</option>
-                            <option value="13">Soul</option>
-                            <option value="14">Electronic Music</option>
-                            <option value="15">Rap</option>
-                            <option value="16">Reggae</option>
-                            <option value="17">Funk</option>
-                            <option value="18">Disco</option>
-                            <option value="19">House</option>
-                            <option value="20">Techno</option>
-                            <option value="21">Gospel</option>
+                        <option defaultValue = {myLyrics.genre}>{myLyrics.genre}</option>
+                            <option value="Hip Hop">Hip Hop</option>
+                            <option value="Pop">Pop</option>
+                            <option value="Rock">Rock</option>
+                            <option value="Jazz">Jazz</option>
+                            <option value="Folk">Folk</option>
+                            <option value="Musical">Musical</option>
+                            <option value="Country">Country</option>
+                            <option value="Classical">Classical</option>
+                            <option value="Heavy Metal">Heavy Metal</option>
+                            <option value="Rhythm and Blues">Rhythm and Blues</option>
+                            <option value="Electronic Dance">Electronic Dance</option>
+                            <option value="Punk">Punk</option>
+                            <option value="Soul">Soul</option>
+                            <option value="Electronic Music">Electronic Music</option>
+                            <option value="Rap">Rap</option>
+                            <option value="Reggae">Reggae</option>
+                            <option value="Funk">Funk</option>
+                            <option value="Disco">Disco</option>
+                            <option value="House">House</option>
+                            <option value="Techno">Techno</option>
+                            <option value="Gospel">Gospel</option>
                         </select>
 
             </div>
             <div className="_lyrics_info-box">
             <label htmlFor="mood">&#127917;: </label>
                         <select id="mood" name = "mood" onChange = {this.handleChange} className= "_lyrics-mood" >
-                            <option defaultValue = "0">{lyrics.mood}</option>
-                            <option value="1">Happy</option>
-                            <option value="2">Energetic</option>
-                            <option value="3">Sad</option>
-                            <option value="4">Calm</option>
-                            <option value="5">Depression</option>
-                            <option value="6">Anger</option>
-                            <option value="7">Carefree</option>
-                            <option value="8">Gloomy</option>
-                            <option value="9">Annoyed</option>
+                            <option defaultValue = {myLyrics.mood}>{myLyrics.mood}</option>
+                            <option value="Happy">Happy</option>
+                            <option value="Energetic">Energetic</option>
+                            <option value="Sad">Sad</option>
+                            <option value="Calm">Calm</option>
+                            <option value="Depression">Depression</option>
+                            <option value="Anger">Anger</option>
+                            <option value="Carefree">Carefree</option>
+                            <option value="Gloomy">Gloomy</option>
+                            <option value="Annoyed">Annoyed</option>
                         </select>
             </div>
             <div className="_lyrics_info-box">
-                <span className="_lyrics-creator">&#9997;: {lyrics.artist}</span>
+                <span className="_lyrics-creator">&#9997;: {myLyrics.artist}</span>
             </div>
         </div>
     </div>
     <div className="_lyrics_body">
-        <textarea className="_lyrics_entry_edit" name = "lyrics" onChange = {this.handleChange} defaultValue= {lyrics.lyrics}></textarea>
+        <textarea className="_lyrics_entry_edit" name = "lyrics" onChange = {this.handleChange} defaultValue= {myLyrics.lyrics}></textarea>
     </div>
     <div className="_lyrics_nav">
-        <Button type="Save" className="NavBtn" btnName="Save" path = "viewlyrics"/>
+        {/* <Button type="button" value = "Submit" className="NavBtn" btnName="Save"/> */}
+        <button type = "submit" className = "NavBtn">Submit</button>
         <Button type="Cancel" className="NavBtn" btnName="Cancel" path = "viewlyrics"/>
         </div>
         </form>

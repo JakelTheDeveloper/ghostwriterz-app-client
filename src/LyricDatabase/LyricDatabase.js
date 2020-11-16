@@ -16,7 +16,9 @@ class LyricDatabase extends Component {
     static contextType = AppContext;
 
     render() {
-        let lyrics = this.context.lyrics;
+        const {id} = this.props.match.params
+        const sorted = this.context.lyrics.sort((a, b) => (a.id > b.id) ? 1 : -1)
+        let lyrics = sorted;
         return (
             <div>
                 <form className="genre-form">

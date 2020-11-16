@@ -5,6 +5,11 @@ import './Database.css';
 
 
 class Database extends Component {
+    static defaultProps = {
+        match: {
+            params: {}
+        }
+    }
     state = {
         id:this.props.id,
         title: this.props.title,
@@ -90,6 +95,7 @@ class Database extends Component {
         }
     }
     render() {
+      
         // const { title, rating, genre, mood, artist, lyrics, expanded } = this.state;
         return (
             <div className="lyrics" onClick={() => { this.updateExpansion() }}>
