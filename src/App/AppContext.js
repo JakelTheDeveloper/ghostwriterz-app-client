@@ -3,7 +3,7 @@ import React from 'react';
 export default React.createContext({
     lyrics: [],
     current:1,
-    addLyrics:()=>{},
+    addLyrics:(id)=>{},
     deleteLyrics: () => {},
-    updateLyrics:(id)=>{}
+    updateLyrics:(id)=>{},
 })

@@ -10,12 +10,8 @@ class EditLyrics extends Component {
     //     }
     // }
 
-    // this.state = {
-    //     title:props.location.aboutProps.title,
-    //     genre:props.location.aboutProps.genre,
-    //     mood:props.location.aboutProps.mood,
-    //     artist:props.location.aboutProps.artist,
-    //     __lyrics:props.location.aboutProps.__lyrics,
+    // state = {
+      
 
     // }
     static contextType = AppContext;
@@ -24,7 +20,12 @@ class EditLyrics extends Component {
         super(props);
         this.state = {
             lyric:[],
-            id:this.props.location.aboutProps.id
+            id:this.props.location.state.id,
+            title:this.props.location.state.title,
+            genre:this.props.location.state.genre,
+            mood:this.props.location.state.mood,
+            artist:this.props.location.state.artist,
+            lyrics:this.props.location.state.lyrics,
         };
         this.handleChange = this.handleChange.bind(this);
     }
@@ -58,8 +59,9 @@ class EditLyrics extends Component {
           handleSubmit = e => {
                e.preventDefault()
                
-               const loc = this.props.location.aboutProps.id;
-
+              const loc = this.props.location.state.id;
+        
+                console.log(loc)
                // validation not shown
                fetch(`http://localhost:8000/api/lyrics/${loc}`, {
                  method: 'PATCH',
@@ -76,19 +78,20 @@ class EditLyrics extends Component {
                })
                 .then(response => response.json())
                  .then(response => {
-                    console.log("line:" , response)
                     this.context.updateLyrics(response)
-                    this.props.history.push(`/lyrics`)
+                    this.props.history.push(`/viewlyrics`)
                  })
                  .catch(error=> console.log(error))
              }
 
     render() { 
         const thisId = this.state.id;
+        console.log(thisId)
         const sorted = this.context.lyrics.sort((a, b) => b[thisId] - a[thisId]);
         
         // const {lyric,title,lyrics} = this.state
         let myLyrics = sorted[thisId - 1];
+        console.log(myLyrics)
         return(
        <div>
             <h1>Edit Lyrics</h1>

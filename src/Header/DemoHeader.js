@@ -20,6 +20,7 @@ render(){
                   <li><Link to ='/demo' className = "navLinks">Dashboard</Link></li>
                   <li><Link to ='/viewlyrics' className = "navLinks">Lyrics</Link></li>
                   <li><Link to ='/createlyrics' className = "navLinks">Create</Link></li>
+                  <li><Link to ='/' onClick ={()=> {this.props.updateS()}} className = "navLinks">Sign Out</Link></li>
               </ul>
           </nav>
         </div>

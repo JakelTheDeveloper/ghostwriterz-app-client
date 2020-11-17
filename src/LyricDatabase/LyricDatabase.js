@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Button from '../Button/Button';
-import Lyrics from '../STORE'
 import Database from '../LyricDatabase/Database'
 
 import './LyricDatabase.css'
@@ -12,11 +11,19 @@ class LyricDatabase extends Component {
             params: {}
         }
     }
-
     static contextType = AppContext;
 
+    state = {
+        lyrics:this.context.lyrics
+    }
+
+    // updateExpansion = (id) => {
+        
+    //     this.setState({ expanded: Database[id - 1].expanded = !Database[id - 1].expanded })
+    // }
+
     render() {
-        const {id} = this.props.match.params
+        // console.log(this.state.lyrics)
         const sorted = this.context.lyrics.sort((a, b) => (a.id > b.id) ? 1 : -1)
         let lyrics = sorted;
         return (
@@ -85,7 +92,7 @@ class LyricDatabase extends Component {
                 <div className="lyrics_list">
                     {lyrics.map(lyric =>
                         <Database key={lyric.id} id={lyric.id} title={lyric.title} genre={lyric.genre} mood={lyric.mood}
-                            artist={lyric.artist} lyrics={lyric.lyrics} expanded={lyric.expanded} editable={false}
+                            artist={lyric.artist} lyrics={lyric.lyrics} expanded={false} editable={false}
                         />)}
                 </div>
             </div>

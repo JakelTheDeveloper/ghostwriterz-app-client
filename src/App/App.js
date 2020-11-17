@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route,Switch } from 'react-router-dom';
 import LyricDatabase from '../LyricDatabase/LyricDatabase';
 import Demo from '../Demo/Demo';
+import UserProfile from '../User/UserProfile';
 import SignIn from '../SignIn/SignIn';
 import SignUp from '../SignUp/SignUp';
 import ViewLyrics from '../ViewLyrics/ViewLyrics';
@@ -14,6 +15,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import './App.css'
 import AppContext from './AppContext';
 import lyrics from '../STORE';
+// import lyrics from '../STORE';
 
 
 
@@ -21,9 +23,9 @@ class App extends Component {
 
   static defaultProps = {
     match: {
-        params: {}
+      params: {}
     }
-}
+  }
 
   state = {
     lyrics: [],
@@ -40,19 +42,26 @@ class App extends Component {
 
   // this.setState({ demo: true = !false})
   updateDemoState = () => {
-    console.log(this.state.lyrics)
     this.setState({ demo: this.state.demo = !this.state.demo })
-    console.log(this.state.demo)
+  }
+
+//   handleDeleteNote = noteId => {    
+//     this.setState({
+//         notes: this.state.notes.filter(note => note.id !== noteId)
+//     });
+// };
+
+  addLyrics = createdLyrics => {
+    this.setState({lyrics:[...this.state.lyrics,createdLyrics]})
   }
 
   updateLyrics = updatedLyrics => {
-   
+
     const newLyrics = this.state.lyrics.map(lyric =>
       (lyric.id === updatedLyrics.id)
         ? updatedLyrics
         : lyric
     )
-    console.log(updatedLyrics)
     this.setState({
       lyrics: newLyrics
     })
@@ -80,16 +89,28 @@ class App extends Component {
   renderMainRoutes() {
     return (
       <>
+      <Switch>
+      {/* <Route exact path="/"> <LandingPage /> </Route>
+      <Route path="/createlyrics"> <CreateLyrics /> </Route>
+      <Route path="/viewlyrics"> <ViewLyrics /> </Route>
+      <Route path="/signin"> <SignIn /> </Route>
+      <Route path="/signup"> <SignUp /> </Route>
+      <Route path="/demo"> <Demo /> </Route>
+      <Route path="/:user"> <UserProfile /> </Route>
+      <Route path="/lyrics/:lyric_id"> <EditLyrics /> </Route> */}
         <Route exact path="/" component={LandingPage} />
-        <Route exact path="/lyrics" component={LyricDatabase} />
-        <Route exact path="/signin" component={SignIn} />
-        <Route exact path="/signup" component={SignUp} />
-        <Route exact path="/demo" component={Demo} />
-        <Route exact path="/createlyrics" component={CreateLyrics} />
-        <Route exact path="/viewlyrics" component={ViewLyrics} />
-        <Route exact path="/lyrics/:lyric_id" component={EditLyrics} />
+        <Route  path="/lyrics/:lyric_id" component={EditLyrics} />
+        <Route  path="/createlyrics" component={CreateLyrics} />
+        <Route  path="/viewlyrics" component={ViewLyrics} />
+        <Route  path="/lyrics" component={LyricDatabase} />
+        <Route  path="/signin" component={SignIn} />
+        <Route  path="/signup" component={SignUp} />
+        <Route  path="/demo" component={Demo} />
+        <Route  path="/:user/" component={UserProfile} />
+     
+        
+        </Switch>
         {/* <Route exact path="/:userprofile" component = {LyricDatabase}/> */}
-
       </>
     )
   }
@@ -97,6 +118,7 @@ class App extends Component {
   render() {
     const contextValue = {
       lyrics: this.state.lyrics,
+      current:1,
       addLyrics: this.addLyrics,
       deleteLyrics: this.deleteLyrics,
       updateLyrics: this.updateLyrics,

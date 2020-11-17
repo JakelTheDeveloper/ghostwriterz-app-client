@@ -1,0 +1,11 @@
+._lyrics_entry_edit {
+    font-size: 1.3rem;
+    font-weight: 100;
+    background-color: rgb(17, 17, 17);
+    color:lightskyblue;
+    padding: 2rem 4rem;
+    width: 700px;
+    height: 400px;
+   display:inline-flex;
+   
+ }

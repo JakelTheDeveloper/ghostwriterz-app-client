@@ -16,8 +16,13 @@ class Viewlyrics extends Component {
     }
 
     static contextType = AppContext;
-       
+    handleChange(event){
+        const value = event.target.value;
+        this.setState({...this.state,[event.target.name]:value})
+        
+    }
     render() {
+        
         const sorted = this.context.lyrics.sort((a, b) => (a.id > b.id) ? 1 : -1)
         let lyrics = sorted;
         // let currentLyrics = lyrics.filter(lyric => lyric.artist === "Jupiter");
