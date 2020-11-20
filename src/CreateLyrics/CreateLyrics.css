@@ -9,3 +9,8 @@
    display:inline-flex;
    
  }
+
+ p{
+  color:lightskyblue;
+  border: 2px solid teal;
+ }

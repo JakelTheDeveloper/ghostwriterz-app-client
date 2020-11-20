@@ -7,7 +7,6 @@ import SignIn from '../SignIn/SignIn';
 import SignUp from '../SignUp/SignUp';
 import ViewLyrics from '../ViewLyrics/ViewLyrics';
 import CreateLyrics from '../CreateLyrics/CreateLyrics'
-import Button from '../Button/Button';
 import Header from '../Header/Header';
 import DemoHeader from '../Header/DemoHeader';
 import EditLyrics from '../EditLyrics/EditLyrics';
@@ -29,6 +28,7 @@ class App extends Component {
 
   state = {
     lyrics: [],
+    users:[],
     demo: false,
     error: null,
   }
@@ -37,7 +37,12 @@ class App extends Component {
     fetch(`http://localhost:8000/api/lyrics`)
       .then(response => response.json())
       .then(lyrics => this.setState({ lyrics }))
+      fetch(`http://localhost:8000/api/users`)
+      .then(response => response.json())
+      .then(users => this.setState({ users }))
+      
   }
+ 
 
 
   // this.setState({ demo: true = !false})
@@ -90,14 +95,6 @@ class App extends Component {
     return (
       <>
       <Switch>
-      {/* <Route exact path="/"> <LandingPage /> </Route>
-      <Route path="/createlyrics"> <CreateLyrics /> </Route>
-      <Route path="/viewlyrics"> <ViewLyrics /> </Route>
-      <Route path="/signin"> <SignIn /> </Route>
-      <Route path="/signup"> <SignUp /> </Route>
-      <Route path="/demo"> <Demo /> </Route>
-      <Route path="/:user"> <UserProfile /> </Route>
-      <Route path="/lyrics/:lyric_id"> <EditLyrics /> </Route> */}
         <Route exact path="/" component={LandingPage} />
         <Route  path="/lyrics/:lyric_id" component={EditLyrics} />
         <Route  path="/createlyrics" component={CreateLyrics} />
@@ -116,14 +113,17 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state.users)
     const contextValue = {
       lyrics: this.state.lyrics,
-      current:1,
+      currentUser:2,
+      users:this.state.users,
       addLyrics: this.addLyrics,
       deleteLyrics: this.deleteLyrics,
       updateLyrics: this.updateLyrics,
       demo: this.demo
     }
+
     //  const { lyrics } = this.props
     //  const newLyrics = lyrics.map(lyric => <li>{lyric.artist}</li>)
     return (

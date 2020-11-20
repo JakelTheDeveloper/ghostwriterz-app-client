@@ -13,19 +13,11 @@ class LyricDatabase extends Component {
     }
     static contextType = AppContext;
 
-    state = {
-        lyrics:this.context.lyrics
-    }
-
-    // updateExpansion = (id) => {
-        
-    //     this.setState({ expanded: Database[id - 1].expanded = !Database[id - 1].expanded })
-    // }
 
     render() {
-        // console.log(this.state.lyrics)
         const sorted = this.context.lyrics.sort((a, b) => (a.id > b.id) ? 1 : -1)
         let lyrics = sorted;
+        
         return (
             <div>
                 <form className="genre-form">
@@ -33,53 +25,42 @@ class LyricDatabase extends Component {
                         <label htmlFor="genre">&#x1F3BC;: </label>
                         <select id="genre">
                             <option defaultValue="">All Items</option>
-                            <option value="1">Hip Hop</option>
-                            <option value="2">Pop</option>
-                            <option value="3">Rock</option>
-                            <option value="4">Jazz</option>
-                            <option value="5">Folk</option>
-                            <option value="6">Musical</option>
-                            <option value="7">Country</option>
-                            <option value="8">Classical</option>
-                            <option value="9">Heavy Metal</option>
-                            <option value="10">Rhythm and Blues</option>
-                            <option value="11">Electronic Dance</option>
-                            <option value="12">Punk</option>
-                            <option value="13">Soul</option>
-                            <option value="14">Electronic Music</option>
-                            <option value="15">Rap</option>
-                            <option value="16">Reggae</option>
-                            <option value="17">Funk</option>
-                            <option value="18">Disco</option>
-                            <option value="19">House</option>
-                            <option value="20">Techno</option>
-                            <option value="21">Gospel</option>
+                            <option value="Hip Hop">Hip Hop</option>
+                            <option value="Pop">Pop</option>
+                            <option value="Rock">Rock</option>
+                            <option value="Jazz">Jazz</option>
+                            <option value="Folk">Folk</option>
+                            <option value="Musical">Musical</option>
+                            <option value="Country">Country</option>
+                            <option value="Classical">Classical</option>
+                            <option value="Heavy Metal">Heavy Metal</option>
+                            <option value="Rhythm and Blues">Rhythm and Blues</option>
+                            <option value="Electronic Dance">Electronic Dance</option>
+                            <option value="Punk">Punk</option>
+                            <option value="Soul">Soul</option>
+                            <option value="Electronic Music">Electronic Music</option>
+                            <option value="Rap">Rap</option>
+                            <option value="Reggae">Reggae</option>
+                            <option value="Funk">Funk</option>
+                            <option value="Disco">Disco</option>
+                            <option value="House">House</option>
+                            <option value="Techno">Techno</option>
+                            <option value="Gospel">Gospel</option>
                         </select>
                     </div>
                     <div>
                         <label htmlFor="mood">&#127917;: </label>
                         <select id="mood">
                             <option defaultValue="">All Items</option>
-                            <option value="1">Happy</option>
-                            <option value="2">Energetic</option>
-                            <option value="3">Sad</option>
-                            <option value="4">Calm</option>
-                            <option value="5">Depression</option>
-                            <option value="6">Anger</option>
-                            <option value="7">Carefree</option>
-                            <option value="8">Gloomy</option>
-                            <option value="9">Annoyed</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label htmlFor="rating">View by Rating: </label>
-                        <select id="rating">
-                            <option defaultValue="">All</option>
-                            <option value="1">1 Star</option>
-                            <option value="2">2 Star</option>
-                            <option value="3">3 Star</option>
-                            <option value="4">4 Star</option>
-                            <option value="5">5 Star</option>
+                            <option value="Happy">Happy</option>
+                            <option value="Energetic">Energetic</option>
+                            <option value="Sad">Sad</option>
+                            <option value="Calm">Calm</option>
+                            <option value="Depression">Depression</option>
+                            <option value="Anger">Anger</option>
+                            <option value="Carefree">Carefree</option>
+                            <option value="Gloomy">Gloomy</option>
+                            <option value="Annoyed">Annoyed</option>
                         </select>
                     </div>
                     <div>

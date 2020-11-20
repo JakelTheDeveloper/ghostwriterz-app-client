@@ -30,10 +30,7 @@ class EditLyrics extends Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
-    
-    
-   
-        
+
 
     //   componentDidMount() {
     //        const lyricsId = this.props.match.params.articleId;

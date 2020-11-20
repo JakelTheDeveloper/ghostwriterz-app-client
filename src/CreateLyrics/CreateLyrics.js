@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import AppContext from '../App/AppContext';
-import Button from '../Button/Button';
 import './CreateLyrics.css'
 
 class CreateLyrics extends Component {
@@ -9,19 +8,27 @@ class CreateLyrics extends Component {
             params: {}
         }
     }
+
     static contextType = AppContext;
+
     constructor(props){
         super(props);
         this.state = {
             title:"",
             genre:"Hip Hop",
             mood:"Happy",
-            artist:"",
+            artist:null,
             lyrics:"",
             error:null
         };
         this.handleChange = this.handleChange.bind(this);
     }
+
+    componentDidMount(){
+        this.setState({artist:this.context.users[this.context.currentUser - 1].id})
+        
+    }
+
     handleChange(event){
         const value = event.target.value;
         this.setState({...this.state,[event.target.name]:value})
@@ -32,11 +39,12 @@ class CreateLyrics extends Component {
     }
     handleSubmit = e => {
         e.preventDefault()
-        let match = this.context.lyrics.filter(lyric => lyric.title === this.state.title)
-        console.log(match)
-        if(this.state.title === "" || this.state.title === null || match.length != 0){
-            this.setState({error:"Title must not be blank and must be unique!"})
-        }else{
+        if(this.state.title === "" || this.state.title === null){
+            this.setState({error:"Title must not be blank!"})
+        }else
+        if(this.state.lyrics === "" || this.state.lyrics === null ){
+            this.setState({error:"Lyrics must not be blank!"})
+    }else{
         const url = 'http://localhost:8000/api/lyrics'
             const options = {
                 method: 'POST',
@@ -59,7 +67,7 @@ class CreateLyrics extends Component {
                 .then(lyrics => {
                     console.log(lyrics)
                     this.context.addLyrics(lyrics)
-                    this.props.history.push(`/lyrics`)
+                    this.props.history.push(`/viewlyrics`)
                 })
                 .catch(err => console.log(err.message))
             }
@@ -74,6 +82,7 @@ class CreateLyrics extends Component {
     //         return fetch(`${BASE_URL}/${USER}/bookmarks`, thisMethod)
     //  }
     render() {
+        console.log(this.state.artist)
         return (
             <div>
             <h2 id = "signup-header">Create Lyrics</h2>
@@ -120,7 +129,8 @@ class CreateLyrics extends Component {
                         </select>
                     </div>
                 <label htmlFor ="artist-name">Artist Name:</label>
-                <input type="text" id ="artist-name" name = "artist" onChange = {this.handleChange}/>
+                {/* onChange = {this.handleChange} */}
+                <p>{this.context.users[this.context.currentUser - 1].nickname}</p>
                 <br/>
                 <div>
                 <label htmlFor ="lyrics-entrty">Lyrics:</label>

@@ -12,7 +12,7 @@ render(){
         <div>
             <header>
            <h1>
-            <Link to ='/' onClick ={()=> {this.props.updateS()}} className = "header">GhostWriterz</Link>
+            <Link to ='/' className = "header">GhostWriterz</Link>
           </h1>
         </header>
              <nav>

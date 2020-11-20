@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as NavLink, Link } from 'react-router-dom';
+import { BrowserRouter as Link } from 'react-router-dom';
 import Button from '../Button/Button';
 import AppContext from '../App/AppContext';
 import './Database.css';
