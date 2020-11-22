@@ -4,23 +4,19 @@ import Button from '../Button/Button';
 import './EditLyrics.css'
 
 class EditLyrics extends Component {
-    // static defaultProps = {
-    //     match: {
-    //         params: {}
-    //     }
-    // }
+    static defaultProps = {
+        match: {
+            params: {}
+        }
+    }
 
-    // state = {
-      
-
-    // }
     static contextType = AppContext;
 
     constructor(props){
         super(props);
         this.state = {
             lyric:[],
-            id:this.props.location.state.id,
+            id:this.props.location.state.key,
             title:this.props.location.state.title,
             genre:this.props.location.state.genre,
             mood:this.props.location.state.mood,
@@ -55,10 +51,8 @@ class EditLyrics extends Component {
 
           handleSubmit = e => {
                e.preventDefault()
-               
+               console.log(this.context.currentUser,"currentuser")
               const loc = this.props.location.state.id;
-        
-                console.log(loc)
                // validation not shown
                fetch(`http://localhost:8000/api/lyrics/${loc}`, {
                  method: 'PATCH',
@@ -67,12 +61,14 @@ class EditLyrics extends Component {
                      title:this.state.title,
                      genre:this.state.genre,
                      mood:this.state.mood,
+                     artist:this.context.currentUser,
                      lyrics:this.state.lyrics
                     }),
                     headers:{
                         "Content-type": "application/json; charset=UTF-8"
                     }
                })
+
                 .then(response => response.json())
                  .then(response => {
                     this.context.updateLyrics(response)
@@ -80,15 +76,15 @@ class EditLyrics extends Component {
                  })
                  .catch(error=> console.log(error))
              }
-
+             
     render() { 
         const thisId = this.state.id;
         console.log(thisId)
         const sorted = this.context.lyrics.sort((a, b) => b[thisId] - a[thisId]);
-        
+        let index = sorted.findIndex(lyrics => lyrics.id === thisId);
         // const {lyric,title,lyrics} = this.state
-        let myLyrics = sorted[thisId - 1];
-        console.log(myLyrics)
+        let myLyrics = sorted[index];
+  
         return(
        <div>
             <h1>Edit Lyrics</h1>

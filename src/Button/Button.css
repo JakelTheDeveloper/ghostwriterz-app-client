@@ -2,7 +2,7 @@
     margin-top: 10px;
     text-align: center;
 }
-.NavBtn{
+.NavBtn_blue{
     background:linear-gradient(to bottom,#161616 0,#060606);
     border-radius: 80px;
     border:0;
@@ -13,6 +13,156 @@
     padding: 8px;
     text-decoration: none;
 }
+.NavBtn_red{
+    background:linear-gradient(to bottom,#161616 0,#060606);
+    border-radius: 80px;
+    border:0;
+    color:lightcoral;
+    display: inline;
+    font-size:12px;
+    font-weight: bold;
+    padding: 8px;
+    text-decoration: none;
+}
+.NavBtn_green{
+    background:linear-gradient(to bottom,#161616 0,#060606);
+    border-radius: 80px;
+    border:0;
+    color:lightgreen;
+    display: inline;
+    font-size:12px;
+    font-weight: bold;
+    padding: 8px;
+    text-decoration: none;
+}
+.NavBtn_yellow{
+    background:linear-gradient(to bottom,#161616 0,#060606);
+    border-radius: 80px;
+    border:0;
+    color:lightyellow;
+    display: inline;
+    font-size:12px;
+    font-weight: bold;
+    padding: 8px;
+    text-decoration: none;
+}
+.NavBtn_pink{
+    background:linear-gradient(to bottom,#161616 0,#060606);
+    border-radius: 80px;
+    border:0;
+    color:lightpink;
+    display: inline;
+    font-size:12px;
+    font-weight: bold;
+    padding: 8px;
+    text-decoration: none;
+}
+.NavBtn_orange{
+    background:linear-gradient(to bottom,#161616 0,#060606);
+    border-radius: 80px;
+    border:0;
+    color:lightsalmon;
+    display: inline;
+    font-size:12px;
+    font-weight: bold;
+    padding: 8px;
+    text-decoration: none;
+}
+.NavBtn_purple{
+    background:linear-gradient(to bottom,#161616 0,#060606);
+    border-radius: 80px;
+    border:0;
+    color:lavender;
+    display: inline;
+    font-size:12px;
+    font-weight: bold;
+    padding: 8px;
+    text-decoration: none;
+}
+
+
+.NavBtnC_blue{
+    background:linear-gradient(to bottom,#161616 0,#060606);
+    border-radius: 80px;
+    border:0;
+    color:lightskyblue;
+    font-size:27px;
+    font-weight: bold;
+    padding: 8px;
+    text-decoration: none;
+}
+.NavBtnC_red{
+    background:linear-gradient(to bottom,#161616 0,#060606);
+    border-radius: 80px;
+    border:0;
+    color:lightcoral;
+    display: inline;
+    font-size:12px;
+    font-weight: bold;
+    padding: 8px;
+    text-decoration: none;
+}
+.NavBtnC_green{
+    background:linear-gradient(to bottom,#161616 0,#060606);
+    border-radius: 80px;
+    border:0;
+    color:lightgreen;
+    display: inline;
+    font-size:12px;
+    font-weight: bold;
+    padding: 8px;
+    text-decoration: none;
+}
+.NavBtnC_yellow{
+    background:linear-gradient(to bottom,#161616 0,#060606);
+    border-radius: 80px;
+    border:0;
+    color:lightyellow;
+    display: inline;
+    font-size:12px;
+    font-weight: bold;
+    padding: 8px;
+    text-decoration: none;
+}
+.NavBtnC_pink{
+    background:linear-gradient(to bottom,#161616 0,#060606);
+    border-radius: 80px;
+    border:0;
+    color:lightpink;
+    display: inline;
+    font-size:12px;
+    font-weight: bold;
+    padding: 8px;
+    text-decoration: none;
+}
+.NavBtnC_orange{
+    background:linear-gradient(to bottom,#161616 0,#060606);
+    border-radius: 80px;
+    border:0;
+    color:lightsalmon;
+    display: inline;
+    font-size:12px;
+    font-weight: bold;
+    padding: 8px;
+    text-decoration: none;
+}
+.NavBtnC_purple{
+    background:linear-gradient(to bottom,#161616 0,#060606);
+    border-radius: 80px;
+    border:0;
+    color:lavender;
+    display: inline;
+    font-size:12px;
+    font-weight: bold;
+    padding: 8px;
+    text-decoration: none;
+}
+.NavBtn_blue:hover{
+    cursor: pointer;
+    transition: all .4s ease-in-out;
+
+}
+
 .NavBtn_B{
     background:linear-gradient(to bottom,#161616 0,#060606);
     border-radius: 80px;
@@ -22,7 +172,4 @@
     font-weight: bold;
     padding: 8px;
     text-decoration: none;
-}
-.NavBtn:hover{
-    cursor: pointer;
 }

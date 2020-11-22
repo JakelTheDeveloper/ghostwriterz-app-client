@@ -1,7 +1,32 @@
-.App_nav{
+.App_nav_blue{
     background:linear-gradient(to bottom right,#5f5f5f 0,#060606);
     box-shadow: 0 1px 5px lightskyblue;
 }
+.App_nav_red{
+    background:linear-gradient(to bottom right,#5f5f5f 0,#060606);
+    box-shadow: 0 1px 5px lightcoral;
+}
+.App_nav_green{
+    background:linear-gradient(to bottom right,#5f5f5f 0,#060606);
+    box-shadow: 0 1px 5px lightgreen;
+}
+.App_nav_yellow{
+    background:linear-gradient(to bottom right,#5f5f5f 0,#060606);
+    box-shadow: 0 1px 5px lightyellow;
+}
+.App_nav_pink{
+    background:linear-gradient(to bottom right,#5f5f5f 0,#060606);
+    box-shadow: 0 1px 5px lightpink;
+}
+.App_nav_orange{
+    background:linear-gradient(to bottom right,#5f5f5f 0,#060606);
+    box-shadow: 0 1px 5px lightsalmon;
+}
+.App_nav_purple{
+    background:linear-gradient(to bottom right,#5f5f5f 0,#060606);
+    box-shadow: 0 1px 5px lavender;
+}
+
 html{
     background:linear-gradient(to bottom right,#161616 0,#060606);
     height: 100%;

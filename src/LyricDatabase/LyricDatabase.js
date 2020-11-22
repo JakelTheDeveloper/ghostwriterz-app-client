@@ -72,8 +72,8 @@ class LyricDatabase extends Component {
 
                 <div className="lyrics_list">
                     {lyrics.map(lyric =>
-                        <Database key={lyric.id} id={lyric.id} title={lyric.title} genre={lyric.genre} mood={lyric.mood}
-                            artist={lyric.artist} lyrics={lyric.lyrics} expanded={false} editable={false}
+                        <Database key={lyric.id} id={lyric.id} title={lyric.title} genre={lyric.genre} mood={lyric.mood} theme = {this.props.theme}
+                            artist={this.context.users[lyric.artist - 1].nickname} lyrics={lyric.lyrics} expanded={false} editable={false}
                         />)}
                 </div>
             </div>

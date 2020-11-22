@@ -31,10 +31,12 @@ class Viewlyrics extends Component {
         console.log(this.state.genre)
     }
     render() {
-        const sorted = this.context.lyrics.sort((a, b) => (a.id > b.id) ? 1 : -1)
-        // const userLyrics = sorted.filter(lyric => lyric.artist === this.context.user)
-        let lyrics = sorted
-        // let currentLyrics = lyrics.filter(lyric => lyric.artist === "Jupiter");
+        // const sorted = this.context.lyrics.sort((a, b) => (a.id > b.id) ? 1 : -1)
+        // const userLyrics = sorted.filter(lyric => lyric.artist === this.context.currentUser)
+        // let lyrics = userLyrics
+        const {lyrics} = this.context
+        const {lyric_Id} = this.props.match.params
+        console.log(lyric_Id)
         return (
             <div>
             <h2 id = "signup-header">View Lyrics</h2>

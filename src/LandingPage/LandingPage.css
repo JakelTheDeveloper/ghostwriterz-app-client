@@ -4,11 +4,53 @@
     background-attachment: fixed;
 }
 
- article{
+ .Art_blue{
      margin-top: 10px;
     text-align: center;
     color: lightskyblue;
     border:solid 2px lightseagreen;
     border-radius: 5px;
+}
+.Art_red{
+    margin-top: 10px;
+   text-align: center;
+   color: lightcoral;
+   border:solid 2px red;
+   border-radius: 5px;
+}
+.Art_green{
+    margin-top: 10px;
+   text-align: center;
+   color: lightgreen;
+   border:solid 2px limegreen;
+   border-radius: 5px;
+}
+.Art_yellow{
+    margin-top: 10px;
+   text-align: center;
+   color: lightyellow;
+   border:solid 2px yellowgreen;
+   border-radius: 5px;
+}
+.Art_pink{
+    margin-top: 10px;
+   text-align: center;
+   color: lightpink;
+   border:solid 2px hotpink;
+   border-radius: 5px;
+}
+.Art_orange{
+    margin-top: 10px;
+   text-align: center;
+   color: lightsalmon;
+   border:solid 2px orange;
+   border-radius: 5px;
+}
+.Art_purple{
+    margin-top: 10px;
+   text-align: center;
+   color: lavender;
+   border:solid 2px purple;
+   border-radius: 5px;
 }
 

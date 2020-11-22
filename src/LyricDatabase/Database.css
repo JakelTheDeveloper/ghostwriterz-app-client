@@ -20,14 +20,18 @@
     font-size: 1.6rem;
     margin-bottom: 2rem;
     padding: 1.5rem 2rem;
-    transition: all .4s ease-in-out;
-    animation: 0.4s ease-in-out fadeIn 1;
+    transition: 0.1s ease 0s;
+    text-decoration: none;
+    pointer-events: all;
     line-height: 1.7;
+}
+.lyrics:hover{
+    transition: 0.1s ease 0s;
+    text-decoration: none;
+    pointer-events: all;
 }
 .lyrics_title {
     font-weight: 600;
-    transition: all .4s ease-in-out;
-    animation: 0.4s ease-in-out fadeIn 1;
 }
 .lyrics-mood {
     font-size:large;
@@ -64,6 +68,8 @@ p{
     align-items: center;
     display: flex;
     justify-content: space-between;
+    transition: all .4s ease-in-out;
+    animation: 0.4s ease-in-out fadeIn 1;
 }
 .lyrics_info-container>div {
     width: 15rem;
@@ -92,17 +98,6 @@ div{
     display: flex;
     justify-content: space-between;
     width: 5rem;
-}
-
-.NavBtn_C{
-    background:linear-gradient(to bottom,#161616 0,#060606);
-    border-radius: 80px;
-    border:0;
-    color:lightskyblue;
-    font-size:27px;
-    font-weight: bold;
-    padding: 8px;
-    text-decoration: none;
 }
 
 @media (max-width: 56.25em){

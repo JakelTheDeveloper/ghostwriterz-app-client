@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import AppContext from '../App/AppContext';
-import { NavLink } from 'react-router-dom';
-import Button from '../Button/Button';
 import './Demo.css'
 
 class Demo extends Component {

@@ -32,7 +32,6 @@ class CreateLyrics extends Component {
     handleChange(event){
         const value = event.target.value;
         this.setState({...this.state,[event.target.name]:value})
-        console.log(value)
     }
     cancelError=()=>{
         this.setState({error:null})
@@ -65,7 +64,6 @@ class CreateLyrics extends Component {
                     return res.json();
                 })
                 .then(lyrics => {
-                    console.log(lyrics)
                     this.context.addLyrics(lyrics)
                     this.props.history.push(`/viewlyrics`)
                 })

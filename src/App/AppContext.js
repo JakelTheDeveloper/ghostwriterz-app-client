@@ -6,5 +6,5 @@ export default React.createContext({
     currentUser:Number,
     addLyrics:(id)=>{},
     deleteLyrics: () => {},
-    updateLyrics:(id)=>{},
+    updateLyrics:(id)=>{}
 })
