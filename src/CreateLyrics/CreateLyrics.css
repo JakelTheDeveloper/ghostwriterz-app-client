@@ -1,12 +1,13 @@
 ._lyrics_entry_edit {
-    font-size: 1.3rem;
-    font-weight: 100;
-    background-color: rgb(17, 17, 17);
-    color:lightskyblue;
-    padding: 2rem 4rem;
-    width: 700px;
-    height: 400px;
-   display:inline-flex;
+  max-width:1280px;
+	margin:50px auto;
+	font-family: Letter Gothic LCY Bold, LetterGotLCYBol, MONOSPACE;
+	color: lightskyblue;
+	font-size: 16px;
+	width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
    
  }
 

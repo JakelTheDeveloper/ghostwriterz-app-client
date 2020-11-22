@@ -84,7 +84,7 @@ p{
    width: 57rem;
 }
 ._lyrics_entry_edit {
-    font-size: 1.3rem;
+    font-size: 80.25%;
     font-weight: 100;
     background-color: rgb(17, 17, 17);
     color:lightskyblue;
@@ -146,9 +146,9 @@ div{
    animation: 0.4s ease-in-out fadeIn 1;
    }
    ._lyrics_entry_edit{
-    width: 300px;
-    height: 400px;
-    font-size: 160.25%;
+    width: 400px;
+    height: 500px;
+    font-size: 80.25%;
     transition: all .4s ease-in-out;
    animation: 0.4s ease-in-out fadeIn 1;
    }

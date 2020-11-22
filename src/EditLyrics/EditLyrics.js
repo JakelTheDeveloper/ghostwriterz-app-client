@@ -51,7 +51,10 @@ class EditLyrics extends Component {
 
           handleSubmit = e => {
                e.preventDefault()
-               console.log(this.context.currentUser,"currentuser")
+
+               let index = this.props.users.findIndex(user => user.id === this.props.current);
+               let artist = this.props.users[index].id
+
               const loc = this.props.location.state.id;
                // validation not shown
                fetch(`http://localhost:8000/api/lyrics/${loc}`, {
@@ -61,7 +64,7 @@ class EditLyrics extends Component {
                      title:this.state.title,
                      genre:this.state.genre,
                      mood:this.state.mood,
-                     artist:this.context.currentUser,
+                     artist:artist,
                      lyrics:this.state.lyrics
                     }),
                     headers:{
@@ -84,7 +87,9 @@ class EditLyrics extends Component {
         let index = sorted.findIndex(lyrics => lyrics.id === thisId);
         // const {lyric,title,lyrics} = this.state
         let myLyrics = sorted[index];
-  
+
+        let userIndex = this.props.users.findIndex(user => user.id === this.props.current);
+        let artist = this.props.users[userIndex].nickname
         return(
        <div>
             <h1>Edit Lyrics</h1>
@@ -140,7 +145,7 @@ class EditLyrics extends Component {
                         </select>
             </div>
             <div className="_lyrics_info-box">
-                <span className="_lyrics-creator">&#9997;: {myLyrics.artist}</span>
+                <span className="_lyrics-creator">&#9997;: {artist}</span>
             </div>
         </div>
     </div>

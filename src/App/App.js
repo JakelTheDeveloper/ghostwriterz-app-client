@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch,withRouter } from 'react-router-dom';
+import { Route, Switch, BrowserRouter, withRouter } from 'react-router-dom';
 import LyricDatabase from '../LyricDatabase/LyricDatabase';
 import Demo from '../Demo/Demo';
 import UserProfile from '../User/UserProfile';
@@ -27,12 +27,12 @@ class App extends Component {
 
   state = {
     lyrics: [],
-    users:[],
+    users: [],
     user: [],
-    current:2,
+    current: 1,
     demo: false,
     error: null,
-    theme: "yellow"
+    theme: "blue"
   }
 
   componentDidMount() {
@@ -42,8 +42,8 @@ class App extends Component {
     fetch(`http://localhost:8000/api/users`)
       .then(response => response.json())
       .then(users => {
-       let thisUser = users.filter(user => user.id === this.state.current)
-       this.setState({user:thisUser,users})
+        let thisUser = users.filter(user => user.id === this.state.current)
+        this.setState({ user: thisUser, users })
       })
   }
 
@@ -105,12 +105,28 @@ class App extends Component {
             <LandingPage theme={this.state.theme} />
           )}
           />
-          <Route path="/lyrics/:lyric_id" component={EditLyrics} />
-          <Route path="/createlyrics" component={CreateLyrics} />
-          <Route path="/viewlyrics" component={ViewLyrics} />
+
+          <Route path="/lyrics/:lyric_id" render={(props) => (
+            <EditLyrics theme={this.state.theme} users={this.state.users} user={this.state.user}
+              current={this.state.current} {...props} />
+          )}
+          />
+
+          <Route path="/createlyrics" render={(props) => (
+            <CreateLyrics theme={this.state.theme} users={this.state.users} user={this.state.user}
+              current={this.state.current} {...props} />
+          )}
+          />
+
+          <Route path="/viewlyrics" render={(props) => (
+            <ViewLyrics theme={this.state.theme} users={this.state.users} user={this.state.user}
+              current={this.state.current} {...props} />
+          )}
+          />
 
           <Route path="/lyrics" render={(props) => (
-            <LyricDatabase theme={this.state.theme} users = {this.state.users} user = {this.state.user}/>
+            <LyricDatabase theme={this.state.theme} users={this.state.users} user={this.state.user}
+            />
           )}
           />
           {/* {['/', '/lyrics/:lyric_id'].map(path => (
@@ -123,7 +139,7 @@ class App extends Component {
           <Route path="/signin" component={SignIn} />
           <Route path="/signup" component={SignUp} />
           <Route path="/demo" render={(props) => (
-            <Demo theme={this.state.theme} user = {this.state.user}/>
+            <Demo theme={this.state.theme} user={this.state.user} />
           )}
           />
           <Route path="/:user" component={UserProfile} />

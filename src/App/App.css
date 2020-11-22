@@ -38,3 +38,10 @@ html{
     background:linear-gradient(to bottom right,#161616 0,#060606);
     text-align: center;
 }
+
+@media (max-width: 56.25em){
+    html{
+        font-size: 56.25%;
+        line-height: 1.15;
+    }
+}

@@ -30,13 +30,19 @@ class Viewlyrics extends Component {
         this.setState({...this.state,[event.target.name]:value})
         console.log(this.state.genre)
     }
+    getArtistName(artist){
+        let index = this.props.users.findIndex(user => user.id === artist);
+        return this.props.users[index].nickname
+    }
     render() {
-        // const sorted = this.context.lyrics.sort((a, b) => (a.id > b.id) ? 1 : -1)
-        // const userLyrics = sorted.filter(lyric => lyric.artist === this.context.currentUser)
-        // let lyrics = userLyrics
-        const {lyrics} = this.context
-        const {lyric_Id} = this.props.match.params
-        console.log(lyric_Id)
+        const sorted = this.context.lyrics.sort((a, b) => (a.id > b.id) ? 1 : -1)
+        // let index = this.props.users.findIndex(user => user.id == this.props.user);
+         const userLyrics = sorted.filter(lyric => lyric.artist === this.props.user[0].id)
+         console.log(userLyrics)
+        let lyrics = userLyrics
+        // const {lyrics} = this.context
+        // const {lyric_Id} = this.props.match.params
+        // console.log(lyric_Id)
         return (
             <div>
             <h2 id = "signup-header">View Lyrics</h2>
@@ -95,7 +101,7 @@ class Viewlyrics extends Component {
             </form>
             {lyrics.map(lyric=> 
                 <Database key = {lyric.id} id = {lyric.id} title={lyric.title} genre={lyric.genre} mood={lyric.mood}
-                artist={this.context.users[lyric.artist - 1].nickname} lyrics={lyric.lyrics} expanded = {lyric.expanded} editable = {true}
+                artist={this.getArtistName(lyric.artist)} lyrics={lyric.lyrics} expanded = {lyric.expanded} editable = {true}
                 />)}
             </div>
 

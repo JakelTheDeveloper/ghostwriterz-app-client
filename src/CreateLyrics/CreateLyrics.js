@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {withRouter} from 'react-router-dom';
 import AppContext from '../App/AppContext';
 import './CreateLyrics.css'
 
@@ -17,16 +18,11 @@ class CreateLyrics extends Component {
             title:"",
             genre:"Hip Hop",
             mood:"Happy",
-            artist:null,
+            artist:this.props.user,
             lyrics:"",
             error:null
         };
         this.handleChange = this.handleChange.bind(this);
-    }
-
-    componentDidMount(){
-        this.setState({artist:this.context.users[this.context.currentUser - 1].id})
-        
     }
 
     handleChange(event){
@@ -38,6 +34,8 @@ class CreateLyrics extends Component {
     }
     handleSubmit = e => {
         e.preventDefault()
+        let index = this.props.users.findIndex(user => user.id === this.props.current);
+        let artist = this.props.users[index].id
         if(this.state.title === "" || this.state.title === null){
             this.setState({error:"Title must not be blank!"})
         }else
@@ -51,7 +49,7 @@ class CreateLyrics extends Component {
                     title: this.state.title,
                     genre: this.state.genre,
                     mood: this.state.mood,
-                    artist: this.state.artist,
+                    artist: artist,
                     lyrics: this.state.lyrics
                 }),
                 headers: { 'Content-Type': 'application/json' }
@@ -70,17 +68,11 @@ class CreateLyrics extends Component {
                 .catch(err => console.log(err.message))
             }
         }
-    // handleSubmit= createItem=>(title, url, desc, rating) {
-    //     const newItem = JSON.stringify({ title, url, desc, rating})
-    //     let thisMethod = {
-    //         method: "POST",
-    //         headers: { 'Content-Type': 'application/json' },
-    //        body: newItem
-    //     }
-    //         return fetch(`${BASE_URL}/${USER}/bookmarks`, thisMethod)
-    //  }
+  
     render() {
-        console.log(this.state.artist)
+        let index = this.props.users.findIndex(user => user.id === this.props.current);
+        let artist = this.props.users[index].nickname
+        console.log(this.props.artist)
         return (
             <div>
             <h2 id = "signup-header">Create Lyrics</h2>
@@ -128,7 +120,7 @@ class CreateLyrics extends Component {
                     </div>
                 <label htmlFor ="artist-name">Artist Name:</label>
                 {/* onChange = {this.handleChange} */}
-                <p>{this.context.users[this.context.currentUser - 1].nickname}</p>
+                <p>{artist}</p>
                 <br/>
                 <div>
                 <label htmlFor ="lyrics-entrty">Lyrics:</label>

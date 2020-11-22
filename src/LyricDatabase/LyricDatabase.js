@@ -15,7 +15,6 @@ class LyricDatabase extends Component {
 
     getArtistName(artist){
         let index = this.props.users.findIndex(user => user.id === artist);
-
         return this.props.users[index].nickname
     }
     render() {
