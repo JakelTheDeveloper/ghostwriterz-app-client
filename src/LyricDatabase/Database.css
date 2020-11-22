@@ -53,6 +53,9 @@
     font-size: large;
     font-weight: 100;
 }
+.confirm{
+    margin-top: 0px;
+}
 p{
     display: block;
     margin-block-start: 1em;
@@ -98,6 +101,7 @@ div{
     display: flex;
     justify-content: space-between;
     width: 5rem;
+    margin-top: 0px;
 }
 
 @media (max-width: 56.25em){

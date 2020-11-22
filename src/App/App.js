@@ -27,8 +27,9 @@ class App extends Component {
 
   state = {
     lyrics: [],
-    users: [],
-
+    users:[],
+    user: [],
+    current:2,
     demo: false,
     error: null,
     theme: "yellow"
@@ -40,7 +41,10 @@ class App extends Component {
       .then(lyrics => this.setState({ lyrics }))
     fetch(`http://localhost:8000/api/users`)
       .then(response => response.json())
-      .then(users => this.setState({ users }))
+      .then(users => {
+       let thisUser = users.filter(user => user.id === this.state.current)
+       this.setState({user:thisUser,users})
+      })
   }
 
 
@@ -106,7 +110,7 @@ class App extends Component {
           <Route path="/viewlyrics" component={ViewLyrics} />
 
           <Route path="/lyrics" render={(props) => (
-            <LyricDatabase theme={this.state.theme} />
+            <LyricDatabase theme={this.state.theme} users = {this.state.users} user = {this.state.user}/>
           )}
           />
           {/* {['/', '/lyrics/:lyric_id'].map(path => (
@@ -118,7 +122,10 @@ class App extends Component {
           ))} */}
           <Route path="/signin" component={SignIn} />
           <Route path="/signup" component={SignUp} />
-          <Route path="/demo" component={Demo} />
+          <Route path="/demo" render={(props) => (
+            <Demo theme={this.state.theme} user = {this.state.user}/>
+          )}
+          />
           <Route path="/:user" component={UserProfile} />
 
 
@@ -132,7 +139,7 @@ class App extends Component {
     const contextValue = {
       lyrics: this.state.lyrics,
       currentUser: 1,
-      users: this.state.users,
+      user: this.state.user,
       addLyrics: this.addLyrics,
       deleteLyrics: this.deleteLyrics,
       updateLyrics: this.updateLyrics,

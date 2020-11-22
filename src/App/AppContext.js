@@ -2,7 +2,7 @@ import React from 'react';
 
 export default React.createContext({
     lyrics: [],
-    users: [],
+    user: [],
     currentUser:Number,
     addLyrics:(id)=>{},
     deleteLyrics: () => {},

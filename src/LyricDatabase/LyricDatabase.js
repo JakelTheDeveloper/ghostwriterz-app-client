@@ -13,8 +13,13 @@ class LyricDatabase extends Component {
     }
     static contextType = AppContext;
 
+    getArtistName(artist){
+        let index = this.props.users.findIndex(user => user.id === artist);
 
+        return this.props.users[index].nickname
+    }
     render() {
+
         const sorted = this.context.lyrics.sort((a, b) => (a.id > b.id) ? 1 : -1)
         let lyrics = sorted;
         
@@ -73,7 +78,7 @@ class LyricDatabase extends Component {
                 <div className="lyrics_list">
                     {lyrics.map(lyric =>
                         <Database key={lyric.id} id={lyric.id} title={lyric.title} genre={lyric.genre} mood={lyric.mood} theme = {this.props.theme}
-                            artist={this.context.users[lyric.artist - 1].nickname} lyrics={lyric.lyrics} expanded={false} editable={false}
+                            artist={this.getArtistName(lyric.artist)} lyrics={lyric.lyrics} expanded={false} editable={false}
                         />)}
                 </div>
             </div>

@@ -107,8 +107,8 @@ class Database extends Component {
                             lyrics: this.props.lyrics
                         }
                     }}><Button className = {computedBtnClass} btnName='&#9999;' /></Link>
-                    <button type="button" className="NavBtn_B" onClick={() => {this.setConfirm()}}>Delete</button>
-                      <Button type="submit" className="NavBtn_B" onClick={() => {this.setConfirm()}} btnName='&#128465;' />
+                    <button type="button" className="NavBtn_B" onClick={() => {this.setConfirm()}}>&#128465;</button>
+                      {/* <Button type="submit" className="NavBtn_B" onClick={() => {this.setConfirm()}} btnName='&#128465;' /> */}
                 </div>
             )
         } else {
@@ -119,7 +119,7 @@ class Database extends Component {
         if(this.state.confirmation){
             return(
                 <div>
-                    <p>Are You Sure?</p>
+                    <p className = "confirm">Are You Sure?</p>
                     <button onClick = {this.handleDelete}>Yes</button>
                     <button onClick = {this.setConfirm}>No</button>
                 </div>
@@ -152,6 +152,7 @@ class Database extends Component {
                     <p className="lyrics_entry"> {lyrics}</p>
                 </div>
                 {this.renderLyricsNav()}
+                {this.renderConfirm()}
             </React.Fragment>
             )
         } else {
@@ -180,7 +181,6 @@ class Database extends Component {
         // const { title, rating, genre, mood, artist, lyrics, expanded } = this.state;
         return (
             <div>
-                {this.renderConfirm()}
             <div className="lyrics">
                 {this.renderLyricsIntoList()}
             </div>

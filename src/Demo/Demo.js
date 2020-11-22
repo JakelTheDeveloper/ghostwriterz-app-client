@@ -12,7 +12,7 @@ class Demo extends Component {
     static contextType = AppContext;
 
     render() {
-        let artist = this.context.users[this.context.currentUser - 1].nickname;
+        let artist = this.props.user[0].nickname;
         let numLyricsPosted = 12;
         let numWordsPosted = '3,562';
         let userRank = "Dedicated"

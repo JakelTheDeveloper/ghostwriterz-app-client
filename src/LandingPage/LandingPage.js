@@ -14,7 +14,6 @@ class LandingPage extends Component {
     static contextType = AppContext;
 
     render() {
-        console.log(this.context.users)
         let computedClassName;
         let computedBtnClass;
         switch(this.props.theme) {
