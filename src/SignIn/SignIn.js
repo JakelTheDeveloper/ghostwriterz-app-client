@@ -15,30 +15,34 @@ class SignIn extends Component {
     }
     constructor(props){
         super(props);
+        this.handleChange = this.handleChange.bind(this);
     }
+
+    handleChange(event){
+        const value = event.target.value;
+        this.setState({...this.state,[event.target.name]:value})
+        console.log(value)
+    }
+
     handleSubmitBasicAuth  = ev =>{
         ev.preventDefault();
-        const{username,password} = ev.target
-        // saveCredentials(window.btoa(username.value + ':' + password.value)
-        // TokenService.saveAuthToken(
-        // TokenService.makeBasicAuthToken(username.value, password.value)
-        //     )
-    username.value = ''
-    password.value = ''
+        const{username,password} = this.state
+        console.log(username,password)
+        
     }
     render() {
         return (
             <div>
             <h2 id = "signin-header">Sign In</h2>
-            <form onSubmit = {this.handleSubmit}>
+            <form onSubmit = {this.handleSubmitBasicAuth}>
                 <label htmlFor ="username">Username:</label>
-                <input type="text" id ="username" name="username"/>
+                <input type="text" id ="username" name="username" onChange = {this.handleChange}/>
                 <br/>
                 <label htmlFor ="password">Password:</label>
-                <input type="text" id ="password" name="password"/>
+                <input type="text" id ="password" name="password" onChange = {this.handleChange}/>
                 <br/>
-                <Button type="cancel" className = "NavBtn" btnName="Cancel" onClick={() => this.props.history.goBack()}/>
-                <button type = "submit" className = "NavBtn">Submit</button>
+                <Button type="cancel" className = "NavBtn_blue" btnName="Cancel" onClick={() => this.props.history.goBack()}/>
+                <button type = "submit" className = "NavBtn_blue">Submit</button>
             </form>
             </div>
             )
