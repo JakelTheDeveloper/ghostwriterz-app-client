@@ -24,16 +24,22 @@ class App extends Component {
       params: {}
     }
   }
-
-  state = {
-    lyrics: [],
-    users: [],
-    user: [],
-    current: 1,
-    demo: false,
-    error: null,
-    theme: "blue"
+  constructor(props) {
+    super(props);
+    this.state = {
+      isAuthenticated: false,
+      resData: '',
+      lyrics: [],
+      users: [],
+      user: [],
+      current: 0,
+      demo: false,
+      error: null,
+      theme: "blue",
+      userName:String
+    }
   }
+
 
   componentDidMount() {
     fetch(`http://localhost:8000/api/lyrics`)
@@ -42,12 +48,36 @@ class App extends Component {
     fetch(`http://localhost:8000/api/users`)
       .then(response => response.json())
       .then(users => {
-        let thisUser = users.filter(user => user.id === this.state.current)
-        this.setState({ user: thisUser, users })
+        this.setState({ users: users })
       })
   }
 
+  //   createTokenProvider = () => {
+  //     let _token = {accessToken:string, refreshToken:string} = 
+  //     JSON.parse(localStorage.getItem('REACT_TOKEN_AUTH')||'')||null;
+  //     return {
+  //       getToken,
+  //       isLoggedIn,
+  //       setToken,
+  //       subscribe,
+  //       unsubscribe,
+  //     };
+  // }
 
+  updateAuth = (token,person) => {
+    console.log(this.state.current)
+    if(this.state.resData === ''){
+      let thisUser = this.state.users.filter(user => user.username === person)
+    this.setState({isAuthenticated:this.state.isAuthenticated = !this.state.isAuthenticated,
+      resData:this.state.resData = token,demo:this.state.demo = false,userName:this.state.userName = person,
+      current:this.state.current = thisUser[0].id
+    })
+    console.log(this.state.current)
+    }else{
+      this.setState({isAuthenticated:this.state.isAuthenticated = !this.state.isAuthenticated,
+        resData:this.state.resData = '', demo:this.state.demo = false})
+    }
+  }
 
   // this.setState({ demo: true = !false})
   updateDemoState = () => {
@@ -77,18 +107,19 @@ class App extends Component {
   }
 
   renderNavRoutes() {
-    if (this.state.demo === false) {
+    if (this.state.demo === true||this.state.isAuthenticated === true) {
       return (
         <Route path="/" render={(props) => (
-          <Header updateS={this.updateDemoState}
+          <DemoHeader updateAuth={this.updateAuth}
             theme={this.state.theme} />
         )}
+        
         />
       )
     } else {
       return (
         <Route path="/" render={(props) => (
-          <DemoHeader updateS={this.updateDemoState}
+          <Header updateS={this.updateAuth}
             theme={this.state.theme} />
         )}
         />
@@ -129,21 +160,30 @@ class App extends Component {
             />
           )}
           />
-          {/* {['/', '/lyrics/:lyric_id'].map(path => (
+        
+          <Route path="/signin" render={(props) => (
+            <SignIn theme={this.state.theme} users={this.state.users} user={this.state.user}
+              current={this.state.current} {...props} />
+          )}
+          />
+          <Route path="/signup" component={SignUp} />
+          <Route path="/demo" render={(props) => (
+            <Demo theme={this.state.theme} user={this.state.user} />
+          )}
+          />
+          <Route path="/dashboard" render={(props) => (
+            <UserProfile theme={this.state.theme} users={this.state.users} user={this.state.user}
+              current={this.state.current} {...props} />
+          )}
+          />
+
+  {/* {['/', '/lyrics/:lyric_id'].map(path => (
             <Route
               exact
               key={path}
               path={path}
               component={ViewLyrics} />
           ))} */}
-          <Route path="/signin" component={SignIn} />
-          <Route path="/signup" component={SignUp} />
-          <Route path="/demo" render={(props) => (
-            <Demo theme={this.state.theme} user={this.state.user} />
-          )}
-          />
-          <Route path="/:user" component={UserProfile} />
-
 
         </Switch>
         {/* <Route exact path="/:userprofile" component = {LyricDatabase}/> */}
@@ -154,13 +194,19 @@ class App extends Component {
   render() {
     const contextValue = {
       lyrics: this.state.lyrics,
-      currentUser: 1,
+      currentUser: this.state.current,
       user: this.state.user,
       addLyrics: this.addLyrics,
       deleteLyrics: this.deleteLyrics,
       updateLyrics: this.updateLyrics,
-      demo: this.demo
+      demo: this.demo,
+      updateAuth:this.updateAuth,
+      isAuthenticated:this.state.isAuthenticated,
+      resData:this.state.resData
     }
+
+
+
     let computedClassName;
     switch (this.state.theme) {
       case 'red':

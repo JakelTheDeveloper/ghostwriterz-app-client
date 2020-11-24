@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Button from '../Button/Button';
-
+import AppContext from '../App/AppContext';
 import './SignIn.css'
 
 class SignIn extends Component {
@@ -9,6 +9,9 @@ class SignIn extends Component {
             params: {}
         }
     }
+
+    static contextType = AppContext;
+
     state = {
         username:'',
         password:''
@@ -24,12 +27,36 @@ class SignIn extends Component {
         console.log(value)
     }
 
-    handleSubmitBasicAuth  = ev =>{
+    handleSubmitBasicAuth  = ev => {
         ev.preventDefault();
         const{username,password} = this.state
         console.log(username,password)
-        
-    }
+
+        const payload = {
+            username:username,
+            password:password
+          }
+          fetch(`http://localhost:8000/api/auth/signin`, {
+            method:'POST',
+            headers:{
+              'Accept':'application/json',
+              'Content-Type':'application/json'
+            },
+            body: JSON.stringify(payload)
+          })
+          .then(res => {
+            if (!res.ok) {
+                throw new Error('Wrong username or password');
+            }
+              return res.json()
+            })
+          .then((data)=>{
+              this.context.updateAuth(data.authToken,username)
+              this.props.history.push(`/dashboard`)
+
+          })
+         .catch(error => console.log(error))
+        }
     render() {
         return (
             <div>

@@ -65,7 +65,7 @@ render(){
         </header>
              <nav className = {computedNavName}>
               <ul className = {computedUlName}>
-                  <li><Link to ='/demo' onClick ={()=> {this.props.updateS()}} className = {computedLiName}>Demo</Link></li>
+                  <li><Link to ='/dashboard' onClick ={()=> {this.props.updateS()}} className = {computedLiName}>Demo</Link></li>
                   <li><Link to ='/signin' className = {computedLiName}>Sign In</Link></li>
                   <li><Link to ='/signup' className = {computedLiName}>Sign Up</Link></li>
               </ul>
