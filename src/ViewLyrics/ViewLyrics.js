@@ -28,7 +28,7 @@ class Viewlyrics extends Component {
     handleChange(event){
         const value = event.target.value;
         this.setState({...this.state,[event.target.name]:value})
-        console.log(this.state.genre)
+        console.log(this.state.title)
     }
     getArtistName(artist){
         let index = this.props.users.findIndex(user => user.id === artist);
@@ -36,13 +36,17 @@ class Viewlyrics extends Component {
     }
     render() {
         const sorted = this.context.lyrics.sort((a, b) => (a.id > b.id) ? 1 : -1)
-        // let index = this.props.users.findIndex(user => user.id == this.props.user);
-         const userLyrics = sorted.filter(lyric => lyric.artist === this.props.user[0].id)
-         console.log(userLyrics)
+        const userLyrics = sorted.filter(lyric => lyric.artist === this.props.user[0].id)
         let lyrics = userLyrics
-        // const {lyrics} = this.context
-        // const {lyric_Id} = this.props.match.params
-        // console.log(lyric_Id)
+        if(this.state.title !== null){
+            lyrics = userLyrics.filter(lyric => lyric.title.toLowerCase().includes(this.state.title.toLowerCase()))
+        }else
+        if(this.state.lyrics !== null){
+            lyrics = userLyrics.filter(lyric=> lyric.lyrics.toLowerCase().includes(this.state.lyrics.toLowerCase()))
+        }else{
+            lyrics = userLyrics
+        }
+ 
         return (
             <div>
             <h2 id = "signup-header">View Lyrics</h2>
@@ -50,7 +54,7 @@ class Viewlyrics extends Component {
                 <label htmlFor ="title"></label>
                 <input type="text" id ="title" name = "title" placeholder = "Filter By Title" onChange = {this.handleChange}/>
                 <br/>
-                <label htmlFor="genre">&#x1F3BC;: </label>
+                {/* <label htmlFor="genre">&#x1F3BC;: </label>
                         <select id="genre" name = "genre" onChange = {this.handleChange}>
                             <option value="All">All Items</option>
                             <option value="Hip Hop">Hip Hop</option>
@@ -89,7 +93,7 @@ class Viewlyrics extends Component {
                             <option value="Gloomy">Gloomy</option>
                             <option value="Annoyed">Annoyed</option>
                         </select>
-                    </div>
+                    </div> */}
                 <label htmlFor ="artist-name"></label>
                 <input type="text" id ="artist-name" name = "artist" placeholder = "Search By Artist Name" onChange = {this.handleChange}/>
                 <br/>
@@ -97,7 +101,6 @@ class Viewlyrics extends Component {
                 <label htmlFor ="lyrics-entrty"></label>
                 <input type="text" id ="lyrics-entry" name = "lyrics" placeholder = "Search By Lyrics Including" onChange = {this.handleChange}/>
                 </div>
-                <Button type = "submit" className = "NavBtn" btnName="Search" />
             </form>
             {lyrics.map(lyric=> 
                 <Database key = {lyric.id} id = {lyric.id} title={lyric.title} genre={lyric.genre} mood={lyric.mood}

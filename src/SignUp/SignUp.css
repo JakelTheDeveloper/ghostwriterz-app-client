@@ -4,9 +4,21 @@
  #email{
     margin-top: 10px;
 } 
+#name{
+    margin-top: 10px;
+} 
+#username{
+    margin-top: 10px;
+} 
 #password{
     margin-top: 10px;
 }
 #password-confirm{
     margin-top: 10px;
+}
+.NavBtn_blue{
+    margin-top: 10px;
+}
+.error{
+    color: red;
 }

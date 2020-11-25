@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Button from '../Button/Button';
 import AppContext from '../App/AppContext';
+import ValidationError from '../ValidationError';
 import './SignIn.css'
 
 class SignIn extends Component {
@@ -14,7 +15,8 @@ class SignIn extends Component {
 
     state = {
         username:'',
-        password:''
+        password:'',
+        error:null
     }
     constructor(props){
         super(props);
@@ -27,11 +29,15 @@ class SignIn extends Component {
         console.log(value)
     }
 
+    clearError = () => {
+        this.setState({
+            error: null
+        })
+    }
+
     handleSubmitBasicAuth  = ev => {
         ev.preventDefault();
         const{username,password} = this.state
-        console.log(username,password)
-
         const payload = {
             username:username,
             password:password
@@ -44,30 +50,28 @@ class SignIn extends Component {
             },
             body: JSON.stringify(payload)
           })
-          .then(res => {
-            if (!res.ok) {
-                throw new Error('Wrong username or password');
-            }
-              return res.json()
-            })
-          .then((data)=>{
-              this.context.updateAuth(data.authToken,username)
-              this.props.history.push(`/dashboard`)
-
-          })
-         .catch(error => console.log(error))
+          .then(res =>
+              (!res.ok)
+                ? res.json().then(e => Promise.reject(e))
+                : res.json().then((data)=> {
+                    this.context.updateAuth(data.authToken,username)
+                    this.props.history.push(`/dashboard`)
+                })
+            )
+         .catch(error => this.setState({error:error = error.error}))
         }
     render() {
         return (
             <div>
             <h2 id = "signin-header">Sign In</h2>
             <form onSubmit = {this.handleSubmitBasicAuth}>
-                <label htmlFor ="username">Username:</label>
+                <label htmlFor ="username">Email:</label>
                 <input type="text" id ="username" name="username" onChange = {this.handleChange}/>
                 <br/>
                 <label htmlFor ="password">Password:</label>
                 <input type="text" id ="password" name="password" onChange = {this.handleChange}/>
                 <br/>
+                {<ValidationError message={this.state.error} clearError={this.clearError} />}
                 <Button type="cancel" className = "NavBtn_blue" btnName="Cancel" onClick={() => this.props.history.goBack()}/>
                 <button type = "submit" className = "NavBtn_blue">Submit</button>
             </form>

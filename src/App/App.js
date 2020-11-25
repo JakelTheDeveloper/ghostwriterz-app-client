@@ -13,7 +13,7 @@ import EditLyrics from '../EditLyrics/EditLyrics';
 import LandingPage from '../LandingPage/LandingPage';
 import './App.css'
 import AppContext from './AppContext';
-import Database from '../LyricDatabase/Database';
+import ls from 'local-storage'
 
 
 
@@ -36,10 +36,9 @@ class App extends Component {
       demo: false,
       error: null,
       theme: "blue",
-      userName:String
+      username: ''
     }
   }
-
 
   componentDidMount() {
     fetch(`http://localhost:8000/api/lyrics`)
@@ -48,7 +47,7 @@ class App extends Component {
     fetch(`http://localhost:8000/api/users`)
       .then(response => response.json())
       .then(users => {
-        this.setState({ users: users })
+        this.setState({ users })
       })
   }
 
@@ -64,24 +63,29 @@ class App extends Component {
   //     };
   // }
 
-  updateAuth = (token,person) => {
-    console.log(this.state.current)
-    if(this.state.resData === ''){
-      let thisUser = this.state.users.filter(user => user.username === person)
-    this.setState({isAuthenticated:this.state.isAuthenticated = !this.state.isAuthenticated,
-      resData:this.state.resData = token,demo:this.state.demo = false,userName:this.state.userName = person,
-      current:this.state.current = thisUser[0].id
-    })
-    console.log(this.state.current)
-    }else{
-      this.setState({isAuthenticated:this.state.isAuthenticated = !this.state.isAuthenticated,
-        resData:this.state.resData = '', demo:this.state.demo = false})
+  updateAuth = (token, person) => {
+    let { resData, users, isAuthenticated, demo, username, current, user } = this.state;
+    
+    if (resData === '') {
+      let thisUser = users.filter(user => user.username === person)
+      this.setState({
+        isAuthenticated: isAuthenticated = !isAuthenticated,
+        resData: resData = token, demo: demo = false, username: username = person,
+        current: current = thisUser[0].id, user: user = thisUser
+      })
+    } else {
+      this.setState({
+        isAuthenticated: isAuthenticated = !isAuthenticated,
+        resData: resData = '', demo: demo = false, username: username = '',
+        current: current = 0, user: user = []
+      })
     }
   }
 
   // this.setState({ demo: true = !false})
   updateDemoState = () => {
-    this.setState({ demo: this.state.demo = !this.state.demo })
+    let {demo,resData,isAuthenticated} = this.state
+    this.setState({ demo: demo = !demo,resData:resData = 'demoToken',isAuthenticated:isAuthenticated = !isAuthenticated })
   }
 
   deleteLyrics = lyricId => {
@@ -107,20 +111,22 @@ class App extends Component {
   }
 
   renderNavRoutes() {
-    if (this.state.demo === true||this.state.isAuthenticated === true) {
+    if (this.state.demo === true || this.state.isAuthenticated === true) {
       return (
         <Route path="/" render={(props) => (
           <DemoHeader updateAuth={this.updateAuth}
-            theme={this.state.theme} />
+          theme={this.state.theme} users={this.state.users} user={this.state.user}
+          current={this.state.current} {...props} />
         )}
-        
+
         />
       )
     } else {
       return (
         <Route path="/" render={(props) => (
-          <Header updateS={this.updateAuth}
-            theme={this.state.theme} />
+          <Header updateS={this.updateDemoState}
+            theme={this.state.theme} users={this.state.users} user={this.state.user}
+            current={this.state.current} {...props}/>
         )}
         />
       )
@@ -160,24 +166,31 @@ class App extends Component {
             />
           )}
           />
-        
+
           <Route path="/signin" render={(props) => (
             <SignIn theme={this.state.theme} users={this.state.users} user={this.state.user}
               current={this.state.current} {...props} />
           )}
           />
-          <Route path="/signup" component={SignUp} />
-          <Route path="/demo" render={(props) => (
-            <Demo theme={this.state.theme} user={this.state.user} />
-          )}
-          />
-          <Route path="/dashboard" render={(props) => (
-            <UserProfile theme={this.state.theme} users={this.state.users} user={this.state.user}
+
+          <Route path="/signup" render={(props) => (
+            <SignUp theme={this.state.theme} users={this.state.users} user={this.state.user}
               current={this.state.current} {...props} />
           )}
           />
 
-  {/* {['/', '/lyrics/:lyric_id'].map(path => (
+          {/* <Route path="/demo" render={(props) => (
+            <Demo theme={this.state.theme} user={this.state.user} />
+          )}
+          /> */}
+
+          <Route path="/dashboard" render={(props) => (
+            <UserProfile theme={this.state.theme} users={this.state.users} user={this.state.user}
+              current={this.state.current} lyrics = {this.state.lyrics} {...props} />
+          )}
+          />
+
+          {/* {['/', '/lyrics/:lyric_id'].map(path => (
             <Route
               exact
               key={path}
@@ -200,9 +213,9 @@ class App extends Component {
       deleteLyrics: this.deleteLyrics,
       updateLyrics: this.updateLyrics,
       demo: this.demo,
-      updateAuth:this.updateAuth,
-      isAuthenticated:this.state.isAuthenticated,
-      resData:this.state.resData
+      updateAuth: this.updateAuth,
+      isAuthenticated: this.state.isAuthenticated,
+      resData: this.state.resData
     }
 
 

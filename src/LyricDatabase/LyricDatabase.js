@@ -11,7 +11,26 @@ class LyricDatabase extends Component {
             params: {}
         }
     }
+
+    constructor(props){
+        super(props);
+        this.state = {
+            title:null,
+            genre:null,
+            mood:null,
+            artist:null,
+            lyrics:null,
+        };
+        this.handleChange = this.handleChange.bind(this);
+    }
+
     static contextType = AppContext;
+
+    
+    handleChange(event){
+        const value = event.target.value;
+        this.setState({...this.state,[event.target.name]:value})
+    }
 
     getArtistName(artist){
         let index = this.props.users.findIndex(user => user.id === artist);
@@ -21,14 +40,27 @@ class LyricDatabase extends Component {
 
         const sorted = this.context.lyrics.sort((a, b) => (a.id > b.id) ? 1 : -1)
         let lyrics = sorted;
+
+        if(this.state.title !== null){
+            lyrics = sorted.filter(lyric => lyric.title.toLowerCase().includes(this.state.title.toLowerCase()))
+        }else
+        if(this.state.lyrics !== null){
+            lyrics = sorted.filter(lyric=> lyric.lyrics.toLowerCase().includes(this.state.lyrics.toLowerCase()))
+        }else{
+            lyrics = sorted
+        }
+ 
         
         return (
             <div>
-                <form className="genre-form">
-                    <div>
-                        <label htmlFor="genre">&#x1F3BC;: </label>
-                        <select id="genre">
-                            <option defaultValue="">All Items</option>
+                <h2 id = "signup-header">View Lyrics</h2>
+                <form>
+                <label htmlFor ="title"></label>
+                <input type="text" id ="title" name = "title" placeholder = "Filter By Title" onChange = {this.handleChange}/>
+                <br/>
+                {/* <label htmlFor="genre">&#x1F3BC;: </label>
+                        <select id="genre" name = "genre" onChange = {this.handleChange}>
+                            <option value="All">All Items</option>
                             <option value="Hip Hop">Hip Hop</option>
                             <option value="Pop">Pop</option>
                             <option value="Rock">Rock</option>
@@ -51,11 +83,10 @@ class LyricDatabase extends Component {
                             <option value="Techno">Techno</option>
                             <option value="Gospel">Gospel</option>
                         </select>
-                    </div>
                     <div>
-                        <label htmlFor="mood">&#127917;: </label>
-                        <select id="mood">
-                            <option defaultValue="">All Items</option>
+                    <label htmlFor="mood">&#127917;: </label>
+                        <select id="mood" name = "mood" onChange = {this.handleChange}>
+                            <option value="All">All Items</option>
                             <option value="Happy">Happy</option>
                             <option value="Energetic">Energetic</option>
                             <option value="Sad">Sad</option>
@@ -66,12 +97,15 @@ class LyricDatabase extends Component {
                             <option value="Gloomy">Gloomy</option>
                             <option value="Annoyed">Annoyed</option>
                         </select>
-                    </div>
-                    <div>
-                        <label htmlFor="artist">View By Artist: </label>
-                        <input type="text" id="artist" />
-                    </div>
-                </form>
+                    </div> */}
+                <label htmlFor ="artist-name"></label>
+                <input type="text" id ="artist-name" name = "artist" placeholder = "Search By Artist Name" onChange = {this.handleChange}/>
+                <br/>
+                <div>
+                <label htmlFor ="lyrics-entrty"></label>
+                <input type="text" id ="lyrics-entry" name = "lyrics" placeholder = "Search By Lyrics Including" onChange = {this.handleChange}/>
+                </div>
+            </form>
                 <Button type="submit" className="NavBtn" btnName="Search" />
 
                 <div className="lyrics_list">

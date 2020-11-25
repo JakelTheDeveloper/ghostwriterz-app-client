@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AppContext from '../App/AppContext';
+import ValidationError from '../ValidationError';
 import Button from '../Button/Button';
 import './EditLyrics.css'
 
@@ -22,11 +23,10 @@ class EditLyrics extends Component {
             mood: this.props.location.state.mood,
             artist: this.props.location.state.artist,
             lyrics: this.props.location.state.lyrics,
+            error:null
         };
         this.handleChange = this.handleChange.bind(this);
     }
-
-
 
     //   componentDidMount() {
     //        const lyricsId = this.props.match.params.articleId;
@@ -47,6 +47,12 @@ class EditLyrics extends Component {
     handleChange(event) {
         const value = event.target.value;
         this.setState({ ...this.state, [event.target.name]: value })
+    }
+
+    clearError = () => {
+        this.setState({
+            error: null
+        })
     }
 
     handleSubmit = e => {
@@ -77,7 +83,7 @@ class EditLyrics extends Component {
                 this.context.updateLyrics(response)
                 this.props.history.push(`/viewlyrics`)
             })
-            .catch(error => console.log(error))
+            .catch(error => this.setState({ error: error.message }))
     }
 
     render() {
@@ -149,6 +155,7 @@ class EditLyrics extends Component {
                             </div>
                         </div>
                     </div>
+                    {<ValidationError message={this.state.error} clearError={this.clearError} />}
                     <div className="_lyrics_body">
                         <textarea className="_lyrics_entry_edit" name="lyrics" onChange={this.handleChange} defaultValue={myLyrics.lyrics}></textarea>
                     </div>

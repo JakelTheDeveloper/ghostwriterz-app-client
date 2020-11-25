@@ -1,9 +1,9 @@
 #signin-header{
     color:lightskyblue;
 }
-/* #username{
-   
-} */
+.error{
+   color:red
+}
 #password{
     margin-top: 10px;
 }

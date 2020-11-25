@@ -120,8 +120,8 @@ class Database extends Component {
             return(
                 <div>
                     <p className = "confirm">Are You Sure?</p>
-                    <button onClick = {this.handleDelete}>Yes</button>
-                    <button onClick = {this.setConfirm}>No</button>
+                    <button onClick = {this.handleDelete} className="NavBtn_blue">Yes</button>
+                    <button onClick = {this.setConfirm} className="NavBtn_blue">No</button>
                 </div>
             )
         }
