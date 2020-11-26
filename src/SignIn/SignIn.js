@@ -72,8 +72,9 @@ class SignIn extends Component {
                 <input type="text" id ="password" name="password" onChange = {this.handleChange}/>
                 <br/>
                 {<ValidationError message={this.state.error} clearError={this.clearError} />}
-                <Button type="cancel" className = "NavBtn_blue" btnName="Cancel" onClick={() => this.props.history.goBack()}/>
                 <button type = "submit" className = "NavBtn_blue">Submit</button>
+                <Button type="cancel" className = "NavBtn_blue" btnName="Cancel" onClick={() => this.props.history.push(`/viewlyrics`)}/>
+                
             </form>
             </div>
             )

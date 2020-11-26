@@ -84,7 +84,7 @@ class SignUp extends Component {
                 <input type="text" id ="password-confirm" name ="password_confirm" onChange = {this.handleChange}/>
                 <br/>
                 <button type="submit" className = "NavBtn_blue">Submit</button>
-                <Button type="cancel"  className = "NavBtn_blue" btnName="Cancel"/>  
+                <Button type="cancel"  className = "NavBtn_blue" btnName="Cancel" onClick={() => this.props.history.push('/')}/>  
             </form>
             </div>
             )
