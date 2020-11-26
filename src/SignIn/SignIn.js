@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Button from '../Button/Button';
 import AppContext from '../App/AppContext';
 import ValidationError from '../ValidationError';
+import config from '../config';
 import './SignIn.css'
 
 class SignIn extends Component {
@@ -42,7 +43,7 @@ class SignIn extends Component {
             username:username,
             password:password
           }
-          fetch(`http://localhost:8000/api/auth/signin`, {
+          fetch(`${config.URL}/api/auth/signin`, {
             method:'POST',
             headers:{
               'Accept':'application/json',

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Button from '../Button/Button';
 import ValidationError from '../ValidationError';
+import config from '../config';
 import './SignUp.css'
 
 class SignUp extends Component {
@@ -45,7 +46,7 @@ class SignUp extends Component {
             password:password,
             passwordConfirm:password_confirm
           }
-          return fetch(`http://localhost:8000/api/users`, {
+          return fetch(`${config.URL}/api/users`, {
             method: 'POST',
             headers: {
               'content-type': 'application/json',

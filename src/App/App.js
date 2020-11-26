@@ -13,7 +13,7 @@ import EditLyrics from '../EditLyrics/EditLyrics';
 import LandingPage from '../LandingPage/LandingPage';
 import './App.css'
 import AppContext from './AppContext';
-import ls from 'local-storage'
+import config from '../config';
 
 
 
@@ -40,15 +40,29 @@ class App extends Component {
     }
   }
 
+
   componentDidMount() {
-    fetch(`http://localhost:8000/api/lyrics`)
-      .then(response => response.json())
+  
+    fetch(`${config.URL}/api/lyrics`)
+      .then(response =>{
+        if(!response.ok)
+        return response.json().then(e=>Promise.reject(e))
+        console.log(response.json)
+       return response.json()
+      })
       .then(lyrics => this.setState({ lyrics }))
-    fetch(`http://localhost:8000/api/users`)
-      .then(response => response.json())
+    .catch(error => console.log(error))
+    fetch(`${config.URL}/api/users`)
+    .then(response =>{
+      if(!response.ok)
+      return response.json().then(e=>Promise.reject(e))
+      console.log(response)
+     return response.json()
+    })
       .then(users => {
         this.setState({ users })
       })
+      .catch(error => console.log(error))
   }
 
   //   createTokenProvider = () => {

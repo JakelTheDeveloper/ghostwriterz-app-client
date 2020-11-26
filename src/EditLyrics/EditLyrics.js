@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import AppContext from '../App/AppContext';
 import ValidationError from '../ValidationError';
 import Button from '../Button/Button';
+import config from '../config';
 import './EditLyrics.css'
 
 class EditLyrics extends Component {
@@ -62,8 +63,9 @@ class EditLyrics extends Component {
         let artist = this.props.users[index].id
 
         const loc = this.props.location.state.id;
+        
         // validation not shown
-        fetch(`http://localhost:8000/api/lyrics/${loc}`, {
+        fetch(`${config.URL}/api/lyrics/${loc}`, {
             method: 'PATCH',
             body: JSON.stringify({
                 id: this.state.id,

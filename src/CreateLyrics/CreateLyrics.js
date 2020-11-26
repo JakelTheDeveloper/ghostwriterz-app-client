@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import { withRouter } from 'react-router-dom';
 import ValidationError from '../ValidationError';
 import AppContext from '../App/AppContext';
+import config from '../config';
 import './CreateLyrics.css'
 
 class CreateLyrics extends Component {
@@ -48,7 +49,7 @@ class CreateLyrics extends Component {
             } else {
                 let index = this.props.users.findIndex(user => user.id === this.props.current);
                 let artist = this.props.users[index].id
-                const url = 'http://localhost:8000/api/lyrics'
+                const url = `${config.URL}/api/lyrics`
                 const options = {
                     method: 'POST',
                     body: JSON.stringify({
