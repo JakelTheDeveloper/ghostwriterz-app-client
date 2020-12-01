@@ -1,5 +1,9 @@
 # GhostWriterz
 
+#### APP DESCRIPTION
+
+Ghostwriterz is an app designed to help music artist with writer's block. Users can sign up, create, and share lyrics with each other to use in a song, or just for song ideas.
+
 #### *[LIVE APP](https://ghostwriterz-app.vercel.app/)*
 
 ----------------------------------------------------------------------
@@ -15,6 +19,8 @@
     * I can create, update, edit, and delete lyrics
 
     * I can view other lyrics in the database
+
+
 
 ## Stack Used
 
