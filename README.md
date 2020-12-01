@@ -32,7 +32,26 @@
 
 -1.0.0
 
-## App Walkthrough
+# App Walkthrough
+----------------------
+
+## Landing Page
 
 ![Ghostwriterz Landing Page](/images/Ghostwriterz_Help01.png)
-Format: ![Alt Text](url)
+
+## Dashboard
+
+![Ghostwriterz Dashboard](/images/Ghostwriterz_Help02.png)
+
+
+## Create Lyrics
+
+![Ghostwriterz Create Lyrics](/images/Ghostwriterz_Help05.png)
+
+## View Lyrics
+
+![Ghostwriterz View Lyrics](/images/Ghostwriterz_Help03.png)
+
+## Edit Lyrics
+
+![Ghostwriterz Edit Lyrics](/images/Ghostwriterz_Help04.png)
