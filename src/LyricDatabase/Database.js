@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { BrowserRouter as NavLink, Link } from 'react-router-dom';
+import { BrowserRouter as NavLink,Link } from 'react-router-dom';
 import Button from '../Button/Button';
 import AppContext from '../App/AppContext';
+import config from '../config';
 import './Database.css';
 
 
@@ -23,18 +24,23 @@ class Database extends Component {
     }
 
      updateExpansion = () => {
-        this.setState({ expanded: this.state.expanded = !this.state.expanded })
+         let {expanded} = this.state
+        this.setState({ expanded: expanded = !expanded })
      }
 
      setConfirm = () => {
-        this.setState({ confirmation: this.state.confirmation = !this.state.confirmation })
+        let {confirmation} = this.state
+        this.setState({ confirmation: confirmation = !confirmation })
      }
 
      handleDelete = e => {
         e.preventDefault()
+        if(this.props.current === 0){
+            this.props.handleGoBack()
+        }else{
         const lyricId = this.props.id
     
-        fetch(`http://localhost:8000/api/lyrics/${lyricId}`, {
+        fetch(`${config.URL}/api/lyrics/${lyricId}`, {
           method: 'DELETE',
           headers: {
             'content-type': 'application/json'
@@ -45,7 +51,6 @@ class Database extends Component {
               return res.json()
               .then(e => Promise.reject(e))
             // return res.json()
-            return res.text().then(text => console.log(text))
           })
           .then(() => {
             //this.context.props.deleteNote(note)
@@ -54,12 +59,13 @@ class Database extends Component {
             // this.props.onDeleteNote(noteId)
           })
           .catch(error => {
-            console.error({ error })
+            this.setState({error:error.message})
           })
+        }
       }
 
     renderLyricsNav() {
-         let computedClassName;
+        let computedClassName;
         let computedBtnClass;
         switch(this.state.theme) {
             case 'red':
@@ -108,7 +114,6 @@ class Database extends Component {
                         }
                     }}><Button className = {computedBtnClass} btnName='&#9999;' /></Link>
                     <button type="button" className="NavBtn_B" onClick={() => {this.setConfirm()}}>&#128465;</button>
-                      {/* <Button type="submit" className="NavBtn_B" onClick={() => {this.setConfirm()}} btnName='&#128465;' /> */}
                 </div>
             )
         } else {

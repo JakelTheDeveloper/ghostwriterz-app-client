@@ -3,6 +3,8 @@ import Button from '../Button/Button';
 import AppContext from '../App/AppContext';
 import ValidationError from '../ValidationError';
 import config from '../config';
+import TokenService from '../services/token-service';
+import decode from 'jwt-decode';
 import './SignIn.css'
 
 class SignIn extends Component {
@@ -27,7 +29,6 @@ class SignIn extends Component {
     handleChange(event){
         const value = event.target.value;
         this.setState({...this.state,[event.target.name]:value})
-        console.log(value)
     }
 
     clearError = () => {
@@ -55,7 +56,11 @@ class SignIn extends Component {
               (!res.ok)
                 ? res.json().then(e => Promise.reject(e))
                 : res.json().then((data)=> {
-                    this.context.updateAuth(data.authToken,username)
+                    TokenService.saveAuthToken(data.authToken)
+                    const decodedToken = decode(data.authToken)
+                    const user = [{id:decodedToken.user.id,nickname:decodedToken.user.nickname}]
+                    this.props.updateUser(user)
+                    // this.context.updateAuth(data.authToken)
                     this.props.history.push(`/dashboard`)
                 })
             )

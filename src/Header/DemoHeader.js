@@ -66,9 +66,9 @@ render(){
         <nav className = {computedNavName}>
               <ul className = {computedUlName}>
                   <li><Link to ='/dashboard' className = {computedLiName}>Dashboard</Link></li>
-                  {(this.props.user.length>0)?
-                  <li><Link to ='/viewlyrics' className = {computedLiName}>Lyrics</Link></li>:
-                  <li></li>}
+                  {/* {(this.props.user.length>0)? */}
+                  <li><Link to ='/viewlyrics' className = {computedLiName}>Lyrics</Link></li>
+                  <li></li>
                   <li><Link to ='/createlyrics' className = {computedLiName}>Create</Link></li>
                   <li><Link to ='/' onClick ={()=> {this.props.updateAuth()}} className = {computedLiName}>Sign Out</Link></li>
               </ul>

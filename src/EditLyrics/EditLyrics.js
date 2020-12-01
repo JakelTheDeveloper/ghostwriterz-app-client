@@ -59,11 +59,11 @@ class EditLyrics extends Component {
     handleSubmit = e => {
         e.preventDefault()
 
-        let index = this.props.users.findIndex(user => user.id === this.props.current);
-        let artist = this.props.users[index].id
+        // let index = this.props.users.findIndex(user => user.id === this.props.current);
+        let artist = this.props.users[0].id
 
         const loc = this.props.location.state.id;
-        
+
         // validation not shown
         fetch(`${config.URL}/api/lyrics/${loc}`, {
             method: 'PATCH',
@@ -90,14 +90,13 @@ class EditLyrics extends Component {
 
     render() {
         const thisId = this.state.id;
-        console.log(thisId)
         const sorted = this.context.lyrics.sort((a, b) => b[thisId] - a[thisId]);
         let index = sorted.findIndex(lyrics => lyrics.id === thisId);
         // const {lyric,title,lyrics} = this.state
         let myLyrics = sorted[index];
 
         let userIndex = this.props.users.findIndex(user => user.id === this.props.current);
-        let artist = this.props.users[userIndex].nickname
+        let artist = this.props.user[0].nickname
         return (
             <div>
                 <h1>Edit Lyrics</h1>

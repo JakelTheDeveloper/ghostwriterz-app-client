@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import AppContext from '../App/AppContext';
-// import './Demo.css'
+import lyrics from '../STORE';
+
+import './UserProfile.css'
 
 class UserProfile extends Component {
     static defaultProps = {
@@ -11,13 +13,16 @@ class UserProfile extends Component {
 
     static contextType = AppContext;
 
+   
     render() {
-        let userLyrics = this.props.lyrics.filter(lyric => lyric.artist === this.props.user[0].id)
+        let userLyrics;
         let artist;
         if(this.props.current === 0){
             artist  = 'DemoFoo';
+            userLyrics = lyrics
         }else{
             artist = this.props.user[0].nickname;
+            userLyrics = this.props.lyrics.filter(lyric => lyric.artist === this.props.user[0].id)
         }
         let numLyricsPosted = userLyrics.length;
         let totalWords=0;

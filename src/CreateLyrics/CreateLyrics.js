@@ -48,7 +48,7 @@ class CreateLyrics extends Component {
                 this.setState({ error: "Lyrics must not be blank!" })
             } else {
                 let index = this.props.users.findIndex(user => user.id === this.props.current);
-                let artist = this.props.users[index].id
+                let artist = this.props.user[0].id
                 const url = `${config.URL}/api/lyrics`
                 const options = {
                     method: 'POST',

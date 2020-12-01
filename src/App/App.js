@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Route, Switch, BrowserRouter, withRouter } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import LyricDatabase from '../LyricDatabase/LyricDatabase';
-import Demo from '../Demo/Demo';
 import UserProfile from '../User/UserProfile';
 import SignIn from '../SignIn/SignIn';
 import SignUp from '../SignUp/SignUp';
@@ -14,6 +13,8 @@ import LandingPage from '../LandingPage/LandingPage';
 import './App.css'
 import AppContext from './AppContext';
 import config from '../config';
+import TokenService from '../services/token-service';
+import decode from 'jwt-decode';
 
 
 
@@ -40,61 +41,98 @@ class App extends Component {
     }
   }
 
-
+  updateUser(user){
+    let {isAuthenticated,current} = this.state;
+    this.setState({user,current:current = user[0].id,
+      isAuthenticated: isAuthenticated = true})
+  }
   componentDidMount() {
-  
+    if(TokenService.hasAuthToken()){
+    this.setData()
+    }else{
+      this.props.history.push('/')
     fetch(`${config.URL}/api/lyrics`)
       .then(response =>{
         if(!response.ok)
         return response.json().then(e=>Promise.reject(e))
-        console.log(response.json)
        return response.json()
       })
       .then(lyrics => this.setState({ lyrics }))
-    .catch(error => console.log(error))
+    .catch(error => this.setState({error:error.message}))
     fetch(`${config.URL}/api/users`)
     .then(response =>{
       if(!response.ok)
       return response.json().then(e=>Promise.reject(e))
-      console.log(response)
      return response.json()
     })
       .then(users => {
         this.setState({ users })
       })
-      .catch(error => console.log(error))
-  }
-
-  //   createTokenProvider = () => {
-  //     let _token = {accessToken:string, refreshToken:string} = 
-  //     JSON.parse(localStorage.getItem('REACT_TOKEN_AUTH')||'')||null;
-  //     return {
-  //       getToken,
-  //       isLoggedIn,
-  //       setToken,
-  //       subscribe,
-  //       unsubscribe,
-  //     };
-  // }
-
-  updateAuth = (token, person) => {
-    let { resData, users, isAuthenticated, demo, username, current, user } = this.state;
-    
-    if (resData === '') {
-      let thisUser = users.filter(user => user.username === person)
-      this.setState({
-        isAuthenticated: isAuthenticated = !isAuthenticated,
-        resData: resData = token, demo: demo = false, username: username = person,
-        current: current = thisUser[0].id, user: user = thisUser
-      })
-    } else {
-      this.setState({
-        isAuthenticated: isAuthenticated = !isAuthenticated,
-        resData: resData = '', demo: demo = false, username: username = '',
-        current: current = 0, user: user = []
-      })
+      .catch(error => this.setState({error:error.message}))
     }
   }
+
+  setData = () =>{
+    let myLyrics =[];
+    const decodedToken = decode(TokenService.getAuthToken())
+    fetch(`${config.URL}/api/lyrics`)
+      .then(response =>{
+        if(!response.ok)
+        return response.json().then(e=>Promise.reject(e))
+       return response.json()
+      })
+      .then(lyrics => myLyrics = lyrics)
+    .catch(error => this.setState({error:error.message}))
+    fetch(`${config.URL}/api/users`)
+    .then(response =>{
+     return response.json()
+    })
+      .then(users => {
+        this.setState({ users:users,user:this.state.user = users.filter(user => user.id === decodedToken.user.id),
+        current:this.state.current = users.filter(user => user.id === decodedToken.user.id),lyrics:this.state.lyrics = myLyrics,
+      isAuthenticated:this.state.isAuthenticated = true,demo:this.state.demo = false})
+      }) .catch(error => this.setState({error:error.message}))
+
+   
+    // let { resData, users, isAuthenticated, demo, username, current, user } = this.state;
+    // let thisUser = users.filter(user => user.username === decodedToken.user.id)
+    // this.setState({
+    //   isAuthenticated: isAuthenticated = !isAuthenticated,
+    //   resData: resData = config.TOKEN_KEY, demo: demo = false, username: username = decodedToken.user.id,
+    //   current: current = thisUser[0].id, user: user = thisUser
+    // })
+   
+  }
+
+  updateAuth=()=>{
+    let {isAuthenticated,demo,username,current,user} = this.state;
+    TokenService.clearAuthToken(config.TOKEN_KEY)
+    this.setState({
+            isAuthenticated: isAuthenticated = false,
+            demo: demo = false, username: username = "DemoFoo",
+            current: current = 0, user: user = []
+          })
+  }
+
+  // updateAuth = (token, person) => {
+  //   let { resData, users, isAuthenticated, demo, username, current, user } = this.state;
+    
+  //   if (resData === '') {
+  //     let thisUser = users.filter(user => user.username === person)
+  //     this.setState({
+  //       isAuthenticated: isAuthenticated = !isAuthenticated,
+  //       resData: resData = token, demo: demo = false, username: username = person,
+  //       current: current = thisUser[0].id, user: user = thisUser
+  //     })
+  //   } else {
+  //     this.setState({
+  //       isAuthenticated: isAuthenticated = !isAuthenticated,
+  //       resData: resData = '', demo: demo = false, username: username = '',
+  //       current: current = 0, user: user = {}
+  //     })
+      
+  //   }
+  // }
 
   // this.setState({ demo: true = !false})
   updateDemoState = () => {
@@ -182,7 +220,7 @@ class App extends Component {
           />
 
           <Route path="/signin" render={(props) => (
-            <SignIn theme={this.state.theme} users={this.state.users} user={this.state.user}
+            <SignIn theme={this.state.theme} users={this.state.users} user={this.state.user} updateUser = {user=>this.updateUser(user)}
               current={this.state.current} {...props} />
           )}
           />
@@ -231,7 +269,6 @@ class App extends Component {
       isAuthenticated: this.state.isAuthenticated,
       resData: this.state.resData
     }
-
 
 
     let computedClassName;

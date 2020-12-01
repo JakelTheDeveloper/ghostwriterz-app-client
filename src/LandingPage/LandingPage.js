@@ -51,10 +51,10 @@ class LandingPage extends Component {
                 <div>
                     <section>
                         <article className = {computedClassName}>
-                            As music artists, we sometimes lose creativity dealing with our day to day lives. That inspiration we're looking for to
-                            write a good song just isn't there, and GhostWriterz is here to solve that problem. No more banging the tables and wasting time
-                            forcing up words when you can find lyrics from a community of helpful artists! On a roll? feeling like the next Shakespeare?
-                            Share your lyrics to the community for others to use to help them out of writers block.
+                            As music artists,<br/> we sometimes lose creativity dealing with our day to day lives. <br/>That inspiration we're looking for to
+                            write a good song just isn't there, <br/>and GhostWriterz is here to solve that problem.<br/> No more banging the tables<br/> and wasting time
+                            forcing up words when you can find<br/> lyrics from a community of helpful artists!<br/> On a roll? Feeling like the next Shakespeare?<br/>
+                            Share your lyrics to the community for others to use <br/> to help them out of writers block.
                     </article>
                     </section>
                 </div>
