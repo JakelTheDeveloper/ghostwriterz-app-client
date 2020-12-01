@@ -31,3 +31,8 @@
 #### Version
 
 -1.0.0
+
+## App Walkthrough
+
+![Ghostwriterz Landing Page](/images/Ghostwriterz_Help01.png)
+Format: ![Alt Text](url)
