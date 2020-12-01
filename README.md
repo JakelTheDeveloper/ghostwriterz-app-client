@@ -58,4 +58,18 @@ This api allows you to use CRUD operations for sharing your song lyrics around t
 
             expect(201)
 ```
+
+-URL: morning-tundra-70520.herokuapp.com/api/lyrics/lyric_id
+
+-DESCRIPTION: 
+
+```
+            method: 'DELETE',
+          headers: {
+            'content-type': 'application/json'
+          },
+        })
+
+            expect(204)
+```
                
