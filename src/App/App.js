@@ -41,11 +41,6 @@ class App extends Component {
     }
   }
 
-  updateUser(user){
-    let {isAuthenticated,current} = this.state;
-    this.setState({user,current:current = user[0].id,
-      isAuthenticated: isAuthenticated = true})
-  }
   componentDidMount() {
     if(TokenService.hasAuthToken()){
     this.setData()
@@ -72,6 +67,7 @@ class App extends Component {
     }
   }
 
+
   setData = () =>{
     let myLyrics =[];
     const decodedToken = decode(TokenService.getAuthToken())
@@ -92,17 +88,15 @@ class App extends Component {
         current:this.state.current = users.filter(user => user.id === decodedToken.user.id),lyrics:this.state.lyrics = myLyrics,
       isAuthenticated:this.state.isAuthenticated = true,demo:this.state.demo = false})
       }) .catch(error => this.setState({error:error.message}))
-
-   
-    // let { resData, users, isAuthenticated, demo, username, current, user } = this.state;
-    // let thisUser = users.filter(user => user.username === decodedToken.user.id)
-    // this.setState({
-    //   isAuthenticated: isAuthenticated = !isAuthenticated,
-    //   resData: resData = config.TOKEN_KEY, demo: demo = false, username: username = decodedToken.user.id,
-    //   current: current = thisUser[0].id, user: user = thisUser
-    // })
-   
   }
+
+
+  updateUser(user){
+    let {isAuthenticated,current} = this.state;
+    this.setState({user,current:current = user[0].id,
+      isAuthenticated: isAuthenticated = true})
+  }
+
 
   updateAuth=()=>{
     let {isAuthenticated,demo,username,current,user} = this.state;
@@ -114,27 +108,6 @@ class App extends Component {
           })
   }
 
-  // updateAuth = (token, person) => {
-  //   let { resData, users, isAuthenticated, demo, username, current, user } = this.state;
-    
-  //   if (resData === '') {
-  //     let thisUser = users.filter(user => user.username === person)
-  //     this.setState({
-  //       isAuthenticated: isAuthenticated = !isAuthenticated,
-  //       resData: resData = token, demo: demo = false, username: username = person,
-  //       current: current = thisUser[0].id, user: user = thisUser
-  //     })
-  //   } else {
-  //     this.setState({
-  //       isAuthenticated: isAuthenticated = !isAuthenticated,
-  //       resData: resData = '', demo: demo = false, username: username = '',
-  //       current: current = 0, user: user = {}
-  //     })
-      
-  //   }
-  // }
-
-  // this.setState({ demo: true = !false})
   updateDemoState = () => {
     let {demo,resData,isAuthenticated} = this.state
     this.setState({ demo: demo = !demo,resData:resData = 'demoToken',isAuthenticated:isAuthenticated = !isAuthenticated })
@@ -231,27 +204,14 @@ class App extends Component {
           )}
           />
 
-          {/* <Route path="/demo" render={(props) => (
-            <Demo theme={this.state.theme} user={this.state.user} />
-          )}
-          /> */}
-
           <Route path="/dashboard" render={(props) => (
             <UserProfile theme={this.state.theme} users={this.state.users} user={this.state.user}
               current={this.state.current} lyrics = {this.state.lyrics} {...props} />
           )}
           />
 
-          {/* {['/', '/lyrics/:lyric_id'].map(path => (
-            <Route
-              exact
-              key={path}
-              path={path}
-              component={ViewLyrics} />
-          ))} */}
 
         </Switch>
-        {/* <Route exact path="/:userprofile" component = {LyricDatabase}/> */}
       </>
     )
   }
@@ -269,8 +229,6 @@ class App extends Component {
       isAuthenticated: this.state.isAuthenticated,
       resData: this.state.resData
     }
-
-
     let computedClassName;
     switch (this.state.theme) {
       case 'red':
