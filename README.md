@@ -16,7 +16,7 @@
 
     * I can view other lyrics in the database
 
-## Stack 
+## Stack Used
 
 * Javascript(React)
 
