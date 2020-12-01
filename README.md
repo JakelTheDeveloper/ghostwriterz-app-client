@@ -4,9 +4,7 @@
 
 ## API Documentation
 
-Ghostwriterz RESTful API.
-
-### Description
+## Description
 
 This api allows you to use CRUD operations for sharing your song lyrics around the world for others to use. Within this documentation, you'll find out how to start creating and posting your own personal song lyrics to the Ghostwriterz database.
 
@@ -17,13 +15,16 @@ This api allows you to use CRUD operations for sharing your song lyrics around t
 ## Servers
 
 -url: https://morning-tundra-70520.herokuapp.com/api/lyrics
+
 -description: Contains all information on lyrics in the database
+
 -method: GET
 
 -url: https://morning-tundra-70520.herokuapp.com/api/lyrics
+
 -description: 
 
-``` const options = {
+```                
                     method: 'POST',
                     body: JSON.stringify({
                         title: title,
@@ -33,7 +34,5 @@ This api allows you to use CRUD operations for sharing your song lyrics around t
                         lyrics: lyrics
                     }),
                     headers: { 'Content-Type': 'application/json' }
-                } ```      
-   
--method: POST
+```      
                
