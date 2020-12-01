@@ -85,5 +85,26 @@ morning-tundra-70520.herokuapp.com/api/lyrics/lyric_id
 
 ### Users Server
 
+#### URL: 
 
+morning-tundra-70520.herokuapp.com/api/users
+
+#### DESCRIPTION: 
+
+```
+           method: 'POST',
+            body: JSON.stringify({
+            fullname:fullname,
+            username:email,
+            nickname:username,
+            password:password,
+            passwordConfirm:password_confirm
+            }),
+            headers: {
+              'content-type': 'application/json',
+            },
+         })
+
+            expect(201)
+```
                
