@@ -1,6 +1,6 @@
 # GhostWriterz
 
-#### *[LIVE APP](https://ghostwriterz-app-d4kure3ts.vercel.app/)*
+#### *[LIVE APP](https://ghostwriterz-app.vercel.app/)*
 
 ----------------------------------------------------------------------
 
