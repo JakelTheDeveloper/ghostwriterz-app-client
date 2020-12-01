@@ -14,13 +14,13 @@ This api allows you to use CRUD operations for sharing your song lyrics around t
 
 ## Servers
 
--url: https://morning-tundra-70520.herokuapp.com/api/lyrics
+-url: morning-tundra-70520.herokuapp.com/api/lyrics
 
--description: Contains all information on lyrics in the database
+-description:
 
  ``` method: GET ```
 
--url: https://morning-tundra-70520.herokuapp.com/api/lyrics
+-url: morning-tundra-70520.herokuapp.com/api/lyrics
 
 -description: 
 
@@ -37,4 +37,25 @@ This api allows you to use CRUD operations for sharing your song lyrics around t
 
                     expect(201)
 ```      
+
+-url: morning-tundra-70520.herokuapp.com/api/lyrics/lyric_id
+
+-description: 
+
+```
+            method: 'PATCH',
+            body: JSON.stringify({
+                id: id,
+                title: title,
+                genre: genre,
+                mood: mood,
+                artist: artist,
+                lyrics: lyrics
+            }),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+
+            expect(201)
+```
                
