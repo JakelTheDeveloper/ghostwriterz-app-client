@@ -14,6 +14,8 @@ This api allows you to use CRUD operations for sharing your song lyrics around t
 
 ### Servers
 
+### Lyrics Server
+
 #### URL: 
 
 morning-tundra-70520.herokuapp.com/api/lyrics
@@ -80,4 +82,8 @@ morning-tundra-70520.herokuapp.com/api/lyrics/lyric_id
 
             expect(204)
 ```
+
+### Users Server
+
+
                
