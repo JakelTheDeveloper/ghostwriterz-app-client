@@ -89,7 +89,7 @@ morning-tundra-70520.herokuapp.com/api/lyrics/lyric_id
 
 morning-tundra-70520.herokuapp.com/api/users
 
-#### DESCRIPTION: 
+#### DESCRIPTION: REGISTER
 
 ```
            method: 'POST',
@@ -102,9 +102,30 @@ morning-tundra-70520.herokuapp.com/api/users
             }),
             headers: {
               'content-type': 'application/json',
-            },
+            }
          })
 
             expect(201)
+```
+
+#### URL: 
+
+morning-tundra-70520.herokuapp.com/api/users
+
+#### DESCRIPTION: LOGIN
+
+```
+           method:'POST',
+            body: JSON.stringify({
+            username:username,
+            password:password
+            }),
+            headers:{
+              'Accept':'application/json',
+              'Content-Type':'application/json'
+            }
+          })
+
+            expect(204)
 ```
                
