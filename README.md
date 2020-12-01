@@ -4,7 +4,7 @@
 
 ## API Documentation
 
-## Description
+### Description
 
 This api allows you to use CRUD operations for sharing your song lyrics around the world for others to use. Within this documentation, you'll find out how to start creating and posting your own personal song lyrics to the Ghostwriterz database.
 
