@@ -110,7 +110,7 @@ morning-tundra-70520.herokuapp.com/api/users
 
 #### URL: 
 
-morning-tundra-70520.herokuapp.com/api/users
+morning-tundra-70520.herokuapp.com/api/auth/signin
 
 #### DESCRIPTION: LOGIN
 
