@@ -14,19 +14,19 @@ This api allows you to use CRUD operations for sharing your song lyrics around t
 
 ### Servers
 
--URL: 
+#### URL: 
 
 morning-tundra-70520.herokuapp.com/api/lyrics
 
--DESCRIPTION:
+#### DESCRIPTION:
 
  ``` method: GET ```
 
--URL: 
+#### URL: 
 
 morning-tundra-70520.herokuapp.com/api/lyrics
 
--DESCRIPTION: 
+#### DESCRIPTION: 
 
 ```                
                     method: 'POST',
@@ -42,11 +42,11 @@ morning-tundra-70520.herokuapp.com/api/lyrics
                     expect(201)
 ```      
 
--URL: 
+#### URL:
 
 morning-tundra-70520.herokuapp.com/api/lyrics/lyric_id
 
--DESCRIPTION: 
+#### DESCRIPTION: 
 
 ```
             method: 'PATCH',
@@ -65,11 +65,11 @@ morning-tundra-70520.herokuapp.com/api/lyrics/lyric_id
             expect(201)
 ```
 
--URL: 
+#### URL: 
 
 morning-tundra-70520.herokuapp.com/api/lyrics/lyric_id
 
--DESCRIPTION: 
+#### DESCRIPTION: 
 
 ```
             method: 'DELETE',
