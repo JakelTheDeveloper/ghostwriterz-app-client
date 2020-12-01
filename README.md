@@ -18,14 +18,13 @@ This api allows you to use CRUD operations for sharing your song lyrics around t
 
 -description: Contains all information on lyrics in the database
 
--method: GET
+ ``` method: GET ```
 
 -url: https://morning-tundra-70520.herokuapp.com/api/lyrics
 
 -description: 
-
-```                
-                    method: 'POST',
+              
+                   ``` method: 'POST',
                     body: JSON.stringify({
                         title: title,
                         genre: genre,
@@ -34,5 +33,7 @@ This api allows you to use CRUD operations for sharing your song lyrics around t
                         lyrics: lyrics
                     }),
                     headers: { 'Content-Type': 'application/json' }
-```      
+
+                    expect(201) ```
+      
                
