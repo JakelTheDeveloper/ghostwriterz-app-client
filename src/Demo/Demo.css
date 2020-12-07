@@ -1,4 +1,4 @@
-.demoPg{
+/* .demoPg{
     color:lightskyblue;
     align-items: center;
     display:flex;
@@ -23,9 +23,9 @@
     margin: 2px;
    padding: 0;
    box-sizing: border-box;
-}
+} */
 
-@media (max-width: 56.25em){
+/* @media (max-width: 56.25em){
     html{
         font-size: 56.25%;
         line-height: 1.15;
@@ -45,5 +45,4 @@
     margin: 2px;
    padding: 0;
    box-sizing: border-box;
-}
-/* border-radius: 30px; or 50% */
+} */

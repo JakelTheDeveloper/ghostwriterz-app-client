@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import Button from '../Button/Button';
+import React, { Component } from 'react'
+import Button from '../Button/Button'
 import Database from '../LyricDatabase/Database'
 
 import './LyricDatabase.css'
-import AppContext from '../App/AppContext';
+import AppContext from '../App/AppContext'
 
 class LyricDatabase extends Component {
     static defaultProps = {
@@ -12,105 +12,65 @@ class LyricDatabase extends Component {
         }
     }
 
-    constructor(props){
-        super(props);
+    constructor(props) {
+        super(props)
         this.state = {
-            title:null,
-            genre:null,
-            mood:null,
-            artist:null,
-            lyrics:null,
-        };
-        this.handleChange = this.handleChange.bind(this);
+            title: null,
+            genre: null,
+            mood: null,
+            artist: null,
+            lyrics: null,
+        }
+        this.handleChange = this.handleChange.bind(this)
     }
 
-    static contextType = AppContext;
+    static contextType = AppContext
 
-    
-    handleChange(event){
-        const value = event.target.value;
-        this.setState({...this.state,[event.target.name]:value})
+
+    handleChange(event) {
+        const value = event.target.value
+        this.setState({ ...this.state, [event.target.name]: value })
     }
 
-    getArtistName(artist){
-        let index = this.props.users.findIndex(user => user.id === artist);
+    getArtistName(artist) {
+        let index = this.props.users.findIndex(user => user.id === artist)
         return this.props.users[index].nickname
     }
     render() {
 
         const sorted = this.context.lyrics.sort((a, b) => (a.id > b.id) ? 1 : -1)
-        let lyrics = sorted;
+        let lyrics = sorted
 
-        if(this.state.title !== null){
+        if (this.state.title !== null) {
             lyrics = sorted.filter(lyric => lyric.title.toLowerCase().includes(this.state.title.toLowerCase()))
-        }else
-        if(this.state.lyrics !== null){
-            lyrics = sorted.filter(lyric=> lyric.lyrics.toLowerCase().includes(this.state.lyrics.toLowerCase()))
-        }else{
-            lyrics = sorted
-        }
- 
-        
+        } else
+            if (this.state.lyrics !== null) {
+                lyrics = sorted.filter(lyric => lyric.lyrics.toLowerCase().includes(this.state.lyrics.toLowerCase()))
+            } else {
+                lyrics = sorted
+            }
+
+
         return (
             <div>
-                <h2 id = "signup-header">View Lyrics</h2>
+                <h2 id="signup-header">View Lyrics</h2>
                 <form>
-                <label htmlFor ="title"></label>
-                <input type="text" id ="title" name = "title" placeholder = "Filter By Title" onChange = {this.handleChange}/>
-                <br/>
-                {/* <label htmlFor="genre">&#x1F3BC;: </label>
-                        <select id="genre" name = "genre" onChange = {this.handleChange}>
-                            <option value="All">All Items</option>
-                            <option value="Hip Hop">Hip Hop</option>
-                            <option value="Pop">Pop</option>
-                            <option value="Rock">Rock</option>
-                            <option value="Jazz">Jazz</option>
-                            <option value="Folk">Folk</option>
-                            <option value="Musical">Musical</option>
-                            <option value="Country">Country</option>
-                            <option value="Classical">Classical</option>
-                            <option value="Heavy Metal">Heavy Metal</option>
-                            <option value="Rhythm and Blues">Rhythm and Blues</option>
-                            <option value="Electronic Dance">Electronic Dance</option>
-                            <option value="Punk">Punk</option>
-                            <option value="Soul">Soul</option>
-                            <option value="Electronic Music">Electronic Music</option>
-                            <option value="Rap">Rap</option>
-                            <option value="Reggae">Reggae</option>
-                            <option value="Funk">Funk</option>
-                            <option value="Disco">Disco</option>
-                            <option value="House">House</option>
-                            <option value="Techno">Techno</option>
-                            <option value="Gospel">Gospel</option>
-                        </select>
+                    <label htmlFor="title"></label>
+                    <input type="text" id="title" name="title" placeholder="Filter By Title" onChange={this.handleChange} />
+                    <br />
+                    <label htmlFor="artist-name"></label>
+                    <input type="text" id="artist-name" name="artist" placeholder="Search By Artist Name" onChange={this.handleChange} />
+                    <br />
                     <div>
-                    <label htmlFor="mood">&#127917;: </label>
-                        <select id="mood" name = "mood" onChange = {this.handleChange}>
-                            <option value="All">All Items</option>
-                            <option value="Happy">Happy</option>
-                            <option value="Energetic">Energetic</option>
-                            <option value="Sad">Sad</option>
-                            <option value="Calm">Calm</option>
-                            <option value="Depression">Depression</option>
-                            <option value="Anger">Anger</option>
-                            <option value="Carefree">Carefree</option>
-                            <option value="Gloomy">Gloomy</option>
-                            <option value="Annoyed">Annoyed</option>
-                        </select>
-                    </div> */}
-                <label htmlFor ="artist-name"></label>
-                <input type="text" id ="artist-name" name = "artist" placeholder = "Search By Artist Name" onChange = {this.handleChange}/>
-                <br/>
-                <div>
-                <label htmlFor ="lyrics-entrty"></label>
-                <input type="text" id ="lyrics-entry" name = "lyrics" placeholder = "Search By Lyrics Including" onChange = {this.handleChange}/>
-                </div>
-            </form>
+                        <label htmlFor="lyrics-entrty"></label>
+                        <input type="text" id="lyrics-entry" name="lyrics" placeholder="Search By Lyrics Including" onChange={this.handleChange} />
+                    </div>
+                </form>
                 <Button type="submit" className="NavBtn" btnName="Search" />
 
                 <div className="lyrics_list">
                     {lyrics.map(lyric =>
-                        <Database key={lyric.id} id={lyric.id} title={lyric.title} genre={lyric.genre} mood={lyric.mood} theme = {this.props.theme}
+                        <Database key={lyric.id} id={lyric.id} title={lyric.title} genre={lyric.genre} mood={lyric.mood} theme={this.props.theme}
                             artist={this.getArtistName(lyric.artist)} lyrics={lyric.lyrics} expanded={false} editable={false}
                         />)}
                 </div>
@@ -119,4 +79,4 @@ class LyricDatabase extends Component {
     }
 }
 
-export default LyricDatabase;
+export default LyricDatabase

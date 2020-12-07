@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
-import Button from '../Button/Button';
+import React, { Component } from 'react'
+import { NavLink } from 'react-router-dom'
+import Button from '../Button/Button'
 import Database from '../LyricDatabase/Database'
 import './Demo.css'
 
@@ -83,4 +83,4 @@ class UserLyrics extends Component {
     }
 }
 
-export default UserLyrics;
+export default UserLyrics

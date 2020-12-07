@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import AppContext from '../App/AppContext';
+import React, { Component } from 'react'
+import AppContext from '../App/AppContext'
 import './Demo.css'
 
 class Demo extends Component {
@@ -9,12 +9,12 @@ class Demo extends Component {
         }
     }
 
-    static contextType = AppContext;
+    static contextType = AppContext
 
     render() {
-        let artist = this.props.user[0].nickname;
-        let numLyricsPosted = 12;
-        let numWordsPosted = '3,562';
+        let artist = this.props.user[0].nickname
+        let numLyricsPosted = 12
+        let numWordsPosted = '3,562'
         let userRank = "Dedicated"
         return (
             <div className="demoPg">
@@ -38,4 +38,4 @@ class Demo extends Component {
     }
 }
 
-export default Demo;
+export default Demo

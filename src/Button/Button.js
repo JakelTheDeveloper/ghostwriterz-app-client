@@ -1,9 +1,9 @@
-import React from 'react';
-import { useHistory } from "react-router-dom";
+import React from 'react'
+import { useHistory } from "react-router-dom"
 import './Button.css'
 
 function Button(props) {
-    let history = useHistory();
+    let history = useHistory()
 
     function handleClick() {
         if (props.path) {

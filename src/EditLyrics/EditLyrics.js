@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import AppContext from '../App/AppContext';
-import ValidationError from '../ValidationError';
-import Button from '../Button/Button';
-import config from '../config';
+import React, { Component } from 'react'
+import AppContext from '../App/AppContext'
+import ValidationError from '../ValidationError'
+import { NavLink } from 'react-router-dom'
+import config from '../config'
 import './EditLyrics.css'
 
 class EditLyrics extends Component {
@@ -12,10 +12,10 @@ class EditLyrics extends Component {
         }
     }
 
-    static contextType = AppContext;
+    static contextType = AppContext
 
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
             lyric: [],
             id: this.props.location.state.key,
@@ -24,29 +24,13 @@ class EditLyrics extends Component {
             mood: this.props.location.state.mood,
             artist: this.props.location.state.artist,
             lyrics: this.props.location.state.lyrics,
-            error:null
-        };
-        this.handleChange = this.handleChange.bind(this);
+            error: null
+        }
+        this.handleChange = this.handleChange.bind(this)
     }
 
-    //   componentDidMount() {
-    //        const lyricsId = this.props.match.params.articleId;
-    //        fetch(`https://localhost:8000/api/lyrics/${lyricsId}`, {
-    //          method: 'GET'
-    //        })
-
-    //          .then(responseData => {
-    //         //    this.setState({
-
-    //         //    })
-    //         console.log(responseData)
-    //         this.context.updateLyrics(responseData)
-    //          })
-    //          .catch(error => {/* some content omitted */})
-    //      }
-
     handleChange(event) {
-        const value = event.target.value;
+        const value = event.target.value
         this.setState({ ...this.state, [event.target.name]: value })
     }
 
@@ -59,10 +43,9 @@ class EditLyrics extends Component {
     handleSubmit = e => {
         e.preventDefault()
 
-        // let index = this.props.users.findIndex(user => user.id === this.props.current);
         let artist = this.props.users[0].id
 
-        const loc = this.props.location.state.id;
+        const loc = this.props.location.state.id
 
         // validation not shown
         fetch(`${config.URL}/api/lyrics/${loc}`, {
@@ -76,10 +59,9 @@ class EditLyrics extends Component {
                 lyrics: this.state.lyrics
             }),
             headers: {
-                "Content-type": "application/json; charset=UTF-8"
+                "Content-type": "application/json charset=UTF-8"
             }
         })
-
             .then(response => response.json())
             .then(response => {
                 this.context.updateLyrics(response)
@@ -89,25 +71,22 @@ class EditLyrics extends Component {
     }
 
     render() {
-        const thisId = this.state.id;
-        const sorted = this.context.lyrics.sort((a, b) => b[thisId] - a[thisId]);
-        let index = sorted.findIndex(lyrics => lyrics.id === thisId);
-        // const {lyric,title,lyrics} = this.state
-        let myLyrics = sorted[index];
+        const thisId = this.state.id
+        const sorted = this.context.lyrics.sort((a, b) => b[thisId] - a[thisId])
+        let index = sorted.findIndex(lyrics => lyrics.id === thisId)
+        let myLyrics = sorted[index]
 
-        let userIndex = this.props.users.findIndex(user => user.id === this.props.current);
+        // let userIndex = this.props.users.findIndex(user => user.id === this.props.current)
         let artist = this.props.user[0].nickname
         return (
             <div>
                 <h1>Edit Lyrics</h1>
-                <form className="_lyrics" onSubmit={this.handleSubmit}>
-                    <div className="_lyrics_header">
-
-                        <div className="_lyrics_title-box">
-
-                            <input type="text" name="title" className="_lyrics_title_edit" onChange={this.handleChange} defaultValue={myLyrics.title} />
-                        </div>
+                <form id="lyrics" onSubmit={this.handleSubmit}>
+                    <div className="lyrics_header">
                         <div className="_lyrics_info-container">
+                            <div className="_lyrics_title-box">
+                                <input type="text" name="title" className="_lyrics_title_edit" onChange={this.handleChange} defaultValue={myLyrics.title} />
+                            </div>
                             <div className="_lyrics_info-box">
                                 <label htmlFor="genre">&#x1F3BC;: </label>
                                 <select id="genre" name="genre" onChange={this.handleChange} className="_lyrics-genre">
@@ -160,11 +139,12 @@ class EditLyrics extends Component {
                     <div className="_lyrics_body">
                         <textarea className="_lyrics_entry_edit" name="lyrics" onChange={this.handleChange} defaultValue={myLyrics.lyrics}></textarea>
                     </div>
-                    <div className="_lyrics_nav">
-                        {/* <Button type="button" value = "Submit" className="NavBtn" btnName="Save"/> */}
-                        <button type="submit" className="NavBtn_blue">Submit</button>
-                        <Button type="Cancel" className="NavBtn_blue" btnName="Cancel" path="viewlyrics" />
-                    </div>
+                    <button type="submit" className="NavBtn">Submit</button>
+                    <NavLink to="/viewlyrics" >
+                        <button className="NavBtn">Cancel</button>
+                    </NavLink>
+
+
                 </form>
             </div>
 
@@ -172,4 +152,4 @@ class EditLyrics extends Component {
     }
 }
 
-export default EditLyrics;
+export default EditLyrics

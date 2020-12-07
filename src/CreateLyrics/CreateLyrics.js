@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
-// import { withRouter } from 'react-router-dom';
-import ValidationError from '../ValidationError';
-import AppContext from '../App/AppContext';
-import config from '../config';
+import React, { Component } from 'react'
+import ValidationError from '../ValidationError'
+import AppContext from '../App/AppContext'
+import config from '../config'
 import './CreateLyrics.css'
 
 class CreateLyrics extends Component {
@@ -12,10 +11,10 @@ class CreateLyrics extends Component {
         }
     }
 
-    static contextType = AppContext;
+    static contextType = AppContext
 
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
             title: "",
             genre: "Hip Hop",
@@ -23,12 +22,12 @@ class CreateLyrics extends Component {
             artist: this.props.user,
             lyrics: "",
             error: null
-        };
-        this.handleChange = this.handleChange.bind(this);
+        }
+        this.handleChange = this.handleChange.bind(this)
     }
 
     handleChange(event) {
-        const value = event.target.value;
+        const value = event.target.value
         this.setState({ ...this.state, [event.target.name]: value })
     }
     clearError = () => {
@@ -40,48 +39,48 @@ class CreateLyrics extends Component {
         e.preventDefault()
         if (this.state.artist === undefined || this.state.artist.length === 0) {
             this.props.history.push(`/signin`)
-        }else 
-        if (this.state.title === "" || this.state.title === null) {
-            this.setState({ error: "Title must not be blank!" })
-        }else
-            if (this.state.lyrics === "" || this.state.lyrics === null) {
-                this.setState({ error: "Lyrics must not be blank!" })
-            } else {
-                let index = this.props.users.findIndex(user => user.id === this.props.current);
-                let artist = this.props.user[0].id
-                const url = `${config.URL}/api/lyrics`
-                const options = {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        title: this.state.title,
-                        genre: this.state.genre,
-                        mood: this.state.mood,
-                        artist: artist,
-                        lyrics: this.state.lyrics
-                    }),
-                    headers: { 'Content-Type': 'application/json' }
+        } else
+            if (this.state.title === "" || this.state.title === null) {
+                this.setState({ error: "Title must not be blank!" })
+            } else
+                if (this.state.lyrics === "" || this.state.lyrics === null) {
+                    this.setState({ error: "Lyrics must not be blank!" })
+                } else {
+                    let index = this.props.users.findIndex(user => user.id === this.props.current)
+                    let artist = this.props.user[0].id
+                    const url = `${config.URL}/api/lyrics`
+                    const options = {
+                        method: 'POST',
+                        body: JSON.stringify({
+                            title: this.state.title,
+                            genre: this.state.genre,
+                            mood: this.state.mood,
+                            artist: artist,
+                            lyrics: this.state.lyrics
+                        }),
+                        headers: { 'Content-Type': 'application/json' }
+                    }
+                    fetch(url, options)
+                        .then(res => {
+                            if (!res.ok) {
+                                throw new Error('Something went wrong, please try again later')
+                            }
+                            return res.json()
+                        })
+                        .then(lyrics => {
+                            this.context.addLyrics(lyrics)
+                            this.props.history.push(`/viewlyrics`)
+                        })
+                        .catch(err => this.setState({ error: err.message }))
                 }
-                fetch(url, options)
-                    .then(res => {
-                        if (!res.ok) {
-                            throw new Error('Something went wrong, please try again later');
-                        }
-                        return res.json();
-                    })
-                    .then(lyrics => {
-                        this.context.addLyrics(lyrics)
-                        this.props.history.push(`/viewlyrics`)
-                    })
-                    .catch(err =>  this.setState({ error: err.message }))
-            }
     }
 
     render() {
-        let artist;
+        let artist
         if (this.props.current === 0) {
-           artist = "DemoFoo"
+            artist = "DemoFoo"
         } else {
-            artist = this.props.user[0].nickname;
+            artist = this.props.user[0].nickname
         }
         return (
             <div>
@@ -128,22 +127,19 @@ class CreateLyrics extends Component {
                             <option value="Annoyed">Annoyed</option>
                         </select>
                     </div>
-                    <label htmlFor="artist-name">Artist Name:</label>
-                    {/* onChange = {this.handleChange} */}
+                    <label htmlFor="artist-name">&#9997;:</label>
                     <p>{artist}</p>
                     <br />
                     {<ValidationError message={this.state.error} clearError={this.clearError} />}
                     <div>
                         <label htmlFor="lyrics-entry">Lyrics:</label>
-                        <textarea type="text" className="_lyrics_entry_edit" name="lyrics" onChange={this.handleChange} />
+                        <textarea type="text" className="_lyrics_entry_create" name="lyrics" onChange={this.handleChange} />
                     </div>
-                    {/* <Button type="cancel" className = "NavBtn" btnName="Cancel"/> */}
-                    <button type="submit" className="NavBtn_blue">Submit</button>
-                    {/* <Button type="submit" className = "NavBtn" btnName="Submit"/> */}
+                    <button type="submit" className="NavBtn">Submit</button>
                 </form>
             </div>
         )
     }
 }
 
-export default CreateLyrics;
+export default CreateLyrics
