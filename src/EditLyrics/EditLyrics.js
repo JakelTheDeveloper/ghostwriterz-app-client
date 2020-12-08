@@ -59,7 +59,7 @@ class EditLyrics extends Component {
                 lyrics: this.state.lyrics
             }),
             headers: {
-                "Content-type": "application/json charset=UTF-8"
+                'Content-Type': 'application/json'
             }
         })
             .then(response => response.json())
