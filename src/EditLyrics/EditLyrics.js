@@ -75,8 +75,6 @@ class EditLyrics extends Component {
         const sorted = this.context.lyrics.sort((a, b) => b[thisId] - a[thisId])
         let index = sorted.findIndex(lyrics => lyrics.id === thisId)
         let myLyrics = sorted[index]
-
-        // let userIndex = this.props.users.findIndex(user => user.id === this.props.current)
         let artist = this.props.user[0].nickname
         return (
             <div>
@@ -143,11 +141,8 @@ class EditLyrics extends Component {
                     <NavLink to="/viewlyrics" >
                         <button className="NavBtn">Cancel</button>
                     </NavLink>
-
-
                 </form>
             </div>
-
         )
     }
 }
