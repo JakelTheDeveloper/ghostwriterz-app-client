@@ -43,7 +43,7 @@ class EditLyrics extends Component {
     handleSubmit = e => {
         e.preventDefault()
 
-        let artist = this.props.users[0].id
+        let artist = this.props.user[0].id
 
         const loc = this.props.location.state.id
 
@@ -59,7 +59,7 @@ class EditLyrics extends Component {
                 lyrics: this.state.lyrics
             }),
             headers: {
-                'Content-Type': 'application/json'
+                "Content-type": "application/json"
             }
         })
             .then(response => response.json())
