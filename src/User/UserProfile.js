@@ -67,7 +67,7 @@ class UserProfile extends Component {
         return (
             <div className="demoPg">
                 <div className="dashboardItem_artist">
-                    <p>{artist}</p>
+                    <p className = "artist_name">{artist}</p>
                 </div>
                 <div className="dashboardItem">
                     <h4>{numWordsPosted}</h4>

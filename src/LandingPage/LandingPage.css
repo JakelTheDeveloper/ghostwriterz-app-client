@@ -1,14 +1,13 @@
 .Landing-Page {
-    background:linear-gradient(to bottom right,#161616 0,#060606);
+
     height: 100%;
     background-attachment: fixed;
 }
 article{
     margin-top: 10px;
     text-align: center;
-    color: lightskyblue;
-    border: solid 2px lightskyblue;
+    color:#FFC857;
+    border: solid 2px rgb(214, 179, 25);
     border-radius: 10px;
-    background-color: linear-gradient(to bottom right,#474646 0,#1b1b1b);
     display: inline-flex;
 }

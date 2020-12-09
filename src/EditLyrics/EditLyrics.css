@@ -5,11 +5,11 @@
 }
 
 h1{
-   color: lightskyblue;
+   color:#FFC857;
 }
 ._lyrics {
  background:linear-gradient(to bottom, rgb(17, 17, 17) 0, rgb(0, 3, 7));
- color:lightskyblue;
+ color:#FFC857;
  cursor: pointer;
  font-size: 1.6rem;
  margin-bottom: 2rem;
@@ -32,7 +32,7 @@ h1{
 }
 ._lyrics-creator {
    font-size: 100%;
- color: lightskyblue;
+   color:#FFC857;
  font-weight: 100;
 }
 ._lyrics-genre {
@@ -66,7 +66,7 @@ p{
   font-size: 120.25%;
   font-weight: 100;
   background-color: rgb(17, 17, 17);
-  color:lightskyblue;
+  color:#FFC857;
   padding: 2rem 4rem;
   width: 700px;
   height: 400px;

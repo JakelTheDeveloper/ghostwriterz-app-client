@@ -1,53 +1,5 @@
 .header_blue{
-  color: lightskyblue;
-    margin-top: 5px;
-    text-align: center;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-}
-.header_red{
-  color: lightcoral;
-    margin-top: 5px;
-    text-align: center;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-}
-.header_green{
-  color: lightgreen;
-    margin-top: 5px;
-    text-align: center;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-}
-.header_yellow{
-  color: lightyellow;
-    margin-top: 5px;
-    text-align: center;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-}
-.header_pink{
-  color: lightpink;
-    margin-top: 5px;
-    text-align: center;
-    height : 30px;
-    display: flex;
-    justify-content: center;
-}
-.header_orange{
-  color: lightsalmon;
-    margin-top: 5px;
-    text-align: center;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-}
-.header_purple{
-  color: lavender;
+  color:#FFC857;
     margin-top: 5px;
     text-align: center;
     height: 30px;
@@ -65,73 +17,7 @@ nav {
     list-style: none;
 }
 .Nav_blue .Ul_blue .Li_blue{
-  color:lightskyblue;
-  border-radius: 20px;
-  border-right: 2px solid white;
-  padding: 5px 5px;
-  margin-right: 10px;
-  margin: 0 10px 0 0;
-  font-family: 'Kite One', sans-serif;
-  font-size: 14px;
-  text-align: center;
-}
-.Nav_red .Ul_red .Li_red{
-  color:lightcoral;
-  border-radius: 20px;
-  border-right: 2px solid white;
-  padding: 5px 5px;
-  margin-right: 10px;
-  margin: 0 10px 0 0;
-  font-family: 'Kite One', sans-serif;
-  font-size: 14px;
-  text-align: center;
-}
- .Nav_green .Ul_green .Li_green{
-    color:lightgreen;
-    border-radius: 20px;
-    border-right: 2px solid white;
-    padding: 5px 5px;
-    margin-right: 10px;
-    margin: 0 10px 0 0;
-    font-family: 'Kite One', sans-serif;
-    font-size: 14px;
-    text-align: center;
-}
-.Nav_yellow .Ul_yellow .Li_yellow{
-  color:lightyellow;
-  border-radius: 20px;
-  border-right: 2px solid white;
-  padding: 5px 5px;
-  margin-right: 10px;
-  margin: 0 10px 0 0;
-  font-family: 'Kite One', sans-serif;
-  font-size: 14px;
-  text-align: center;
-}
-.Nav_pink .Ul_pink .Li_pink{
-  color:lightpink;
-  border-radius: 20px;
-  border-right: 2px solid white;
-  padding: 5px 5px;
-  margin-right: 10px;
-  margin: 0 10px 0 0;
-  font-family: 'Kite One', sans-serif;
-  font-size: 14px;
-  text-align: center;
-}
-.Nav_orange .Ul_orange .Li_orange{
-  color:lightsalmon;
-  border-radius: 20px;
-  border-right: 2px solid white;
-  padding: 5px 5px;
-  margin-right: 10px;
-  margin: 0 10px 0 0;
-  font-family: 'Kite One', sans-serif;
-  font-size: 14px;
-  text-align: center;
-}
-.Nav_purple .Ul_purple .Li_purple{
-  color:lavender;
+  color:#FFC857;
   border-radius: 20px;
   border-right: 2px solid white;
   padding: 5px 5px;
@@ -145,7 +31,7 @@ nav {
     margin-right: 0;
 }
 a{
-    color:lightskyblue
+  color:#FFC857;
 }
 a:link {
     text-decoration: none;

@@ -86,10 +86,10 @@ class CreateLyrics extends Component {
             <div>
                 <h2 id="signup-header">Create Lyrics</h2>
                 <form onSubmit={this.handleSubmit}>
-                    <label htmlFor="title">Title:</label>
+                    <label htmlFor="title" className = "title_label">Title:</label>
                     <input type="text" id="title" name="title" onChange={this.handleChange} />
                     <br />
-                    <label htmlFor="genre">&#x1F3BC;: </label>
+                    <label htmlFor="genre" className = "genre_label">&#x1F3BC;: </label>
                     <select id="genre" name="genre" onChange={this.handleChange}>
                         <option defaultValue="Hip Hop">Hip Hop</option>
                         <option value="Pop">Pop</option>
@@ -114,7 +114,7 @@ class CreateLyrics extends Component {
                         <option value="Gospel">Gospel</option>
                     </select>
                     <div>
-                        <label htmlFor="mood">&#127917;: </label>
+                        <label htmlFor="mood" className = "mood_label">&#127917;: </label>
                         <select id="mood" name="mood" onChange={this.handleChange}>
                             <option defaultValue="Happy">Happy</option>
                             <option value="Energetic">Energetic</option>
@@ -127,12 +127,12 @@ class CreateLyrics extends Component {
                             <option value="Annoyed">Annoyed</option>
                         </select>
                     </div>
-                    <label htmlFor="artist-name">&#9997;:</label>
+                    <p>&#9997;:</p>
                     <p>{artist}</p>
                     <br />
                     {<ValidationError message={this.state.error} clearError={this.clearError} />}
                     <div>
-                        <label htmlFor="lyrics-entry">Lyrics:</label>
+                        <label htmlFor="_lyrics_entry_create" className = "lyrics_label">Lyrics:</label>
                         <textarea type="text" className="_lyrics_entry_create" name="lyrics" onChange={this.handleChange} />
                     </div>
                     <button type="submit" className="NavBtn">Submit</button>

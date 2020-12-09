@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Button from '../Button/Button'
 import Database from '../LyricDatabase/Database'
 
 import './LyricDatabase.css'
@@ -66,7 +65,6 @@ class LyricDatabase extends Component {
                         <input type="text" id="lyrics-entry" name="lyrics" placeholder="Search By Lyrics Including" onChange={this.handleChange} />
                     </div>
                 </form>
-                <Button type="submit" className="NavBtn" btnName="Search" />
 
                 <div className="lyrics_list">
                     {lyrics.map(lyric =>

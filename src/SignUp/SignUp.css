@@ -1,19 +1,20 @@
 #signup-header{
-    color:lightskyblue;
+    color:#FFC857;
 }
- #email{
+#email{
+    text-align: right;
+    color:#FFC857;
     margin-top: 10px;
 } 
 #name{
+    text-align: right;
+    color:#FFC857;
     margin-top: 10px;
 } 
-#username{
-    margin-top: 10px;
-} 
-#password{
-    margin-top: 10px;
-}
+
 #password-confirm{
+    text-align: right;
+    color:#FFC857;
     margin-top: 10px;
 }
 .NavBtn_blue{

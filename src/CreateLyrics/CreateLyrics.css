@@ -2,14 +2,29 @@
   font-size: 120.25%;
   font-weight: 100;
   background-color: rgb(17, 17, 17);
-  color:lightskyblue;
+  color:#FFC857;
   padding: 2rem 4rem;
   width: 700px;
   height: 400px;
  display:inline-flex;
 }
+
+.title_label{
+  color:#FFC857;
+  text-align: right;
+}
+.genre_label{
+  text-align: right;
+}
+.mood_label{
+  text-align: right;
+}
+.lyrics_label{
+  color:#FFC857;
+  text-align: right;
+}
  p{
-  color:lightskyblue;
+  color:#FFC857;
  }
  @media (max-width: 56.25em){
   html{

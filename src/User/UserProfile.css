@@ -1,11 +1,14 @@
 .demoPg{
-    color:lightskyblue;
-    align-items: left;
+    color:#FFC857;
+    align-items: center;
     display:flex;
     justify-content: space-between;
     width: 90%;
+   
 }
-
+.artist_name{
+    color:#FFC857;
+}
 .dashboardItem {
     margin-top: 10px;
     font-size: 135.25%;
@@ -24,14 +27,14 @@
 }
 
 @media (max-width: 56.25em){
-    
+
 html{
     font-size: 56.25%;
     line-height: 1.15;
 }
     
 .demoPg{
-    color:lightskyblue;
+    color:#FFC857;
     align-items: center;
     display:flex;
     justify-content: space-between;

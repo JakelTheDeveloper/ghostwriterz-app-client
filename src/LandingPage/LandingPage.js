@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
-import Button from '../Button/Button'
 import AppContext from '../App/AppContext'
 import './LandingPage.css'
 
@@ -27,7 +26,7 @@ class LandingPage extends Component {
                     </section>
                 </div>
                 <NavLink className="lyrics_link" to="/lyrics" >
-                    <button className="NavBtn" btnName="Find Lyrics">Find Lyrics</button>
+                    <button className="NavBtn">Find Lyrics</button>
                 </NavLink>
             </div>
         )
