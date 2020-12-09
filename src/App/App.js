@@ -70,6 +70,8 @@ class App extends Component {
 
   setData = () => {
     let myLyrics = []
+    let params
+    let {isAuthenticated,demo,current,user,lyrics} = this.state
     const decodedToken = decode(TokenService.getAuthToken())
     fetch(`${config.URL}/api/lyrics`)
       .then(response => {
@@ -85,36 +87,46 @@ class App extends Component {
       })
       .then(users => {
         this.setState({
-          users: users, user: this.state.user = users.filter(user => user.id === decodedToken.user.id),
-          current: this.state.current = users.filter(user => user.id === decodedToken.user.id), lyrics: this.state.lyrics = myLyrics,
-          isAuthenticated: this.state.isAuthenticated = true, demo: this.state.demo = false
+          users: users, user: user = users.filter(user => user.id === decodedToken.user.id),
+          current: current = users.filter(user => user.id === decodedToken.user.id), lyrics: lyrics = myLyrics,
+          isAuthenticated: isAuthenticated = true, demo: demo = false
         })
+        params = {current,user,lyrics,demo,isAuthenticated}
+        this.handleUsage(params)
       }).catch(error => this.setState({ error: error.message }))
   }
 
-
+handleUsage(params){
+  return 
+}
   updateUser(user) {
     let { isAuthenticated, current } = this.state
+    let params
     this.setState({
       user, current: current = user[0].id,
       isAuthenticated: isAuthenticated = true
     })
+    params = {current,isAuthenticated}
+    this.handleUsage(params)
   }
 
 
   updateAuth = () => {
     let { isAuthenticated, demo, username, current, user } = this.state
+    let params
     TokenService.clearAuthToken(config.TOKEN_KEY)
     this.setState({
       isAuthenticated: isAuthenticated = false,
       demo: demo = false, username: username = "DemoFoo",
       current: current = 0, user: user = []
     })
+    params = {current,user,username,demo,isAuthenticated}
+    this.handleUsage(params)
   }
 
   updateDemoState = () => {
-    let { demo, resData, isAuthenticated } = this.state
-    this.setState({ demo: demo = !demo, resData: resData = 'demoToken', isAuthenticated: isAuthenticated = !isAuthenticated })
+    let { demo, isAuthenticated } = this.state
+    this.setState({ demo: demo = !demo, isAuthenticated: isAuthenticated = !isAuthenticated })
   }
 
   deleteLyrics = lyricId => {

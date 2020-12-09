@@ -60,6 +60,12 @@ class Database extends Component {
     }
 
     renderLyricsNav() {
+        let currentArtist
+        if(this.props.current === 0){
+            currentArtist = this.props.artist
+        }else{
+            currentArtist = "DemoFoo"
+        }
         if (this.props.editable) {
             return (
                 <div className="lyrics_nav">
@@ -73,7 +79,7 @@ class Database extends Component {
                             title: this.props.title,
                             genre: this.props.genre,
                             mood: this.props.mood,
-                            artist: this.props.artist,
+                            artist: currentArtist,
                             lyrics: this.props.lyrics
                         }
                     }}><button className="NavBtn_A">&#9999;</button></Link>

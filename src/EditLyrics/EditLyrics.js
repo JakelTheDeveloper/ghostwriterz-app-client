@@ -3,6 +3,7 @@ import AppContext from '../App/AppContext'
 import ValidationError from '../ValidationError'
 import { NavLink } from 'react-router-dom'
 import config from '../config'
+import lyricsStore from '../STORE'
 import './EditLyrics.css'
 
 class EditLyrics extends Component {
@@ -42,40 +43,54 @@ class EditLyrics extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
+        if (this.props.current === 0) {
+            this.props.history.push(`/signin`)
+        } else {
+            let artist = this.props.user[0].id
 
-        let artist = this.props.user[0].id
+            const loc = this.props.location.state.id
 
-        const loc = this.props.location.state.id
-
-        // validation not shown
-        fetch(`${config.URL}/api/lyrics/${loc}`, {
-            method: 'PATCH',
-            body: JSON.stringify({
-                id: this.state.id,
-                title: this.state.title,
-                genre: this.state.genre,
-                mood: this.state.mood,
-                artist: artist,
-                lyrics: this.state.lyrics
-            }),
-            headers: {
-                "Content-type": "application/json"
-            }
-        })
-            .then(response => response.json())
-            .then(response => {
-                this.context.updateLyrics(response)
-                this.props.history.push(`/viewlyrics`)
+            // validation not shown
+            fetch(`${config.URL}/api/lyrics/${loc}`, {
+                method: 'PATCH',
+                body: JSON.stringify({
+                    id: this.state.id,
+                    title: this.state.title,
+                    genre: this.state.genre,
+                    mood: this.state.mood,
+                    artist: artist,
+                    lyrics: this.state.lyrics
+                }),
+                headers: {
+                    "Content-type": "application/json"
+                }
             })
-            .catch(error => this.setState({ error: error.message }))
+                .then(response => response.json())
+                .then(response => {
+                    this.context.updateLyrics(response)
+                    this.props.history.push(`/viewlyrics`)
+                })
+                .catch(error => this.setState({ error: error.message }))
+        }
     }
 
     render() {
-        const thisId = this.state.id
-        const sorted = this.context.lyrics.sort((a, b) => b[thisId] - a[thisId])
-        let index = sorted.findIndex(lyrics => lyrics.id === thisId)
+        let thisId
+        let artist
+        let sorted
+        let index
+        if (this.props.current === 0) {
+            thisId = 1
+            artist = "DemoFoo"
+            sorted = lyricsStore.sort((a, b) => b[thisId] - a[thisId])
+            index = sorted.findIndex(lyrics => lyrics.id === thisId)
+        } else {
+            thisId = this.state.id
+            artist = this.props.user[0].nickname
+            sorted = this.context.lyrics.sort((a, b) => b[thisId] - a[thisId])
+            index = sorted.findIndex(lyrics => lyrics.id === thisId)
+        }
         let myLyrics = sorted[index]
-        let artist = this.props.user[0].nickname
         return (
             <div>
                 <h1>Edit Lyrics</h1>
@@ -83,7 +98,7 @@ class EditLyrics extends Component {
                     <div className="lyrics_header">
                         <div className="_lyrics_info-container">
                             <div className="_lyrics_title-box">
-                                <input type="text" name="title" className="_lyrics_title_edit" onChange={this.handleChange} defaultValue={myLyrics.title} />
+                                <input type="text" name="title" className="_lyrics_title_edit" onChange={this.handleChange} defaultValue={myLyrics.title} required />
                             </div>
                             <div className="_lyrics_info-box">
                                 <label htmlFor="genre">&#x1F3BC;: </label>
@@ -135,7 +150,7 @@ class EditLyrics extends Component {
                     </div>
                     {<ValidationError message={this.state.error} clearError={this.clearError} />}
                     <div className="_lyrics_body">
-                        <textarea className="_lyrics_entry_edit" name="lyrics" onChange={this.handleChange} defaultValue={myLyrics.lyrics}></textarea>
+                        <textarea className="_lyrics_entry_edit" name="lyrics" onChange={this.handleChange} defaultValue={myLyrics.lyrics} required></textarea>
                     </div>
                     <button type="submit" className="NavBtn">Submit</button>
                     <NavLink to="/viewlyrics" >
