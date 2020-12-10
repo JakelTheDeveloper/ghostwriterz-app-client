@@ -8,7 +8,7 @@ import App from './App';
 // });
 
 
-test('App', () => {
+test('App Renders', () => {
    <App />
       expect(200)
 })

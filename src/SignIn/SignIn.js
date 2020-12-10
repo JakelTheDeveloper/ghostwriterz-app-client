@@ -74,7 +74,7 @@ class SignIn extends Component {
                     <input type="text" className="username" name="username" onChange={this.handleChange} />
                     <br />
                     <label htmlFor="password" id="password">Password:</label>
-                    <input type="text" className="password" name="password" onChange={this.handleChange} />
+                    <input type="password" className="password" name="password" onChange={this.handleChange} />
                     <br />
                     </div>
                     {<ValidationError message={this.state.error} clearError={this.clearError} />}

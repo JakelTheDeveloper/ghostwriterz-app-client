@@ -78,7 +78,7 @@ class SignUp extends Component {
                     <input type="text" className="email" name="email" onChange={this.handleChange} />
                     <br />
                     <label htmlFor="password" id = "password">Password:</label>
-                    <input type="text" className="password" name="password" onChange={this.handleChange} />
+                    <input type="password" className="password" name="password" onChange={this.handleChange} />
                     <br />
                     <label htmlFor="password_confirm" id = "password-confirm">Confirm password:</label>
                     <input type="text" className="password-confirm" name="password_confirm" onChange={this.handleChange} />
