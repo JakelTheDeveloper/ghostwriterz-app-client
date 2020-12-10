@@ -52,17 +52,17 @@
     font-size: 16px;
 }
 #email{
-    text-align: right;
+    text-align: left;
     font-size: 16px;
 } 
 #name{
-    text-align: right;
+    text-align: left;
     margin-top: 10px;
     font-size: 16px;
 } 
 
 #password-confirm{
-    text-align: right;
+    text-align: left;
     font-size: 16px;
 }
 .NavBtn_blue{
