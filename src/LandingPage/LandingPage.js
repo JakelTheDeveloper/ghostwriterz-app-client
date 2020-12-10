@@ -24,6 +24,9 @@ class LandingPage extends Component {
                             Share your lyrics to the community for others to use <br /> to help them out of writers block.
                     </article>
                     </section>
+                    <section>
+                    <article>Demo Credentials:<br/>Email: demofoo@gmail.com <br/> Password: P@ssword1234</article>
+                    </section>
                 </div>
                 <NavLink className="lyrics_link" to="/lyrics" >
                     <button className="NavBtn">Find Lyrics</button>

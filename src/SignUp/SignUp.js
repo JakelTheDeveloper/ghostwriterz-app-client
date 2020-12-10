@@ -81,7 +81,7 @@ class SignUp extends Component {
                     <input type="password" className="password" name="password" onChange={this.handleChange} />
                     <br />
                     <label htmlFor="password_confirm" id = "password-confirm">Confirm password:</label>
-                    <input type="text" className="password-confirm" name="password_confirm" onChange={this.handleChange} />
+                    <input type="password" className="password-confirm" name="password_confirm" onChange={this.handleChange} />
                     <br />
                     <button type="submit" className="NavBtn">Submit</button>
                     <button type="cancel" className="NavBtn" onClick={() => this.props.history.push('/')}>Cancel</button>
