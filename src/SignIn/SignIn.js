@@ -70,11 +70,11 @@ class SignIn extends Component {
                 <h2 id="signin-header">Sign In</h2>
                 <form id = "signin_form" onSubmit={this.handleSubmitBasicAuth}>
                     <div className = "elements">
-                    <label htmlFor="username" id="username">Email:</label>
-                    <input type="text" className="username" name="username" onChange={this.handleChange} />
+                    <label htmlFor="username" className="username">Email:</label>
+                    <input type="text" id="username" name="username" onChange={this.handleChange} />
                     <br />
-                    <label htmlFor="password" id="password">Password:</label>
-                    <input type="password" className="password" name="password" onChange={this.handleChange} />
+                    <label htmlFor="password" className="password">Password:</label>
+                    <input type="password" id="password" name="password" onChange={this.handleChange} />
                     <br />
                     </div>
                     {<ValidationError message={this.state.error} clearError={this.clearError} />}

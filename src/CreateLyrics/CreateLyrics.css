@@ -2,29 +2,53 @@
   font-size: 120.25%;
   font-weight: 100;
   background-color: rgb(17, 17, 17);
-  color:#FFC857;
+  color:rgb(0, 90, 173);
   padding: 2rem 4rem;
   width: 700px;
   height: 400px;
  display:inline-flex;
 }
-
-.title_label{
-  color:#FFC857;
+/* #username{
+  font-size: 16px;
+}
+.username{
   text-align: right;
+  color:rgb(0, 90, 173);
+  font-weight: 600;
+  font-size: 15px;
+  margin-top: 10px;
+} */
+.title_label{
+  color:rgb(0, 90, 173);
+  text-align: right;
+  font-weight: 600;
+  font-size: 15px;
+
 }
 .genre_label{
   text-align: right;
+  margin-top: 5px;
+  font-weight: 600;
+  font-size: 15px;
 }
 .mood_label{
   text-align: right;
+  font-weight: 600;
+  font-size: 15px;
 }
 .lyrics_label{
-  color:#FFC857;
+  color:rgb(0, 90, 173);
   text-align: right;
+  font-weight: 600;
+  font-size: 15px;
+}
+.lyrics_label,._lyrics_entry_create{
+  vertical-align: top;
 }
  p{
-  color:#FFC857;
+  color:rgb(0, 90, 173);
+  font-weight: 600;
+  font-size: 15px;
  }
  @media (max-width: 56.25em){
   html{

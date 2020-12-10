@@ -1,5 +1,5 @@
 .demoPg{
-    color:#FFC857;
+    color:rgb(0, 90, 173);
     align-items: center;
     display:flex;
     justify-content: space-between;
@@ -7,12 +7,12 @@
    
 }
 .artist_name{
-    color:#FFC857;
+    color:rgb(0, 90, 173);
 }
 .dashboardItem {
     margin-top: 10px;
     font-size: 135.25%;
-    font-weight: 100;
+    font-weight: 600;
     display: block;
     width:6rem;
     box-sizing: border-box;
@@ -34,7 +34,7 @@ html{
 }
     
 .demoPg{
-    color:#FFC857;
+    color:rgb(0, 90, 173);
     align-items: center;
     display:flex;
     justify-content: space-between;
@@ -54,7 +54,7 @@ html{
 .dashboardItem_artist {
     margin-top: 10px;
     font-size: small;
-    font-weight: 100;
+    font-weight: 600;
     margin-block-start: 1em;
     margin-block-end: 1em;
     margin-inline-start: 0px;

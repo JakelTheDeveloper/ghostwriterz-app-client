@@ -5,9 +5,30 @@
 #mood{
    margin-top: 5px;
 }
+.labelItem{
+    text-align: right;
+    color:rgb(0, 90, 173);
+    font-weight: 600;
+    font-size: 18px;
+    margin-top: 10px;
+}
+#title{
+    font-size: 16px;
+}
+
+
+#artist-name{
+    font-size: 16px;
+}
+
+
+#lyrics-entry{
+    font-size: 16px;
+}
+
 
 label{
-    color:lightskyblue
+    color:rgb(0, 90, 173);
 }
 
 .lyrics_list {
@@ -19,3 +40,25 @@ label{
     animation-delay: .9s;
 }
 
+@media (max-width: 56.25em){
+    html{
+        font-size: 56.25%;
+        line-height: 1.15;
+    }
+    .labelItem{
+        text-align: right;
+        color:rgb(0, 90, 173);
+        font-weight: 600;
+        font-size: 12px;
+        margin-top: 10px;
+    }
+    #title{
+        font-size: 12px;
+    }
+    #artist-name{
+        font-size: 12px;
+    }
+    #lyrics-entry{
+        font-size: 12px;
+    }
+}

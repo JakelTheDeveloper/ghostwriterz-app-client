@@ -130,12 +130,13 @@ class CreateLyrics extends Component {
                     <p>&#9997;:</p>
                     <p>{artist}</p>
                     <br />
+                    <button type="submit" className="NavBtn">Submit</button>
                     {<ValidationError message={this.state.error} clearError={this.clearError} />}
                     <div>
                         <label htmlFor="_lyrics_entry_create" className = "lyrics_label">Lyrics:</label>
                         <textarea type="text" className="_lyrics_entry_create" name="lyrics" onChange={this.handleChange} />
                     </div>
-                    <button type="submit" className="NavBtn">Submit</button>
+                   
                 </form>
             </div>
         )

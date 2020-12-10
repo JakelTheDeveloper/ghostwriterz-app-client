@@ -1,10 +1,11 @@
 .NavBtn{
     margin-top: 10px;
+    margin-bottom: 10px;
     text-align: center;
-    background:linear-gradient(to bottom,#ffc420 0,#b19000);
+    background:linear-gradient(to bottom,#2079ff 0,#0053b1);
     border-radius: 80px;
     border:0;
-    color:black;
+    color:white;
     display: inline;
     font-size:12px;
     font-weight: bold;
@@ -15,10 +16,10 @@
 .NavBtn_A{
     margin-top: 10px;
     text-align: center;
-    background:linear-gradient(to bottom,#ffc420 0,#b19000);
+    background:linear-gradient(to bottom,#2079ff 0,#0053b1);
     border-radius: 80px;
     border:0;
-    color:black;
+    color:white;
     display: inline;
     font-size:20px;
     font-weight: bold;

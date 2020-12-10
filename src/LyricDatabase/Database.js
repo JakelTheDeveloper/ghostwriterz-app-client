@@ -137,7 +137,6 @@ class Database extends Component {
                         <span className="lyrics_title">{title}</span>
                     </div>
                     <div className="lyrics_info-container">
-
                         <div className="lyrics_info-box">
                             <span className="lyrics-genre">&#x1F3BC;: {genre}</span>
                         </div>

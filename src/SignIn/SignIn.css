@@ -1,20 +1,32 @@
 
 #signin-header{
-    color:#FFC857;
+    color:rgb(0, 90, 173);
+    font-weight: 600;
+    font-size: 20px;
 }
 label{
     width:240px;
     margin-left: -230px;
     display: inline-block;
 }
+#password{
+    font-size: 16px;
+}
 #username{
+    font-size: 16px;
+}
+.username{
     text-align: right;
-    color:#FFC857;
+    color:rgb(0, 90, 173);
+    font-weight: 600;
+    font-size: 15px;
     margin-top: 10px;
 }
-#password{
+.password{
     text-align: right;
-    color:#FFC857;
+    color:rgb(0, 90, 173);
+    font-weight: 600;
+    font-size: 15px;
     margin-top: 10px;
 }
 .error{
