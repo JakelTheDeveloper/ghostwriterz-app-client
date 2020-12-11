@@ -29,7 +29,13 @@
   font-weight: 600;
   font-size: 15px;
 }
-
+._lyrics_header{
+  align-items: center;
+  display: inline-flex;
+  justify-content: space-between;
+  transition: all .4s ease-in-out;
+  animation: 0.4s ease-in-out fadeIn 1;
+}
 .lyrics_label {
   color: rgb(0, 90, 173);
   text-align: right;
