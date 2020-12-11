@@ -52,7 +52,7 @@ class LyricDatabase extends Component {
 
         return (
             <div>
-                <h1>View Lyrics</h1>
+                <h1>Find Lyrics</h1>
                 
                     <label htmlFor="title" className = "labelItem">Filter By Title:</label>
                     <input type="text" id="title" name="title" onChange={this.handleChange} />
