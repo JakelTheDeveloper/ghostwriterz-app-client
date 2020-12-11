@@ -63,7 +63,7 @@ class Viewlyrics extends Component {
 
         return (
             <div>
-                <h2 id="signup-header">View Lyrics</h2>
+                <h1>View Lyrics</h1>
               
                     <label htmlFor="title" className = "labelItem">Filter By Title:</label>
                     <input type="text" id="title" name="title" onChange={this.handleChange} />
@@ -72,7 +72,7 @@ class Viewlyrics extends Component {
                     <input type="text" id="artist-name" name="artist" onChange={this.handleChange} />
                     <br />
                     <div>
-                        <label htmlFor="lyrics-entry" className = "labelItem">Filter By lyrics:</label>
+                        <label htmlFor="lyrics-entry" className = "labelItem">Filter By Lyrics:</label>
                         <input type="text" id="lyrics-entry" name="lyrics" onChange={this.handleChange} />
                     </div>
                

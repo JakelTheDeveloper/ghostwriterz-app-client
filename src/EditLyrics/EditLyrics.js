@@ -158,7 +158,7 @@ class EditLyrics extends Component {
                     {<ValidationError message={this.state.error} clearError={this.clearError} />}
                     <div className="_lyrics_body">
                     <label htmlFor="_lyrics_entry_edit" className = "lyrics_edit_label">Lyrics:</label>
-                        <textarea className="_lyrics_entry_edit" id = "lyrics" name="lyrics" onChange={this.handleChange} defaultValue={myLyrics.lyrics} required></textarea>
+                        <textarea className="_lyrics_entry_edit" id = "_lyrics_entry_edit" name="lyrics" onChange={this.handleChange} defaultValue={myLyrics.lyrics} required></textarea>
                     </div>
                 </form>
             </div>

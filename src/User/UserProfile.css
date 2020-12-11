@@ -22,7 +22,10 @@
     width:6rem;
     box-sizing: border-box;
 }
-
+.artist_name{
+    font-size: 20px;
+    font-weight: 680;
+}
 .dashboardItem_artist {
     margin-top: 10px;
     font-size: 18px;

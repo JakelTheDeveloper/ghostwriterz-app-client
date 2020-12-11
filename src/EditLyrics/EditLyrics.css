@@ -66,7 +66,7 @@ p{
   font-size: 120.25%;
   font-weight: 100;
   background-color: rgb(17, 17, 17);
-  color:rgb(0, 90, 173);
+  color:rgb(55, 145, 230);
   padding: 2rem 4rem;
   width: 700px;
   height: 400px;
@@ -87,7 +87,7 @@ div{
 .lyrics_edit_label{
     color:rgb(0, 90, 173);
     text-align: right;
-    font-weight: 200;
+    font-weight: 600;
     font-size: 18px;
 }
 @media (max-width: 56.25em){

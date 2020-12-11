@@ -84,59 +84,67 @@ class CreateLyrics extends Component {
         }
         return (
             <div>
-                <h2 id="signup-header">Create Lyrics</h2>
+                <h1>Create Lyrics</h1>
                 <form onSubmit={this.handleSubmit}>
-                    <label htmlFor="title" className = "title_label">Title:</label>
-                    <input type="text" id="title" name="title" onChange={this.handleChange} />
-                    <br />
-                    <label htmlFor="genre" className = "genre_label">&#x1F3BC;: </label>
-                    <select id="genre" name="genre" onChange={this.handleChange}>
-                        <option defaultValue="Hip Hop">Hip Hop</option>
-                        <option value="Pop">Pop</option>
-                        <option value="Rock">Rock</option>
-                        <option value="Jazz">Jazz</option>
-                        <option value="Folk">Folk</option>
-                        <option value="Musical">Musical</option>
-                        <option value="Country">Country</option>
-                        <option value="Classical">Classical</option>
-                        <option value="Heavy Metal">Heavy Metal</option>
-                        <option value="Rhythm and Blues">Rhythm and Blues</option>
-                        <option value="Electronic Dance">Electronic Dance</option>
-                        <option value="Punk">Punk</option>
-                        <option value="Soul">Soul</option>
-                        <option value="Electronic Music">Electronic Music</option>
-                        <option value="Rap">Rap</option>
-                        <option value="Reggae">Reggae</option>
-                        <option value="Funk">Funk</option>
-                        <option value="Disco">Disco</option>
-                        <option value="House">House</option>
-                        <option value="Techno">Techno</option>
-                        <option value="Gospel">Gospel</option>
-                    </select>
-                    <div>
-                        <label htmlFor="mood" className = "mood_label">&#127917;: </label>
-                        <select id="mood" name="mood" onChange={this.handleChange}>
-                            <option defaultValue="Happy">Happy</option>
-                            <option value="Energetic">Energetic</option>
-                            <option value="Sad">Sad</option>
-                            <option value="Calm">Calm</option>
-                            <option value="Depression">Depression</option>
-                            <option value="Anger">Anger</option>
-                            <option value="Carefree">Carefree</option>
-                            <option value="Gloomy">Gloomy</option>
-                            <option value="Annoyed">Annoyed</option>
-                        </select>
+                    <div className="lyrics_header">
+                        <div className="_lyrics_info-container">
+                            <label htmlFor="title" className="title_label">Title:</label>
+                            <input type="text" id="title" name="title" onChange={this.handleChange} className="_lyrics_title_edit" />
+                            <br />
+                            <div className="_lyrics_info-box">
+                                <label htmlFor="genre" className="genre_label">&#x1F3BC;: </label>
+                                <select id="genre" name="genre" onChange={this.handleChange} className="_lyrics-genre">
+                                    <option defaultValue="Hip Hop">Hip Hop</option>
+                                    <option value="Pop">Pop</option>
+                                    <option value="Rock">Rock</option>
+                                    <option value="Jazz">Jazz</option>
+                                    <option value="Folk">Folk</option>
+                                    <option value="Musical">Musical</option>
+                                    <option value="Country">Country</option>
+                                    <option value="Classical">Classical</option>
+                                    <option value="Heavy Metal">Heavy Metal</option>
+                                    <option value="Rhythm and Blues">Rhythm and Blues</option>
+                                    <option value="Electronic Dance">Electronic Dance</option>
+                                    <option value="Punk">Punk</option>
+                                    <option value="Soul">Soul</option>
+                                    <option value="Electronic Music">Electronic Music</option>
+                                    <option value="Rap">Rap</option>
+                                    <option value="Reggae">Reggae</option>
+                                    <option value="Funk">Funk</option>
+                                    <option value="Disco">Disco</option>
+                                    <option value="House">House</option>
+                                    <option value="Techno">Techno</option>
+                                    <option value="Gospel">Gospel</option>
+                                </select>
+                            </div>
+                            <div>
+                                <div className="_lyrics_info-box">
+                                    <label htmlFor="mood" className="mood_label">&#127917;: </label>
+                                    <select id="mood" name="mood" onChange={this.handleChange} className="_lyrics-mood">
+                                        <option defaultValue="Happy">Happy</option>
+                                        <option value="Energetic">Energetic</option>
+                                        <option value="Sad">Sad</option>
+                                        <option value="Calm">Calm</option>
+                                        <option value="Depression">Depression</option>
+                                        <option value="Anger">Anger</option>
+                                        <option value="Carefree">Carefree</option>
+                                        <option value="Gloomy">Gloomy</option>
+                                        <option value="Annoyed">Annoyed</option>
+                                    </select>
+                                </div>
+                                <p>&#9997;:</p>
+                                <p>{artist}</p>
+                            </div>
+                        </div>
                     </div>
-                    <p>&#9997;:</p>
-                    <p>{artist}</p>
                     <br />
                     <button type="submit" className="NavBtn">Submit</button>
                     {<ValidationError message={this.state.error} clearError={this.clearError} />}
                     <div>
-                        <label htmlFor="_lyrics_entry_create" className = "lyrics_label">Lyrics:</label>
-                        <textarea type="text" className="_lyrics_entry_create" name="lyrics" onChange={this.handleChange} />
+                        <label htmlFor="_lyrics_entry_create" className="lyrics_label">Lyrics:</label>
+                        <textarea type="text" className="_lyrics_entry_create" id="_lyrics_entry_create" name="lyrics" onChange={this.handleChange} />
                     </div>
-                   
+
                 </form>
             </div>
         )
