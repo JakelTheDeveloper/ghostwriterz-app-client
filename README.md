@@ -6,6 +6,8 @@ Ghostwriterz is an app designed to help music artist with writer's block. Users 
 
 #### *[LIVE APP](https://ghostwriterz-app.vercel.app/)*
 
+#### *[BACKEND REPO](https://github.com/JakelTheDeveloper/ghostwriterz-app-server)*
+
 ----------------------------------------------------------------------
 
 ## User Stories

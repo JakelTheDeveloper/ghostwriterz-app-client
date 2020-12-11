@@ -98,11 +98,11 @@ class EditLyrics extends Component {
                     <div className="_lyrics_header">
                         <div className="_lyrics_info-container">
                             <div className="_lyrics_title-box">
-                                <label htmlFor = "title" className = "_title_label">Title:</label>
-                                <input type="text" name="title" id = "title" className="_lyrics_title_edit" onChange={this.handleChange} defaultValue={myLyrics.title} required />
+                                <label htmlFor="title" className="_title_label">Title:</label>
+                                <input type="text" name="title" id="title" className="_lyrics_title_edit" onChange={this.handleChange} defaultValue={myLyrics.title} required />
                             </div>
                             <div className="_lyrics_info-box">
-                                <label htmlFor="genre" className = "_genre_label">&#x1F3BC;: </label>
+                                <label htmlFor="genre" className="_genre_label">&#x1F3BC;: </label>
                                 <select id="genre" name="genre" onChange={this.handleChange} className="_lyrics-genre">
                                     <option defaultValue={myLyrics.genre}>{myLyrics.genre}</option>
                                     <option value="Hip Hop">Hip Hop</option>
@@ -130,7 +130,7 @@ class EditLyrics extends Component {
 
                             </div>
                             <div className="_lyrics_info-box">
-                                <label htmlFor="mood" className = "_mood_label">&#127917;: </label>
+                                <label htmlFor="mood" className="_mood_label">&#127917;: </label>
                                 <select id="mood" name="mood" onChange={this.handleChange} className="_lyrics-mood" >
                                     <option defaultValue={myLyrics.mood}>{myLyrics.mood}</option>
                                     <option value="Happy">Happy</option>
@@ -144,21 +144,21 @@ class EditLyrics extends Component {
                                     <option value="Annoyed">Annoyed</option>
                                 </select>
                             </div>
-                            <br/>
+                            <br />
                             <div className="_lyrics_info-box">
                                 <span className="_lyrics-creator">&#9997;: {artist}</span>
                             </div>
                         </div>
                     </div>
-                    <br/>
+                    <br />
                     <button type="submit" className="NavBtn">Submit</button>
                     <NavLink to="/viewlyrics" >
                         <button className="NavBtn">Cancel</button>
                     </NavLink>
                     {<ValidationError message={this.state.error} clearError={this.clearError} />}
                     <div className="_lyrics_body">
-                    <label htmlFor="_lyrics_entry_edit" className = "lyrics_edit_label">Lyrics:</label>
-                        <textarea className="_lyrics_entry_edit" id = "_lyrics_entry_edit" name="lyrics" onChange={this.handleChange} defaultValue={myLyrics.lyrics} required></textarea>
+                        <label htmlFor="_lyrics_entry_edit" className="lyrics_edit_label">Lyrics:</label>
+                        <textarea className="_lyrics_entry_edit" id="_lyrics_entry_edit" name="lyrics" onChange={this.handleChange} defaultValue={myLyrics.lyrics} required></textarea>
                     </div>
                 </form>
             </div>
