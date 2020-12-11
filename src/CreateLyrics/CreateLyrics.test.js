@@ -11,6 +11,9 @@ test('Create Lyrics Renders', () => {
        expect(200)
  })
 
- test('title is blank',()=>{
-     <CreateLyrics data = {data}/>
+ test(`handleSubmit() returns 'missing title when missing title' `,()=>{
+        return CreateLyrics.handleSubmit(data)
+            .then(actual => {
+                expect(actual).to.eql("Title must not be blank!")
+            })
  })

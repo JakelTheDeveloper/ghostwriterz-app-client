@@ -15,7 +15,7 @@
 
 .dashboardItem {
     margin-top: 10px;
-    margin-left: 600px;
+    margin-left: 595px;
     font-size: 18px;
     font-weight: 600;
     display: block;
@@ -38,22 +38,16 @@
 }
 
 @media (max-width: 56.25em) {
+    html {
+        font-size: 20%;
+        line-height: 1.15;
+     }
     .demoPg {
         color: rgb(0, 90, 173);
     }
     .dashboard_Item {
         font-size: 15px;
         font-weight: 250;
-    }
-    .dashboardItem {
-        margin-top: 10px;
-        margin-left: 600px;
-        font-size: 18px;
-        font-weight: 600;
-        display: block;
-        width:20%;
-        border: 1px solid rgb(0, 90, 173);
-        border-radius: 80px 80px 80px 80px;
     }
     .dashboardItem {
         margin-top: 10px;
@@ -65,13 +59,13 @@
         border-radius: 80px 80px 80px 80px;
         margin-block-start: 1em;
         margin-block-end: 5em;
-        margin-inline-start: 80px;
+        margin-inline-start: 90px;
         margin-inline-end: 0px;
     }
     .artist_name {
         color: rgb(0, 90, 173);
-        font-size: 15px;
-        font-weight: 200;
+        font-size: 20px;
+        font-weight: 800;
     }
     .dashboardItem_artist {
         margin-top: 10px;
