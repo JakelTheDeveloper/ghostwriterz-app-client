@@ -1,7 +1,6 @@
 .genre-form{
     margin-top: 20px;
 }
-
 #mood{
    margin-top: 5px;
 }
@@ -15,13 +14,9 @@
 #title{
     font-size: 16px;
 }
-
-
 #artist-name{
     font-size: 16px;
 }
-
-
 #lyrics-entry{
     font-size: 16px;
 }
@@ -48,7 +43,7 @@ label{
     .labelItem{
         text-align: right;
         color:rgb(0, 90, 173);
-        font-weight: 600;
+        font-weight: 300;
         font-size: 12px;
         margin-top: 10px;
     }

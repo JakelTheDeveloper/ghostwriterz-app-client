@@ -1,45 +1,59 @@
-*,:after,:before{
-   margin: 2px;
-  padding: 0;
-  box-sizing: border-box;
-}
+ ._lyrics_info-container {
+  align-items: center;
+  display: block;
+  width: 100%;
+ }
 
 h1{
-   color:#FFC857;
-}
-._lyrics {
- background:linear-gradient(to bottom, rgb(17, 17, 17) 0, rgb(0, 3, 7));
- color:#FFC857;
- cursor: pointer;
- font-size: 1.6rem;
- margin-bottom: 2rem;
- padding: 1.5rem 2rem;
- transition: all .4s ease-in-out;
- animation: 0.4s ease-in-out fadeIn 1;
- line-height: 1.7;
+   color:rgb(0, 90, 173);
 }
 
+._title_label{
+  color:rgb(0, 90, 173);
+  text-align: right;
+  font-weight: 600;
+  font-size: 15px;
+}
+._genre_label{
+  text-align: right;
+  margin-top: 5px;
+  font-weight: 600;
+  font-size: 15px;
+}
+._mood_label{
+  text-align: right;
+  margin-top: 5px;
+  font-weight: 600;
+  font-size: 15px;
+}
 ._lyrics_title_edit {
-  margin-top: 30px;
-  font-weight: 200;
-  font-size: 120%;
-  transition: all .4s ease-in-out;
-  animation: 0.4s ease-in-out fadeIn 1;
+  color:black;
+  text-align: left;
+  font-weight: 600;
+  font-size: 15px;
 }
 ._lyrics-mood {
-  font-size: 100%;
- font-weight: 100;
+  color:black;
+  text-align: left;
+  font-weight: 600;
+  font-size: 15px;
 }
 ._lyrics-creator {
-   font-size: 100%;
-   color:#FFC857;
- font-weight: 100;
+  color:rgb(0, 90, 173);
+  text-align: left;
+  font-weight: 600;
+  font-size: 15px;
+  margin-top: 10px;
 }
 ._lyrics-genre {
-   font-size: 100%;
- font-weight: 100;
+  color:black;
+  text-align: left;
+  font-weight: 600;
+  font-size: 15px;
 }
-
+.label{
+  font-size:15px;
+}
 p{
  display: block;
  margin-block-start: 1em;
@@ -48,25 +62,11 @@ p{
  margin-inline-end: 0px;
 }
 
-/* ._lyrics_header {
- align-items: center;
- display: flex;
- justify-content: space-between;
-} */
-._lyrics_info-container>div {
- width: 10%;
-}
-._lyrics_info-container {
- align-items: center;
- display: flex;
- justify-content: space-between;
- width: 80%;
-}
 ._lyrics_entry_edit {
   font-size: 120.25%;
   font-weight: 100;
   background-color: rgb(17, 17, 17);
-  color:#FFC857;
+  color:rgb(0, 90, 173);
   padding: 2rem 4rem;
   width: 700px;
   height: 400px;
@@ -81,54 +81,51 @@ p{
 div{
  display:block;
 }
-
+.lyrics_edit_label,._lyrics_entry_edit{
+  vertical-align: top;
+}
+.lyrics_edit_label{
+    color:rgb(0, 90, 173);
+    text-align: right;
+    font-weight: 200;
+    font-size: 18px;
+}
 @media (max-width: 56.25em){
  ._lyrics_title_edit {
-    font-weight: 100;
-    font-size: 10px;
-    display: flex;
-    transition: all .4s ease-in-out;
-    animation: 0.4s ease-in-out fadeIn 1;
-    width: 500%;
+    width:90%;
+    padding: 2px;
+    margin-top:10px;
  }
-._lyrics-mood {
-    font-size: 10px;
-   font-weight: 50;
-   width: 500%;
-}
-._lyrics-genre {
-   font-size: 1.0rem;
-  font-weight: 50;
-  width: 500%;
-}
-._lyrics-creator {
-    font-size: 8px;
-   font-weight: 50;
-   width: 12%;
-  word-break: normal;
+ ._lyrics-mood {
+  width:90%;
+  margin-top:10px;
 }
 
-._lyrics_info-container>div {
-   width: 5%;
-  }
-  ._lyrics_info-container {
-   align-items: center;
-   display: flex;
-   justify-content: space-between;
-   width: 80%;
-  }
+._lyrics-genre {
+  width:90%;
+  margin-top:10px;
+}
+._lyrics-creator {
+  margin-top:10px;
+}
  ._lyrics_entry{
   width: 300px;
   height:fit-content;
-  font-size: 160.25%;
+  font-size: 18px;
   transition: all .4s ease-in-out;
  animation: 0.4s ease-in-out fadeIn 1;
  }
  ._lyrics_entry_edit{
   width: 300px;
   height: 500px;
-  font-size: 100.25%;
+  font-size: 14px;
   transition: all .4s ease-in-out;
  animation: 0.4s ease-in-out fadeIn 1;
  }
+ .lyrics_edit_label{
+  color:rgb(0, 90, 173);
+  text-align: right;
+  font-weight: 600;
+  font-size: 12px;
+}
 }

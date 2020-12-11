@@ -21,8 +21,16 @@
     border:0;
     color:white;
     display: inline;
-    font-size:20px;
+    font-size:22px;
     font-weight: bold;
     padding: 8px;
     text-decoration: none;
+}
+
+.NavBtn_A:hover{
+    text-decoration: underline;
+}
+
+.NavBtn:hover{
+    text-decoration: underline;
 }

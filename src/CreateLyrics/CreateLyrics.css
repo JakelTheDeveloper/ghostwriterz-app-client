@@ -33,14 +33,15 @@
 }
 .mood_label{
   text-align: right;
+  margin-top: 5px;
   font-weight: 600;
   font-size: 15px;
 }
 .lyrics_label{
   color:rgb(0, 90, 173);
   text-align: right;
-  font-weight: 600;
-  font-size: 15px;
+  font-weight: 200;
+  font-size: 12px;
 }
 .lyrics_label,._lyrics_entry_create{
   vertical-align: top;

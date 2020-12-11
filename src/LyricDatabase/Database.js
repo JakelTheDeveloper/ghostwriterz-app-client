@@ -83,7 +83,7 @@ class Database extends Component {
                             lyrics: this.props.lyrics
                         }
                     }}><button className="NavBtn_A">&#9999;</button></Link>
-                    <button type="button" className="NavBtn_A" onClick={() => { this.setConfirm() }}>&#128465;</button>
+                    <button type="button" className="NavBtn_A" onClick={() => { this.setConfirm() }}>&#x274C;</button>
                 </div>
             )
         } else {
