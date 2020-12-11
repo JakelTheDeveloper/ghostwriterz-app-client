@@ -1,73 +1,82 @@
-#signup-header{
-    color:rgb(0, 90, 173);
+#signup-header {
+    color: rgb(0, 90, 173);
     font-weight: 600;
     font-size: 20px;
 }
-.email{
+
+.email {
     text-align: right;
-    color:rgb(0, 90, 173);
-    font-weight: 600;
-    font-size: 15px;
-    margin-top: 10px;
-    margin-left: -150px;
-}
-.name{
-    text-align: right;
-    color:rgb(0, 90, 173);
-    font-weight: 600;
-    font-size: 15px;
-    margin-top: 10px;
-    margin-left: -150px;
-}
-.password-confirm{
-    text-align: right;
-    color:rgb(0, 90, 173);
+    color: rgb(0, 90, 173);
     font-weight: 600;
     font-size: 15px;
     margin-top: 10px;
     margin-left: -150px;
 }
 
-._username{
+.name {
     text-align: right;
-    color:rgb(0, 90, 173);
-    font-weight: 600;
-    font-size: 15px;
-    margin-top: 10px;
-    margin-left: -150px;
-}
-._password{
-    text-align: right;
-    color:rgb(0, 90, 173);
+    color: rgb(0, 90, 173);
     font-weight: 600;
     font-size: 15px;
     margin-top: 10px;
     margin-left: -150px;
 }
 
-#password{
-    font-size: 16px;
-}
-#username{
-    font-size: 16px;
-}
-#email{
-    text-align: left;
-    font-size: 16px;
-} 
-#name{
-    text-align: left;
+.password-confirm {
+    text-align: right;
+    color: rgb(0, 90, 173);
+    font-weight: 600;
+    font-size: 15px;
     margin-top: 10px;
-    font-size: 16px;
-} 
+    margin-left: -150px;
+}
 
-#password-confirm{
+._username {
+    text-align: right;
+    color: rgb(0, 90, 173);
+    font-weight: 600;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-left: -150px;
+}
+
+._password {
+    text-align: right;
+    color: rgb(0, 90, 173);
+    font-weight: 600;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-left: -150px;
+}
+
+#password {
+    font-size: 16px;
+}
+
+#username {
+    font-size: 16px;
+}
+
+#email {
     text-align: left;
     font-size: 16px;
 }
-.NavBtn_blue{
+
+#name {
+    text-align: left;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+#password-confirm {
+    text-align: left;
+    font-size: 16px;
+}
+
+.NavBtn_blue {
     margin-top: 10px;
 }
-.error{
+
+.error {
     color: red;
 }

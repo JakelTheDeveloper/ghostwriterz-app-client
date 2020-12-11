@@ -1,33 +1,33 @@
-.NavBtn{
+.NavBtn {
     margin-top: 10px;
     margin-bottom: 10px;
     text-align: center;
-    background:linear-gradient(to bottom,#2079ff 0,#0053b1);
+    background: linear-gradient(to bottom, #2079ff 0, #0053b1);
     border-radius: 80px;
-    border:0;
-    color:white;
+    border: 0;
+    color: white;
     display: inline;
-    font-size:12px;
+    font-size: 12px;
     font-weight: bold;
     padding: 8px;
     text-decoration: none;
 }
 
-.NavBtn_A{
+.NavBtn_A {
     margin-top: 10px;
     text-align: center;
-    background:linear-gradient(to bottom,#2079ff 0,#0053b1);
+    background: linear-gradient(to bottom, #2079ff 0, #0053b1);
     border-radius: 80px;
-    border:0;
-    color:black;
+    border: 0;
+    color: black;
     display: inline;
-    font-size:22px;
+    font-size: 22px;
     font-weight: bold;
     padding: 10px;
     text-decoration: none;
 }
 
-.NavBtn_A:hover{
+.NavBtn_A:hover {
     text-decoration: underline;
     cursor: pointer;
     transition: all .4s ease-out;
@@ -35,7 +35,7 @@
     padding: 12px;
 }
 
-.NavBtn:hover{
+.NavBtn:hover {
     text-decoration: underline;
     cursor: pointer;
     transition: all .4s ease-out;

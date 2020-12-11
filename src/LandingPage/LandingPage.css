@@ -2,26 +2,27 @@
     height: 100%;
     background-attachment: fixed;
 }
-article{
+
+article {
     font-size: 20px;
     margin-top: 10px;
     text-align: center;
-    color:rgb(0, 90, 173);
+    color: rgb(0, 90, 173);
     border: solid 2px rgb(0, 90, 173);
     border-radius: 10px;
     display: inline-flex;
 }
 
-@media (max-width: 56.25em){
-    html{
+@media (max-width: 56.25em) {
+    html {
         font-size: 56.25%;
         line-height: 1.15;
     }
-    article{
+    article {
         font-size: 13px;
         margin-top: 10px;
         text-align: center;
-        color:rgb(0, 90, 173);
+        color: rgb(0, 90, 173);
         border: solid 2px rgb(0, 90, 173);
         border-radius: 10px;
         display: inline-flex;

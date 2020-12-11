@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import AppContext from '../App/AppContext'
-import './Demo.css'
 
 class Demo extends Component {
     static defaultProps = {

@@ -1,131 +1,141 @@
  ._lyrics_info-container {
-  align-items: center;
-  display: block;
-  width: 100%;
+   align-items: center;
+   display: block;
+   width: 100%;
  }
 
-h1{
-   color:rgb(0, 90, 173);
-}
+ h1 {
+   color: rgb(0, 90, 173);
+ }
 
-._title_label{
-  color:rgb(0, 90, 173);
-  text-align: right;
-  font-weight: 600;
-  font-size: 15px;
-}
-._genre_label{
-  text-align: right;
-  margin-top: 5px;
-  font-weight: 600;
-  font-size: 15px;
-}
-._mood_label{
-  text-align: right;
-  margin-top: 5px;
-  font-weight: 600;
-  font-size: 15px;
-}
-._lyrics_title_edit {
-  color:black;
-  text-align: left;
-  font-weight: 600;
-  font-size: 15px;
-}
-._lyrics-mood {
-  color:black;
-  text-align: left;
-  font-weight: 600;
-  font-size: 15px;
-}
-._lyrics-creator {
-  color:rgb(0, 90, 173);
-  text-align: left;
-  font-weight: 600;
-  font-size: 18px;
-  margin-top: 10px;
-}
-._lyrics-genre {
-  color:black;
-  text-align: left;
-  font-weight: 600;
-  font-size: 15px;
-}
-.label{
-  font-size:15px;
-}
-p{
- display: block;
- margin-block-start: 1em;
- margin-block-end: 1em;
- margin-inline-start: 0px;
- margin-inline-end: 0px;
-}
+ ._title_label {
+   color: rgb(0, 90, 173);
+   text-align: right;
+   font-weight: 600;
+   font-size: 15px;
+ }
 
-._lyrics_entry_edit {
-  font-size: 120.25%;
-  font-weight: 100;
-  background-color: rgb(17, 17, 17);
-  color:rgb(55, 145, 230);
-  padding: 2rem 4rem;
-  width: 700px;
-  height: 400px;
- display:inline-flex;
-}
+ ._genre_label {
+   text-align: right;
+   margin-top: 5px;
+   font-weight: 600;
+   font-size: 15px;
+ }
 
-._lyrics_info-box{
-  font-size: 1.3rem;
- font-weight: 100;
-}
+ ._mood_label {
+   text-align: right;
+   margin-top: 5px;
+   font-weight: 600;
+   font-size: 15px;
+ }
 
-div{
- display:block;
-}
-.lyrics_edit_label,._lyrics_entry_edit{
-  vertical-align: top;
-}
-.lyrics_edit_label{
-    color:rgb(0, 90, 173);
-    text-align: right;
-    font-weight: 600;
-    font-size: 18px;
-}
-@media (max-width: 56.25em){
  ._lyrics_title_edit {
-    width:90%;
-    padding: 2px;
-    margin-top:10px;
+   color: black;
+   text-align: left;
+   font-weight: 600;
+   font-size: 15px;
  }
- ._lyrics-mood {
-  width:90%;
-  margin-top:10px;
-}
 
-._lyrics-genre {
-  width:90%;
-  margin-top:10px;
-}
-._lyrics-creator {
-  margin-top:10px;
-}
- ._lyrics_entry{
-  width: 300px;
-  height:fit-content;
-  font-size: 18px;
-  transition: all .4s ease-in-out;
- animation: 0.4s ease-in-out fadeIn 1;
+ ._lyrics-mood {
+   color: black;
+   text-align: left;
+   font-weight: 600;
+   font-size: 15px;
  }
- ._lyrics_entry_edit{
-  width: 300px;
-  height: 500px;
-  font-size: 14px;
-  transition: all .4s ease-in-out;
- animation: 0.4s ease-in-out fadeIn 1;
+
+ ._lyrics-creator {
+   color: rgb(0, 90, 173);
+   text-align: left;
+   font-weight: 600;
+   font-size: 18px;
+   margin-top: 10px;
  }
- .lyrics_edit_label{
-  color:rgb(0, 90, 173);
-  text-align: right;
-  font-weight: 600;
-  font-size: 12px;
-}
-}
+
+ ._lyrics-genre {
+   color: black;
+   text-align: left;
+   font-weight: 600;
+   font-size: 15px;
+ }
+
+ .label {
+   font-size: 15px;
+ }
+
+ p {
+   display: block;
+   margin-block-start: 1em;
+   margin-block-end: 1em;
+   margin-inline-start: 0px;
+   margin-inline-end: 0px;
+ }
+
+ ._lyrics_entry_edit {
+   font-size: 120.25%;
+   font-weight: 100;
+   background-color: rgb(17, 17, 17);
+   color: rgb(55, 145, 230);
+   padding: 2rem 4rem;
+   width: 700px;
+   height: 400px;
+   display: inline-flex;
+ }
+
+ ._lyrics_info-box {
+   font-size: 1.3rem;
+   font-weight: 100;
+ }
+
+ div {
+   display: block;
+ }
+
+ .lyrics_edit_label, ._lyrics_entry_edit {
+   vertical-align: top;
+ }
+
+ .lyrics_edit_label {
+   color: rgb(0, 90, 173);
+   text-align: right;
+   font-weight: 600;
+   font-size: 18px;
+ }
+
+ @media (max-width: 56.25em) {
+   ._lyrics_title_edit {
+     width: 90%;
+     padding: 2px;
+     margin-top: 10px;
+   }
+   ._lyrics-mood {
+     width: 90%;
+     margin-top: 10px;
+   }
+   ._lyrics-genre {
+     width: 90%;
+     margin-top: 10px;
+   }
+   ._lyrics-creator {
+     margin-top: 10px;
+   }
+   ._lyrics_entry {
+     width: 300px;
+     height: fit-content;
+     font-size: 18px;
+     transition: all .4s ease-in-out;
+     animation: 0.4s ease-in-out fadeIn 1;
+   }
+   ._lyrics_entry_edit {
+     width: 300px;
+     height: 500px;
+     font-size: 14px;
+     transition: all .4s ease-in-out;
+     animation: 0.4s ease-in-out fadeIn 1;
+   }
+   .lyrics_edit_label {
+     color: rgb(0, 90, 173);
+     text-align: right;
+     font-weight: 600;
+     font-size: 12px;
+   }
+ }

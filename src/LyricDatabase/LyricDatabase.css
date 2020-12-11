@@ -1,33 +1,36 @@
-.genre-form{
+.genre-form {
     margin-top: 20px;
 }
-#mood{
-   margin-top: 5px;
+
+#mood {
+    margin-top: 5px;
 }
-.labelItem{
+
+.labelItem {
     text-align: right;
-    color:rgb(0, 90, 173);
+    color: rgb(0, 90, 173);
     font-weight: 600;
     font-size: 18px;
     margin-top: 10px;
 }
-#title{
-    font-size: 16px;
-}
-#artist-name{
-    font-size: 16px;
-}
-#lyrics-entry{
+
+#title {
     font-size: 16px;
 }
 
+#artist-name {
+    font-size: 16px;
+}
 
-label{
-    color:rgb(0, 90, 173);
+#lyrics-entry {
+    font-size: 16px;
+}
+
+label {
+    color: rgb(0, 90, 173);
 }
 
 .lyrics_list {
-    /* margin-top: 10px; */
     margin: 0;
     padding: 0;
     line-height: 1.7;
@@ -35,25 +38,25 @@ label{
     animation-delay: .9s;
 }
 
-@media (max-width: 56.25em){
-    html{
+@media (max-width: 56.25em) {
+    html {
         font-size: 56.25%;
         line-height: 1.15;
     }
-    .labelItem{
+    .labelItem {
         text-align: right;
-        color:rgb(0, 90, 173);
+        color: rgb(0, 90, 173);
         font-weight: 300;
         font-size: 12px;
         margin-top: 10px;
     }
-    #title{
+    #title {
         font-size: 12px;
     }
-    #artist-name{
+    #artist-name {
         font-size: 12px;
     }
-    #lyrics-entry{
+    #lyrics-entry {
         font-size: 12px;
     }
 }

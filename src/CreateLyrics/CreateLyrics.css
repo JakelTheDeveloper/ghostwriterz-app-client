@@ -2,63 +2,67 @@
   font-size: 120.25%;
   font-weight: 100;
   background-color: rgb(17, 17, 17);
-  color:rgb(55, 145, 230);
+  color: rgb(55, 145, 230);
   padding: 2rem 4rem;
   width: 700px;
   height: 400px;
- display:inline-flex;
+  display: inline-flex;
 }
-.title_label{
-  color:rgb(0, 90, 173);
-  text-align: right;
-  font-weight: 600;
-  font-size: 15px;
 
+.title_label {
+  color: rgb(0, 90, 173);
+  text-align: right;
+  font-weight: 600;
+  font-size: 15px;
 }
-.genre_label{
+
+.genre_label {
   text-align: right;
   margin-top: 5px;
   font-weight: 600;
   font-size: 15px;
 }
-.mood_label{
+
+.mood_label {
   text-align: right;
   margin-top: 5px;
   font-weight: 600;
   font-size: 15px;
 }
-.lyrics_label{
-  color:rgb(0, 90, 173);
+
+.lyrics_label {
+  color: rgb(0, 90, 173);
   text-align: right;
   font-weight: 600;
   font-size: 18px;
 }
-.lyrics_label,._lyrics_entry_create{
+
+.lyrics_label, ._lyrics_entry_create {
   vertical-align: top;
 }
- p{
-  color:rgb(0, 90, 173);
+
+p {
+  color: rgb(0, 90, 173);
   font-weight: 600;
   font-size: 15px;
- }
- @media (max-width: 56.25em){
-  html{
-      font-size: 56.25%;
-      line-height: 1.15;
-      
+}
+
+@media (max-width: 56.25em) {
+  html {
+    font-size: 56.25%;
+    line-height: 1.15;
   }
-  ._lyrics_entry_create{
-   width: 300px;
-   height: 500px;
-   font-size: 140.25%;
-   transition: all .4s ease-in-out;
-  animation: 0.4s ease-in-out fadeIn 1;
+  ._lyrics_entry_create {
+    width: 300px;
+    height: 500px;
+    font-size: 140.25%;
+    transition: all .4s ease-in-out;
+    animation: 0.4s ease-in-out fadeIn 1;
   }
-  .lyrics_label{
-    color:rgb(0, 90, 173);
+  .lyrics_label {
+    color: rgb(0, 90, 173);
     text-align: right;
     font-weight: 600;
     font-size: 12px;
   }
- 
 }

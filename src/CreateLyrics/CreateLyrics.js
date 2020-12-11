@@ -47,7 +47,6 @@ class CreateLyrics extends Component {
                 if (this.state.lyrics === "" || this.state.lyrics === null) {
                     this.setState({ error: "Lyrics must not be blank!" })
                 } else {
-                    let index = this.props.users.findIndex(user => user.id === this.props.current)
                     let artist = this.props.user[0].id
                     const url = `${config.URL}/api/lyrics`
                     const options = {
@@ -87,7 +86,7 @@ class CreateLyrics extends Component {
             <div>
                 <h1>Create Lyrics</h1>
                 <form onSubmit={this.handleSubmit}>
-                <div className="lyrics_header">
+                    <div className="_lyrics_header">
                         <div className="_lyrics_info-container">
                             <label htmlFor="title" className="title_label">Title:</label>
                             <input type="text" id="title" name="title" onChange={this.handleChange} className="_lyrics_title_edit" />
@@ -133,13 +132,13 @@ class CreateLyrics extends Component {
                                         <option value="Annoyed">Annoyed</option>
                                     </select>
                                 </div>
-                                <br/>
+                                <br />
                                 <div className="_lyrics_info-box">
-                                <span className="_lyrics-creator">&#9997;: {artist}</span>
-                            </div>
+                                    <span className="_lyrics-creator">&#9997;: {artist}</span>
+                                </div>
                             </div>
                         </div>
-                        </div>
+                    </div>
                     <br />
                     <button type="submit" className="NavBtn">Submit</button>
                     <NavLink to="/viewlyrics" >

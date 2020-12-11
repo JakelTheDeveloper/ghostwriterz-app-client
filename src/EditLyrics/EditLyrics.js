@@ -95,7 +95,7 @@ class EditLyrics extends Component {
             <div>
                 <h1>Edit Lyrics</h1>
                 <form id="lyrics" onSubmit={this.handleSubmit}>
-                    <div className="lyrics_header">
+                    <div className="_lyrics_header">
                         <div className="_lyrics_info-container">
                             <div className="_lyrics_title-box">
                                 <label htmlFor = "title" className = "_title_label">Title:</label>
