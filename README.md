@@ -12,15 +12,13 @@ Ghostwriterz is an app designed to help music artist with writer's block. Users 
 
 * As a user:
 
-    * I can view demo account
+    - I can view demo account
 
-    * I can Register/Login/Logout
+    - I can Register/Login/Logout
 
-    * I can create, update, edit, and delete lyrics
+    - I can create, update, edit, and delete lyrics
 
-    * I can view other lyrics in the database
-
-
+    - I can view other lyrics in the database
 
 ## Stack Used
 
@@ -39,6 +37,7 @@ Ghostwriterz is an app designed to help music artist with writer's block. Users 
 -1.0.0
 
 # App Walkthrough
+
 ----------------------
 
 ## Landing Page
@@ -48,7 +47,6 @@ Ghostwriterz is an app designed to help music artist with writer's block. Users 
 ## Dashboard
 
 ![Ghostwriterz Dashboard](/images/Ghostwriterz_Help02.png)
-
 
 ## Create Lyrics
 
