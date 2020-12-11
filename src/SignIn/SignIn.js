@@ -68,14 +68,14 @@ class SignIn extends Component {
         return (
             <div>
                 <h2 id="signin-header">Sign In</h2>
-                <form id = "signin_form" onSubmit={this.handleSubmitBasicAuth}>
-                    <div className = "elements">
-                    <label htmlFor="username" className="username">Email:</label>
-                    <input type="text" id="username" name="username" onChange={this.handleChange} />
-                    <br />
-                    <label htmlFor="password" className="password">Password:</label>
-                    <input type="password" id="password" name="password" onChange={this.handleChange} />
-                    <br />
+                <form id="signin_form" onSubmit={this.handleSubmitBasicAuth}>
+                    <div className="elements">
+                        <label htmlFor="username" className="username">Email:</label>
+                        <input type="text" id="username" name="username" onChange={this.handleChange} />
+                        <br />
+                        <label htmlFor="password" className="password">Password:</label>
+                        <input type="password" id="password" name="password" onChange={this.handleChange} />
+                        <br />
                     </div>
                     {<ValidationError message={this.state.error} clearError={this.clearError} />}
                     <button type="submit" className="NavBtn">Submit</button>

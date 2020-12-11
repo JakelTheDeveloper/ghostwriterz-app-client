@@ -26,7 +26,7 @@ class UserProfile extends Component {
         }
         let numLyricsPosted = userLyrics.length
         let totalWords = 0
-        for (let i = 0 ;i < userLyrics.length; i++) {
+        for (let i = 0; i < userLyrics.length; i++) {
             totalWords = totalWords + userLyrics[i].lyrics.split(" ").length
         }
         let numWordsPosted = totalWords
@@ -67,18 +67,18 @@ class UserProfile extends Component {
         return (
             <div className="demoPg">
                 <div className="dashboardItem_artist">
-                    <p className = "artist_name">{artist}</p>
+                    <p className="artist_name">{artist}</p>
                 </div>
                 <div className="dashboardItem">
-                    <p className = "dashboard_Item">{numWordsPosted}</p>
+                    <p className="dashboard_Item">{numWordsPosted}</p>
                     <span className="words">Words Submitted</span>
                 </div>
                 <div className="dashboardItem">
-                    <p className = "dashboard_Item">{userRank}</p>
+                    <p className="dashboard_Item">{userRank}</p>
                     <span className="rank">Community Rank</span>
                 </div>
                 <div className="dashboardItem">
-                    <p className = "dashboard_Item">{numLyricsPosted}</p>
+                    <p className="dashboard_Item">{numLyricsPosted}</p>
                     <span className="lyricsposted">Total Submissions</span>
                 </div>
             </div>

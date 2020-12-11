@@ -61,9 +61,9 @@ class Database extends Component {
 
     renderLyricsNav() {
         let currentArtist
-        if(this.props.current === 0){
+        if (this.props.current === 0) {
             currentArtist = this.props.artist
-        }else{
+        } else {
             currentArtist = "DemoFoo"
         }
         if (this.props.editable) {

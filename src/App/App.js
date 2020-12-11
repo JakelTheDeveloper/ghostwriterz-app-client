@@ -71,7 +71,7 @@ class App extends Component {
   setData = () => {
     let myLyrics = []
     let params
-    let {isAuthenticated,demo,current,user,lyrics} = this.state
+    let { isAuthenticated, demo, current, user, lyrics } = this.state
     const decodedToken = decode(TokenService.getAuthToken())
     fetch(`${config.URL}/api/lyrics`)
       .then(response => {
@@ -91,14 +91,14 @@ class App extends Component {
           current: current = users.filter(user => user.id === decodedToken.user.id), lyrics: lyrics = myLyrics,
           isAuthenticated: isAuthenticated = true, demo: demo = false
         })
-        params = {current,user,lyrics,demo,isAuthenticated}
+        params = { current, user, lyrics, demo, isAuthenticated }
         this.handleUsage(params)
       }).catch(error => this.setState({ error: error.message }))
   }
 
-handleUsage(params){
-  return 
-}
+  handleUsage(params) {
+    return
+  }
   updateUser(user) {
     let { isAuthenticated, current } = this.state
     let params
@@ -106,7 +106,7 @@ handleUsage(params){
       user, current: current = user[0].id,
       isAuthenticated: isAuthenticated = true
     })
-    params = {current,isAuthenticated}
+    params = { current, isAuthenticated }
     this.handleUsage(params)
   }
 
@@ -120,7 +120,7 @@ handleUsage(params){
       demo: demo = false, username: username = "DemoFoo",
       current: current = 0, user: user = []
     })
-    params = {current,user,username,demo,isAuthenticated}
+    params = { current, user, username, demo, isAuthenticated }
     this.handleUsage(params)
   }
 

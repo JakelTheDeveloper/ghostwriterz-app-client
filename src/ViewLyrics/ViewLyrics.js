@@ -64,18 +64,18 @@ class Viewlyrics extends Component {
         return (
             <div>
                 <h1>View Lyrics</h1>
-              
-                    <label htmlFor="title" className = "labelItem">Filter By Title:</label>
-                    <input type="text" id="title" name="title" onChange={this.handleChange} />
-                    <br />
-                    <label htmlFor="artist-name" className = "labelItem">Filter By Artist:</label>
-                    <input type="text" id="artist-name" name="artist" onChange={this.handleChange} />
-                    <br />
-                    <div>
-                        <label htmlFor="lyrics-entry" className = "labelItem">Filter By Lyrics:</label>
-                        <input type="text" id="lyrics-entry" name="lyrics" onChange={this.handleChange} />
-                    </div>
-               
+
+                <label htmlFor="title" className="labelItem">Filter By Title:</label>
+                <input type="text" id="title" name="title" onChange={this.handleChange} />
+                <br />
+                <label htmlFor="artist-name" className="labelItem">Filter By Artist:</label>
+                <input type="text" id="artist-name" name="artist" onChange={this.handleChange} />
+                <br />
+                <div>
+                    <label htmlFor="lyrics-entry" className="labelItem">Filter By Lyrics:</label>
+                    <input type="text" id="lyrics-entry" name="lyrics" onChange={this.handleChange} />
+                </div>
+
                 {lyrics.map(lyric =>
                     <Database key={lyric.id} id={lyric.id} title={lyric.title} genre={lyric.genre} mood={lyric.mood} current={this.props.current}
                         artist={this.getArtistName(lyric.artist)} lyrics={lyric.lyrics} expanded={lyric.expanded} editable={true} handleGoBack={() => this.goBack()}

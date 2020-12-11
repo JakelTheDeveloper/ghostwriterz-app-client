@@ -68,20 +68,20 @@ class SignUp extends Component {
                 <h2 id="signup-header">Create Account</h2>
                 {<ValidationError className="error" message={this.state.error} clearError={this.clearError} />}
                 <form onSubmit={this.handleSubmitRegister}>
-                    <label htmlFor="name"className="name" >Full Name:</label>
-                    <input type="text"  id = "name" name="fullname" onChange={this.handleChange} />
+                    <label htmlFor="name" className="name" >Full Name:</label>
+                    <input type="text" id="name" name="fullname" onChange={this.handleChange} />
                     <br />
                     <label htmlFor="username" className="_username">UserName:</label>
-                    <input type="text"  id = "username" name="username" onChange={this.handleChange} />
+                    <input type="text" id="username" name="username" onChange={this.handleChange} />
                     <br />
                     <label htmlFor="email" className="email">Enter email:</label>
-                    <input type="text"  id = "email" name="email" onChange={this.handleChange} />
+                    <input type="text" id="email" name="email" onChange={this.handleChange} />
                     <br />
                     <label htmlFor="password" className="_password">Password:</label>
-                    <input type="password"  id = "password" name="password" onChange={this.handleChange} />
+                    <input type="password" id="password" name="password" onChange={this.handleChange} />
                     <br />
                     <label htmlFor="password-confirm" className="password-confirm">Confirm password:</label>
-                    <input type="password"  id = "password-confirm" name="password_confirm" onChange={this.handleChange} />
+                    <input type="password" id="password-confirm" name="password_confirm" onChange={this.handleChange} />
                     <br />
                     <button type="submit" className="NavBtn">Submit</button>
                     <button type="cancel" className="NavBtn" onClick={() => this.props.history.push('/')}>Cancel</button>

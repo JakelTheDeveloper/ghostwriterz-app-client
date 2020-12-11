@@ -25,7 +25,7 @@ class LandingPage extends Component {
                     </article>
                     </section>
                     <section>
-                    <article>Demo Credentials:<br/>Email: demofoo@gmail.com <br/> Password: P@ssword1234</article>
+                        <article>Demo Credentials:<br />Email: demofoo@gmail.com <br /> Password: P@ssword1234</article>
                     </section>
                 </div>
                 <NavLink className="lyrics_link" to="/lyrics" >

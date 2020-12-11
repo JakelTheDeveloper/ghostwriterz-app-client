@@ -54,20 +54,20 @@ class LyricDatabase extends Component {
             <div>
                 <h1>Find Lyrics</h1>
                 <div className="_lyrics_header">
-                        <div className="_lyrics_info-container">
-                    <label htmlFor="title" className = "labelItem">Filter By Title:</label>
-                    <input type="text" id="title" name="title" onChange={this.handleChange} />
-                    <br />
-                    <label htmlFor="artist-name" className = "labelItem">Filter By Artist:</label>
-                    <input type="text" id="artist-name" name="artist" onChange={this.handleChange} />
-                    <br />
-                    <div>
-                        <label htmlFor="lyrics-entry" className = "labelItem">Filter By Lyrics:</label>
-                        <input type="text" id="lyrics-entry" name="lyrics" onChange={this.handleChange} />
+                    <div className="_lyrics_info-container">
+                        <label htmlFor="title" className="labelItem">Filter By Title:</label>
+                        <input type="text" id="title" name="title" onChange={this.handleChange} />
+                        <br />
+                        <label htmlFor="artist-name" className="labelItem">Filter By Artist:</label>
+                        <input type="text" id="artist-name" name="artist" onChange={this.handleChange} />
+                        <br />
+                        <div>
+                            <label htmlFor="lyrics-entry" className="labelItem">Filter By Lyrics:</label>
+                            <input type="text" id="lyrics-entry" name="lyrics" onChange={this.handleChange} />
+                        </div>
                     </div>
-                    </div>
-                    </div>
-                
+                </div>
+
 
                 <div className="lyrics_list">
                     {lyrics.map(lyric =>
