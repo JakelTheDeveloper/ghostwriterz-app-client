@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ValidationError from '../ValidationError'
 import AppContext from '../App/AppContext'
+import { NavLink } from 'react-router-dom'
 import config from '../config'
 import './CreateLyrics.css'
 
@@ -139,6 +140,9 @@ class CreateLyrics extends Component {
                     </div>
                     <br />
                     <button type="submit" className="NavBtn">Submit</button>
+                    <NavLink to="/viewlyrics" >
+                        <button className="NavBtn">Cancel</button>
+                    </NavLink>
                     {<ValidationError message={this.state.error} clearError={this.clearError} />}
                     <div>
                         <label htmlFor="_lyrics_entry_create" className="lyrics_label">Lyrics:</label>

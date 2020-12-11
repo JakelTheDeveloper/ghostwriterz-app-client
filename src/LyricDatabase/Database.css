@@ -83,6 +83,12 @@ div{
    display:block;
 }
 
+.lyrics_header:hover {
+   transition: all .4s ease-in-out;
+   line-height: 2;
+   font-size: 110%;
+}
+
 @media (max-width: 56.25em){
     html{
         font-size:20%;

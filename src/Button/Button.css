@@ -19,18 +19,26 @@
     background:linear-gradient(to bottom,#2079ff 0,#0053b1);
     border-radius: 80px;
     border:0;
-    color:white;
+    color:black;
     display: inline;
     font-size:22px;
     font-weight: bold;
-    padding: 8px;
+    padding: 10px;
     text-decoration: none;
 }
 
 .NavBtn_A:hover{
     text-decoration: underline;
+    cursor: pointer;
+    transition: all .4s ease-out;
+    font-weight: bold;
+    padding: 12px;
 }
 
 .NavBtn:hover{
     text-decoration: underline;
+    cursor: pointer;
+    transition: all .4s ease-out;
+    font-weight: bold;
+    padding: 10px;
 }
