@@ -1,9 +1,5 @@
 .demoPg {
     color: rgb(0, 90, 173);
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    width: 90%;
 }
 
 .artist_name {
@@ -19,11 +15,13 @@
 
 .dashboardItem {
     margin-top: 10px;
+    margin-left: 600px;
     font-size: 18px;
     font-weight: 600;
-    display: inline-block;
-    width: 6rem;
-    box-sizing: border-box;
+    display: block;
+    width:20%;
+    border: 1px solid rgb(0, 90, 173);
+    border-radius: 80px 80px 80px 80px;
 }
 
 .artist_name {
@@ -42,23 +40,32 @@
 @media (max-width: 56.25em) {
     .demoPg {
         color: rgb(0, 90, 173);
-        align-items: center;
-        display: flex;
-        justify-content: space-between;
-        width: 90%;
     }
     .dashboard_Item {
-        font-size: 13px;
-        font-weight: 200;
+        font-size: 15px;
+        font-weight: 250;
     }
     .dashboardItem {
-        font-size: 11px;
-        font-weight: 300;
-        width: 5rem;
+        margin-top: 10px;
+        margin-left: 600px;
+        font-size: 18px;
+        font-weight: 600;
         display: block;
+        width:20%;
+        border: 1px solid rgb(0, 90, 173);
+        border-radius: 80px 80px 80px 80px;
+    }
+    .dashboardItem {
+        margin-top: 10px;
+        font-size: 15px;
+        font-weight: 300;
+        display: block;
+        width:50%;
+        border: 1px solid rgb(0, 90, 173);
+        border-radius: 80px 80px 80px 80px;
         margin-block-start: 1em;
-        margin-block-end: 1em;
-        margin-inline-start: 0px;
+        margin-block-end: 5em;
+        margin-inline-start: 80px;
         margin-inline-end: 0px;
     }
     .artist_name {

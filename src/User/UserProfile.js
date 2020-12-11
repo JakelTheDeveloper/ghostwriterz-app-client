@@ -71,15 +71,15 @@ class UserProfile extends Component {
                 </div>
                 <div className="dashboardItem">
                     <p className="dashboard_Item">{numWordsPosted}</p>
-                    <span className="words">Words Submitted</span>
+                    <span className="info">Words Submitted</span>
                 </div>
                 <div className="dashboardItem">
                     <p className="dashboard_Item">{userRank}</p>
-                    <span className="rank">Community Rank</span>
+                    <span className="info">Community Rank</span>
                 </div>
                 <div className="dashboardItem">
                     <p className="dashboard_Item">{numLyricsPosted}</p>
-                    <span className="lyricsposted">Total Submissions</span>
+                    <span className="info">Total Submissions</span>
                 </div>
             </div>
         )

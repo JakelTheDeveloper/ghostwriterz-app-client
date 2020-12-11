@@ -18,8 +18,8 @@ class Header extends Component {
         </header>
         <nav className="nav_header">
           <ul className="ul_header">
-            <li><Link to='/signin' className="li_header">Sign In</Link></li>
-            <li><Link to='/signup' className="li_header">Sign Up</Link></li>
+            <li><Link to='/signin' className="li_header_">Sign In</Link></li>
+            <li><Link to='/signup' className="li_header_">Sign Up</Link></li>
           </ul>
         </nav>
       </div>
