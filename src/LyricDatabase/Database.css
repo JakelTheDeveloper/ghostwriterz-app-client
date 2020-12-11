@@ -83,10 +83,13 @@ div{
    display:block;
 }
 
+
+@media (hover: hover) and (pointer: fine) {
 .lyrics_header:hover {
    transition: all .4s ease-in-out;
    line-height: 2;
    font-size: 110%;
+}
 }
 
 @media (max-width: 56.25em){
@@ -107,4 +110,9 @@ div{
         justify-content: space-between;
         width: 25rem;
      }
+     /* .lyrics_header:hover {
+      transition: all .4s ease-in-out;
+      line-height: 1;
+      font-size: 60%;
+   } */
 }

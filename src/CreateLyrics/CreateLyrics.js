@@ -87,7 +87,7 @@ class CreateLyrics extends Component {
             <div>
                 <h1>Create Lyrics</h1>
                 <form onSubmit={this.handleSubmit}>
-                    <div className="lyrics_header">
+                <div className="lyrics_header">
                         <div className="_lyrics_info-container">
                             <label htmlFor="title" className="title_label">Title:</label>
                             <input type="text" id="title" name="title" onChange={this.handleChange} className="_lyrics_title_edit" />
@@ -133,11 +133,13 @@ class CreateLyrics extends Component {
                                         <option value="Annoyed">Annoyed</option>
                                     </select>
                                 </div>
-                                <p>&#9997;:</p>
-                                <p>{artist}</p>
+                                <br/>
+                                <div className="_lyrics_info-box">
+                                <span className="_lyrics-creator">&#9997;: {artist}</span>
+                            </div>
                             </div>
                         </div>
-                    </div>
+                        </div>
                     <br />
                     <button type="submit" className="NavBtn">Submit</button>
                     <NavLink to="/viewlyrics" >
