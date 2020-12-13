@@ -55,12 +55,12 @@ label {
         
     }
     #title {
-        font-size: 12px;
+        font-size: 16px;
     }
     #artist-name {
-        font-size: 12px;
+        font-size: 16px;
     }
     #lyrics-entry {
-        font-size: 12px;
+        font-size: 16px;
     }
 }

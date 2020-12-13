@@ -1,16 +1,15 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render, screen } from '@testing-library/react'
+import { BrowserRouter as Router, withRouter } from 'react-router-dom'
+import ReactDOM from 'react-dom'
+import App from './App'
 
-// test('renders learn react link', () => {
-//   render(<App />);
-//   const linkElement = screen.getByText(/learn react/i);
-//   expect(linkElement).toBeInTheDocument();
-// });
-
-
-test('App Renders', () => {
-   <App />
-      expect(200)
+describe("App", () => {
+   it("renders without crashing", () => {
+      const div = document.createElement("div")
+      ReactDOM.render(
+         <Router>
+            <App />
+         </Router>, div)
+   })
 })
-
 
