@@ -58,7 +58,7 @@ class SignUp extends Component {
                     : res.json().then(this.props.history.push('/'))
                         .then(window.location.reload(false)),
             )
-            .catch(error => this.setState({ error: error = error.error.message }))
+            .catch(error => this.setState({ error: error = error.error }))
     }
 
 
