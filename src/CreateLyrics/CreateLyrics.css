@@ -1,10 +1,10 @@
 ._lyrics_entry_create {
-  font-size: 120.25%;
+  font-size: 200.25%;
   font-weight: 100;
   background-color: rgb(17, 17, 17);
   color: rgb(55, 145, 230);
   padding: 2rem 4rem;
-  width: 700px;
+  width: 300px;
   height: 400px;
   display: inline-flex;
 }
@@ -29,18 +29,20 @@
   font-weight: 600;
   font-size: 15px;
 }
-._lyrics_header{
+
+._lyrics_header {
   align-items: center;
   display: inline-flex;
   justify-content: space-between;
   transition: all .4s ease-in-out;
   animation: 0.4s ease-in-out fadeIn 1;
 }
+
 .lyrics_label {
   color: rgb(0, 90, 173);
   text-align: right;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 12px;
 }
 
 .lyrics_label, ._lyrics_entry_create {
@@ -53,15 +55,15 @@ p {
   font-size: 15px;
 }
 
-@media (max-width: 56.25em) {
+@media only screen and (min-width: 56.25em) {
   html {
     font-size: 56.25%;
     line-height: 1.15;
   }
   ._lyrics_entry_create {
-    width: 300px;
+    width: 700px;
     height: 500px;
-    font-size: 140.25%;
+    font-size: 280%;
     transition: all .4s ease-in-out;
     animation: 0.4s ease-in-out fadeIn 1;
   }
@@ -69,6 +71,6 @@ p {
     color: rgb(0, 90, 173);
     text-align: right;
     font-weight: 600;
-    font-size: 12px;
+    font-size: 18px;
   }
 }

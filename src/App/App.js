@@ -245,33 +245,11 @@ class App extends Component {
       isAuthenticated: this.state.isAuthenticated,
       resData: this.state.resData
     }
-    let computedClassName
-    switch (this.state.theme) {
-      case 'red':
-        computedClassName = 'App_nav_red'
-        break
-      case 'green':
-        computedClassName = 'App_nav_green'
-        break
-      case 'yellow':
-        computedClassName = 'App_nav_yellow'
-        break
-      case 'pink':
-        computedClassName = 'App_nav_pink'
-        break
-      case 'orange':
-        computedClassName = 'App_nav_orange'
-        break
-      case 'purple':
-        computedClassName = 'App_nav_purple'
-        break
-      default:
-        computedClassName = 'App_nav_blue'
-    }
+
     return (
       <AppContext.Provider value={contextValue}>
         <div className="App">
-          <nav className={computedClassName}>{this.renderNavRoutes()}</nav>
+          <nav className='App_Nav'>{this.renderNavRoutes()}</nav>
           <main className="App_main">{this.renderMainRoutes()}</main>
         </div>
       </AppContext.Provider>

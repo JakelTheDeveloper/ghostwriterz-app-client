@@ -1,36 +1,6 @@
-.App_nav_blue {
+.App_Nav {
     background: linear-gradient(to bottom, rgb(17, 17, 17) 0, rgb(0, 3, 7));
     box-shadow: 0 1px 5px rgb(0, 90, 173);
-}
-
-.App_nav_red {
-    background: linear-gradient(to bottom right, #5f5f5f 0, #060606);
-    box-shadow: 0 1px 5px lightcoral;
-}
-
-.App_nav_green {
-    background: linear-gradient(to bottom right, #5f5f5f 0, #060606);
-    box-shadow: 0 1px 5px lightgreen;
-}
-
-.App_nav_yellow {
-    background: linear-gradient(to bottom right, #5f5f5f 0, #060606);
-    box-shadow: 0 1px 5px lightyellow;
-}
-
-.App_nav_pink {
-    background: linear-gradient(to bottom right, #5f5f5f 0, #060606);
-    box-shadow: 0 1px 5px lightpink;
-}
-
-.App_nav_orange {
-    background: linear-gradient(to bottom right, #5f5f5f 0, #060606);
-    box-shadow: 0 1px 5px lightsalmon;
-}
-
-.App_nav_purple {
-    background: linear-gradient(to bottom right, #5f5f5f 0, #060606);
-    box-shadow: 0 1px 5px lavender;
 }
 
 html {
@@ -43,11 +13,4 @@ html {
     display: inline;
     background: black;
     text-align: center;
-}
-
-@media (max-width: 56.25em) {
-    html {
-        font-size: 56.25%;
-        line-height: 1.15;
-    }
 }

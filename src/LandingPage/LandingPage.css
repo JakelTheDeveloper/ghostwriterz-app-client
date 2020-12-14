@@ -4,7 +4,7 @@
 }
 
 article {
-    font-size: 20px;
+    font-size: 18px;
     margin-top: 10px;
     text-align: center;
     color: rgb(0, 90, 173);
@@ -13,13 +13,13 @@ article {
     display: inline-flex;
 }
 
-@media (max-width: 56.25em) {
+@media only screen and (min-width: 56.25em) {
     html {
-        font-size: 56.25%;
+        font-size: 100%;
         line-height: 1.15;
     }
     article {
-        font-size: 18px;
+        font-size: 20px;
         margin-top: 10px;
         text-align: center;
         color: rgb(0, 90, 173);

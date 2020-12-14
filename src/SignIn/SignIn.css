@@ -38,7 +38,7 @@ label {
     color: red
 }
 
-@media (max-width: 56.25em) {
+@media only screen and (min-width: 56.25em) {
     html {
         font-size: 56.25%;
         line-height: 1.15;
