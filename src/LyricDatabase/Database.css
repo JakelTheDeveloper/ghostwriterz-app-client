@@ -30,17 +30,17 @@
 }
 
 .lyrics-mood {
-   font-size: 200%;
+   font-size: 150%;
    font-weight: 400;
 }
 
 .lyrics-creator {
-   font-size: 200%;
+   font-size: 150%;
    font-weight: 400;
 }
 
 .lyrics-genre {
-   font-size: 200%;
+   font-size: 150%;
    font-weight: 400;
 }
 
@@ -70,15 +70,10 @@
    animation: 0.4s ease-in-out fadeIn 1;
 }
 
-.lyrics_info-container>div {
-   width: 40rem;
-}
-
 .lyrics_info-container {
    align-items: center;
    display: flex;
    justify-content: space-between;
-   width: 20rem;
 }
 
 .lyrics_info-box {
@@ -105,6 +100,21 @@ div {
    .lyrics_title {
       font-size: 100%;
       font-weight: 800;
+   }
+   
+   .lyrics-mood {
+      font-size: 200%;
+      font-weight: 400;
+   }
+   
+   .lyrics-creator {
+      font-size: 200%;
+      font-weight: 400;
+   }
+   
+   .lyrics-genre {
+      font-size: 200%;
+      font-weight: 400;
    }
    .lyrics_header {
       font-size: 25px;
