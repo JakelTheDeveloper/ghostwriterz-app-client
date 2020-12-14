@@ -25,23 +25,23 @@
 }
 
 .lyrics_title {
-   font-size: 80%;
+   font-size: 50%;
    font-weight: 800;
 }
 
 .lyrics-mood {
-   font-size: 250%;
-   font-weight: 600;
+   font-size: 200%;
+   font-weight: 400;
 }
 
 .lyrics-creator {
-   font-size: 250%;
-   font-weight: 600;
+   font-size: 200%;
+   font-weight: 400;
 }
 
 .lyrics-genre {
-   font-size: 250%;
-   font-weight: 600;
+   font-size: 200%;
+   font-weight: 400;
 }
 
 .confirm {
@@ -78,7 +78,7 @@
    align-items: center;
    display: flex;
    justify-content: space-between;
-   width: 25rem;
+   width: 20rem;
 }
 
 .lyrics_info-box {
